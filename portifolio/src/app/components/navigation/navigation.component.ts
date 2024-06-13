@@ -1,7 +1,15 @@
 import { Component } from '@angular/core';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
+import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import {
+  faEnvelope,
+  faHouse,
+  faUser,
+  faSitemap,
+  faSquarePhone
+
+} from "@fortawesome/free-solid-svg-icons"
 
 @Component({
   selector: 'app-navigation',
@@ -17,4 +25,9 @@ export class NavigationComponent {
   faGithub = faGithub;
   faLinkedin = faLinkedin;
   faEmail = faEnvelope;
+  faWhatsapp = faWhatsapp;
+  faHouse = faHouse;
+  faUSer = faUser;
+  faSitemap = faSitemap;
+  faSquarePhone = faSquarePhone;
 }
