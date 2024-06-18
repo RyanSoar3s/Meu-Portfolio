@@ -10,18 +10,25 @@ import {
   faSquarePhone
 
 } from "@fortawesome/free-solid-svg-icons"
+import { ZoomPhotoComponent } from '../zoom-photo/zoom-photo.component';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
   imports: [
-    FontAwesomeModule
+    FontAwesomeModule,
+    ZoomPhotoComponent
 
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss'
 })
+
 export class NavigationComponent {
+  // Path
+  path: string = "assets/user.png";
+
+  // Ícones
   faGithub = faGithub;
   faLinkedin = faLinkedin;
   faEmail = faEnvelope;
@@ -30,4 +37,12 @@ export class NavigationComponent {
   faUSer = faUser;
   faSitemap = faSitemap;
   faSquarePhone = faSquarePhone;
+
+  // Mostrar/Ocultar foto com zoom
+  hidden: boolean = false;
+
+  zoomPhoto() {
+    this.hidden = !this.hidden;
+
+  }
 }
