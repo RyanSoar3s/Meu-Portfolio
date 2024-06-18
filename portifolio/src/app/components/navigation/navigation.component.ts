@@ -39,7 +39,7 @@ export class NavigationComponent {
   faSquarePhone = faSquarePhone;
 
   // Mostrar/Ocultar foto com zoom
-  hidden: boolean = false;
+  hidden: boolean = true;
 
   zoomPhoto() {
     this.hidden = !this.hidden;
