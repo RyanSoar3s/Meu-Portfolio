@@ -1,8 +1,10 @@
 <nav>
-  <div class="photo">
-    <img src="assets/user.png" alt="foto do portifólio">
+  <div class="photo" (click)="zoomPhoto()">
+    <img [src]="path" alt="foto do portifólio">
 
   </div>
+
+  <app-zoom-photo [path]="path" [hidden]="hidden"></app-zoom-photo>
 
   <h2>Ryan Soares</h2>
 
