@@ -10,14 +10,14 @@ import {
   faSquarePhone
 
 } from "@fortawesome/free-solid-svg-icons"
-import { ZoomPhotoComponent } from '../zoom-photo/zoom-photo.component';
+import { ScaleImageComponent } from '../scale-image/scale-image.component';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
   imports: [
     FontAwesomeModule,
-    ZoomPhotoComponent
+    ScaleImageComponent
 
   ],
   templateUrl: './navigation.component.html',
@@ -41,7 +41,7 @@ export class NavigationComponent {
   // Mostrar/Ocultar foto com zoom
   hidden: boolean = true;
 
-  zoomPhoto() {
+  changeImageScale() {
     this.hidden = !this.hidden;
 
   }
