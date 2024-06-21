@@ -1,10 +1,10 @@
+<app-scale-image [path]="path" [hidden]="hidden" (event_emitter)="changeImageScale()"></app-scale-image>
+
 <nav>
-  <div class="photo" (click)="zoomPhoto()">
+  <div class="photo" (click)="changeImageScale()">
     <img [src]="path" alt="foto do portifólio">
 
   </div>
-
-  <app-zoom-photo [path]="path" hidden></app-zoom-photo>
 
   <h2>Ryan Soares</h2>
 
