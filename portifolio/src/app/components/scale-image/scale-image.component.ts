@@ -14,10 +14,10 @@ import { NavigationComponent } from '../navigation/navigation.component';
 export class ScaleImageComponent{
   @Input() path!: string;
   @Input() hidden!: boolean;
-  @Output() event_emitter = new EventEmitter<boolean>();
+  @Output() event_emitter = new EventEmitter<void>();
 
   emit() {
-    this.event_emitter.emit(!this.hidden);
+    this.event_emitter.emit();
 
   }
 
