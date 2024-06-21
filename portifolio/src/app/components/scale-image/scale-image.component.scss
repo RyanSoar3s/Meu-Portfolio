@@ -1,0 +1,17 @@
+// Colors
+$overlay-color: #00000031;
+$box-shadow-color: #0000007d;
+
+div.scale-image {
+  background-color: $overlay-color;
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0px 0px 9px 2px $box-shadow-color;
+  cursor: pointer;
+  z-index: 999;
+
+}
