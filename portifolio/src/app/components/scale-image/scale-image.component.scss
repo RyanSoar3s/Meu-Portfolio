@@ -14,4 +14,9 @@ div.scale-image {
   cursor: pointer;
   z-index: 999;
 
+  img {
+    border-radius: 50%;
+
+  }
+
 }
