@@ -1,1 +1,38 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  --background-navigation: #131515;
+  --text-color: #357DED;
+  --c3: #56EEF4;
+  --c4: #32E875;
+  --background-nav-elements: #313131;
+
+}
+
+/* GLOBAL SETTINGS */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
+}
+
+body {
+  color: white;
+  font-family: "Rubik", sans-serif;
+
+}
+
+a {
+  text-decoration: none;
+  color: white;
+
+}
+
+ul {
+  list-style: none;
+
+}
