@@ -10,11 +10,13 @@ div.scale-image {
   width: 100vw;
   align-items: center;
   justify-content: center;
+  padding-left: 25%;
   box-shadow: inset 0px 0px 9px 2px $box-shadow-color;
   cursor: pointer;
   z-index: 999;
 
   img {
+    height: 450px;
     border-radius: 50%;
 
   }
