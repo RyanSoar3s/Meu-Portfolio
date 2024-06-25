@@ -26,7 +26,7 @@ import { ScaleImageComponent } from '../scale-image/scale-image.component';
 
 export class NavigationComponent {
   // Path
-  path: string = "assets/user.png";
+  path: string = "assets/foto-navegacao.jpg";
 
   // Ícones
   faGithub = faGithub;
