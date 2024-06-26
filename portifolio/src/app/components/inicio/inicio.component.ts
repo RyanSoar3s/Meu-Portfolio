@@ -8,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './inicio.component.scss'
 })
 export class InicioComponent {
+  path: string = "assets/foto-principal.png";
 
 }
