@@ -10,8 +10,10 @@ div.scale-image {
   width: 100vw;
   align-items: center;
   justify-content: center;
-  padding-left: 25%;
   box-shadow: inset 0px 0px 9px 2px $box-shadow-color;
+  backdrop-filter: blur(10px);
+  -ms-backdrop-filter: blur(10px);
+  -o-backdrop-filter: blur(10px);
   cursor: pointer;
   z-index: 999;
 
