@@ -36,3 +36,11 @@ ul {
   list-style: none;
 
 }
+
+section {
+  height: 100vh;
+  width: 75vw;
+  background-color: var(--background-navigation);
+  margin-left: calc(25% - 11px);
+
+}
