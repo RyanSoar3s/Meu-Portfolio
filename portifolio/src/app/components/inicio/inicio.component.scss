@@ -1,7 +1,7 @@
 @keyframes color_transition {
   0% {
     background-position: 0px;
-    
+
   }
 
   100% {
@@ -77,7 +77,6 @@ h2 span {
   font-weight: 700;
   background-image: linear-gradient(to right, #007075 25%, #008d93 50%, #009da3 75%, #00f5ff 100%);
   background-clip: text;
-  background-position: 10%;
   -webkit-text-fill-color: transparent;
   animation: color_transition 3s linear infinite;
   -webkit-animation: color_transition 3s linear infinite;
