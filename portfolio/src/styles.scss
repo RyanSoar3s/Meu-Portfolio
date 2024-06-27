@@ -39,8 +39,19 @@ ul {
 
 section {
   height: 100vh;
-  width: 75vw;
+  width: calc(75vw - 11px);
   background-color: var(--background-navigation);
-  margin-left: calc(25% - 11px);
+  margin-left: 25%;
+  overflow: hidden;
+
+  h1, h2, p {
+    user-select: none;
+
+  }
+
+}
+
+img {
+  -webkit-user-drag: none;
 
 }
