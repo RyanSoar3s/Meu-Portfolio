@@ -34,7 +34,7 @@ export class NavigationComponent {
   faEmail = faEnvelope;
   faWhatsapp = faWhatsapp;
   faHouse = faHouse;
-  faUSer = faUser;
+  faUser = faUser;
   faSitemap = faSitemap;
   faSquarePhone = faSquarePhone;
 
@@ -42,6 +42,9 @@ export class NavigationComponent {
   hidden: boolean = true;
 
   changeImageScale() {
+    const body: HTMLElement = document.body;
+    body.style.overflow = (this.hidden) ? "hidden" : "auto";
+
     this.hidden = !this.hidden;
 
   }
