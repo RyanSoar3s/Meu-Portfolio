@@ -1,21 +1,43 @@
-@keyframes color_transition {
-  0% {
-    background-position: 0px;
+// Colors
+
+$color-cyan-scale-1: #005c61;
+$color-cyan-scale-2: #00979f;
+$color-cyan-scale-3: #00adb3;
+$color-cyan-scale-4: #00cfd6;
+$color-cyan-scale-5: #00f3fc;
+
+$color-green-scale-1: #006927;
+$color-green-scale-2: #007f2f;
+$color-green-scale-3: #00ab3f;
+$color-green-scale-4: #2bda6b;
+$color-green-scale-5: #44ff88;
+
+
+@mixin animation_color($animation, $pos_ini, $pos_final, $time) {
+    @keyframes #{$animation} {
+    0% {
+      background-position: $pos_ini;
+
+    }
+
+    100% {
+      background-position: $pos_final;
+
+    }
 
   }
-
-  100% {
-    background-position: 142px;
-
-  }
-
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: $animation $time linear infinite;
+  -webkit-animation: $animation $time linear infinite;
+  -o-animation: $animation $time linear infinite;
 }
 
 .container-inicio {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  height: 100%;
+  height: 649px;
   width: 100%;
   padding-left: 50px;
 
@@ -27,12 +49,12 @@
   justify-content: space-between;
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 
   .text-inicio {
     display: grid;
     align-content: center;
-    height: 182px;
+    height: 150px;
     width: 482px;
     row-gap: 15px;
 
@@ -56,24 +78,20 @@
 
 h1, h2, p {
   color: white;
-  user-select: none;
 
 }
 
 h1 span {
-  color: var(--color-blue-scale-1);
+  background-image: linear-gradient(to right, $color-green-scale-1 20%, $color-green-scale-2 40%, $color-green-scale-3 60%, $color-green-scale-4 80%, $color-green-scale-5 100%);
+  @include animation_color(name_color_transition, 0px, 272px, 3s);
 
 }
 
 h2 span {
   font-size: 1.2em;
   font-weight: 700;
-  background-image: linear-gradient(to right, #007075 25%, #008d93 50%, #009da3 75%, #00f5ff 100%);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: color_transition 3s linear infinite;
-  -webkit-animation: color_transition 3s linear infinite;
-  -o-animation: color_transition 3s linear infinite;
+  background-image: linear-gradient(to right, $color-cyan-scale-1 20%, $color-cyan-scale-2 40%, $color-cyan-scale-3 60%, $color-cyan-scale-4 80%, $color-cyan-scale-5 100%);
+  @include animation_color(text_color_transition, 0px, 141px, 3s);
 
 }
 
