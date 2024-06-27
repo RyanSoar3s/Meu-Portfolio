@@ -5,7 +5,7 @@ $box-shadow-color: #0000007d;
 div.scale-image {
   background-color: $overlay-color;
   display: flex;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   align-items: center;
