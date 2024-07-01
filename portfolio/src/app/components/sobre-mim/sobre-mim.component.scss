@@ -1,11 +1,13 @@
 app-conteudo-sobre-mim {
   h1 {
+    font-size: 2.3em;
     margin: 30px auto;
 
   }
 
   p {
     text-align: justify;
+    font-size: 1.18em;
     margin-top: 20px;
 
   }
@@ -30,7 +32,7 @@ app-conteudo-sobre-mim:nth-child(even) {
   align-self: flex-end;
 
   .text {
-    width: 45%
+    width: 48%
 
   }
 
@@ -40,7 +42,7 @@ app-conteudo-sobre-mim:nth-child(even) {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 48%;
+  width: 43%;
   margin: 0px 52px;
 
 }
