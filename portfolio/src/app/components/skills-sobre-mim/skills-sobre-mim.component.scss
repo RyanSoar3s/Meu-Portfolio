@@ -1,0 +1,91 @@
+// Colors
+
+$bg_color: #2e3131;
+$box_shadow_color: #0000008a;
+
+section {
+  min-height: 1000px;
+
+}
+
+div.container-skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  div.content-skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 80%;
+
+    h1 {
+      align-self: center;
+      margin-bottom: 15px;
+      font-size: 2em;
+
+    }
+
+  }
+
+}
+
+h1 + h2 {
+  font-size: 1.6em;
+  text-indent: 21px;
+
+}
+
+.list__skills {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  height: 90%;
+  column-gap: 30px;
+
+  .skill {
+    display: flex;
+    justify-content: center;
+    background-color: $bg_color;
+    height: 220px;
+    width: 330px;
+    box-shadow: 1px 1px 4px 1px $box_shadow_color;
+    cursor: pointer;
+    transition: .5s ease;
+
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+    }
+
+  }
+
+}
+
+.skill:hover {
+  transform: translateY(-10px) scale(1.1);
+  box-shadow: 2px 2px 6px 2px $box_shadow_color !important;
+
+}
+
+.skill {
+  img {
+    height: 89px;
+    width: 113px;
+    align-self: center;
+
+  }
+
+  h2 {
+    text-align: center;
+
+  }
+
+}
