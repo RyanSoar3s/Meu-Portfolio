@@ -1,0 +1,56 @@
+app-conteudo-sobre-mim {
+  h1 {
+    margin: 30px auto;
+
+  }
+
+  p {
+    text-align: justify;
+    margin-top: 20px;
+
+  }
+
+  fa-icon {
+    font-size: 7em;
+
+  }
+
+}
+
+app-conteudo-sobre-mim:nth-child(even) {
+  .content {
+    flex-direction: row-reverse;
+
+  }
+
+}
+
+.content {
+  display: flex;
+  align-self: flex-end;
+
+  .text {
+    width: 45%
+
+  }
+
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48%;
+  margin: 0px 52px;
+
+}
+
+.logo__icons {
+  gap: 40px;
+
+  fa-icon {
+    font-size: 6em;
+
+  }
+
+}
