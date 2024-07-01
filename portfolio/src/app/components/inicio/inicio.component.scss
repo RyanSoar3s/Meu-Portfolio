@@ -31,19 +31,19 @@ $color-green-scale-5: #006927;
       }
 
       75% {
-        background-position: (-$bp_x_final) 0%;
+        background-position: (-$bp_x_final) $bp_y_ini;
 
       }
 
       100% {
-        background-position: $bp_x_ini 0%;
+        background-position: $bp_x_ini $bp_y_ini;
 
       }
 
   }
-  animation: $animation $time ease-in-out infinite forwards;
-  -webkit-animation: $animation $time linear infinite forwards;
-  -o-animation: $animation $time ease-in-out infinite forwards;
+  animation: $animation $time ease-in-out infinite;
+  -webkit-animation: $animation $time ease-in-out infinite;
+  -o-animation: $animation $time ease-in-out infinite;
 }
 
 .container-inicio {
@@ -97,7 +97,7 @@ h1, h2, p {
 h1 span {
   background-image: radial-gradient(circle at center, $color-green-scale-1 7%, $color-green-scale-2 10%, $color-green-scale-3 34%, $color-green-scale-4 41%, $color-green-scale-5 55%);
   background-size: 187% 384%;
-  background-position: 107% 0%;
+  background-position: 107% 52%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   @include animation_color(name_radial_gradient_transition, 107%, 0%, 10%, 105%, 187%, 384%, 8s);
@@ -112,7 +112,7 @@ h2 span {
   background-position: 107% 52%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  @include animation_color(text_radial_gradient_transition, 107%, 52%, 10%, 105%, 187%, 384%, 8s);
+  @include animation_color(text_radial_gradient_transition, 107%, 0%, 10%, 105%, 187%, 384%, 8s);
 
 }
 
