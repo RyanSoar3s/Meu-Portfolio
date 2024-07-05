@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { SobreMimComponent } from './components/sobre-mim/sobre-mim.component';
+import { MeusProjetosComponent } from './components/meus-projetos/meus-projetos.component';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,8 @@ import { SobreMimComponent } from './components/sobre-mim/sobre-mim.component';
     RouterOutlet,
     NavigationComponent,
     InicioComponent,
-    SobreMimComponent
+    SobreMimComponent,
+    MeusProjetosComponent
 
   ],
   templateUrl: './app.component.html',
