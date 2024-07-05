@@ -2,10 +2,14 @@
 
 :root {
   --background-navigation: #131515;
+  --background-nav-elements: #313131;
+  --background-container-elements: #2e3131;
+
   --color-blue-scale-1: #357DED;
   --color-cyan-scale-1: #00f5ff;
   --color-green-scale-1: #32E875;
-  --background-nav-elements: #313131;
+
+  --box-shadow-color: #0000008a;
 
 }
 
@@ -38,13 +42,15 @@ ul {
 }
 
 section {
-  height: 639px;
+  height: 100vw;
+  min-height: 1000px;
   width: calc(75vw - 11px);
   background-color: var(--background-navigation);
   margin-left: 25%;
   overflow: hidden;
 
-  h1, h2, p {
+  h1, h2, h3,
+  p, li, a {
     user-select: none;
 
   }
