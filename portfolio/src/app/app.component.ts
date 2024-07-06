@@ -4,7 +4,6 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { InicioComponent } from './components/inicio/inicio.component';
 import { SobreMimComponent } from './components/sobre-mim/sobre-mim.component';
 import { MeusProjetosComponent } from './components/meus-projetos/meus-projetos.component';
-import { ContatosComponent } from './components/contatos/contatos.component';
 
 @Component({
   selector: 'app-root',
@@ -14,8 +13,7 @@ import { ContatosComponent } from './components/contatos/contatos.component';
     NavigationComponent,
     InicioComponent,
     SobreMimComponent,
-    MeusProjetosComponent,
-    ContatosComponent
+    MeusProjetosComponent
 
   ],
   templateUrl: './app.component.html',
