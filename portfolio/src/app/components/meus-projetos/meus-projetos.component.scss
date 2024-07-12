@@ -13,10 +13,10 @@
 
 .container-meus-projetos {
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 1326px;
   width: 100%;
 
   h1 {
@@ -28,29 +28,41 @@
 
 .grid-meus-projetos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 50px;
-  height: 73%;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  height: 62%;
   width: 90%;
 
 }
 
+.details {
+  position: absolute;
+  z-index: 100;
+
+}
+
+@-moz-document url-prefix() {
+  .projeto {
+    margin-top: 60px;
+
+  }
+
+}
+
 .projeto {
-  background-color: var(--background-container-elements);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
-  width: 90%;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 1px 1px 4px 1px var(--box-shadow-color);
+  height: 75%;
+  width: 76%;
+  border-radius: 18px;
+  filter: brightness(0.7);
 
   img {
-    height: 230px;
-    width: 93%;
-    border-radius: 12px;
+    height: 412px;
+    width: 100%;
+    border-radius: 18px;
 
   }
 
@@ -59,12 +71,7 @@
 
   }
 
-  ul {
-    margin: 15px 0px;
-
-  }
-
-  h3, ul {
+  h3 {
     width: 100%;
 
   }
@@ -72,10 +79,42 @@
 
 }
 
+.projeto::before {
+  position: absolute;
+  content: "Nome do projeto";
+  color: var(--color-blue-scale-1);
+  top: 40px;
+  font-size: 1.2em;
+  font-weight: 600;
+
+}
+
+.projeto:hover {
+  cursor: pointer;
+  filter: brightness(1);
+
+  &::before {
+    content: "";
+
+  }
+
+  .links_externos {
+    z-index: 0;
+
+  }
+
+}
+
 .links_externos {
+  background-color: var(--background-container-elements);
+  position: relative;
   display: flex;
   justify-content: space-around;
   width: 100%;
+  bottom: 89px;
+  padding: 28px 10px;
+  border-radius: 0px 0px 15px 15px;
+  z-index: -1;
 
   button {
     height: 32px;
