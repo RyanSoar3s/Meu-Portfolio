@@ -7,7 +7,7 @@ import {
   faHouse,
   faUser,
   faSitemap,
-  faSquarePhone
+  faCircleInfo
 
 } from "@fortawesome/free-solid-svg-icons"
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
@@ -36,7 +36,7 @@ export class NavigationComponent {
   faHouse = faHouse;
   faUser = faUser;
   faSitemap = faSitemap;
-  faSquarePhone = faSquarePhone;
+  faCircleInfo = faCircleInfo;
 
   // Mostrar/Ocultar foto com zoom
   hidden: boolean = true;
