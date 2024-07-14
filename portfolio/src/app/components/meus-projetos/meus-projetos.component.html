@@ -3,20 +3,26 @@
     <h1>Meus Projetos:</h1>
 
     <div class="grid-meus-projetos">
-      <div class="projeto">
+      <div #border id="border" class="border">
+        <div class="details">
+          <div #content>
+            <h3>Tecnologias: </h3>
+
+            <div>
+              <p>HTML 5</p>
+              <p>CSS 3</p>
+              <p>JavaScript</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div data-id="1" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
 
         <div class="links_externos">
           <button>
@@ -32,20 +38,9 @@
         </div>
 
       </div>
-      <div class="projeto">
+
+      <div data-id="2" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
 
         <div class="links_externos">
           <button>
@@ -61,19 +56,8 @@
         </div>
 
       </div>
-      <div class="projeto">
+      <div data-id="3" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
 
         <div class="links_externos">
           <button>
@@ -89,75 +73,8 @@
         </div>
 
       </div>
-      <div class="projeto">
+      <div data-id="4" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
-
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
-
-      </div>
-      <div class="projeto">
-        <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
-
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
-
-      </div>
-      <div class="projeto">
-        <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
-
-        <h2>Nome Projeto</h2>
-
-        <h3>Tecnologias:</h3>
-
-        <ul>
-          <li>HTML 5</li>
-          <li>CSS 3</li>
-          <li>JavaScript</li>
-
-        </ul>
 
         <div class="links_externos">
           <button>
