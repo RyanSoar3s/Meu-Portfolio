@@ -3,7 +3,25 @@
     <h1>Meus Projetos:</h1>
 
     <div class="grid-meus-projetos">
-      <div class="projeto">
+      <div #border id="border" class="border">
+        <div class="details">
+          <div #content>
+            <h3>Tecnologias: </h3>
+
+            <div>
+              <p>HTML 5</p>
+              <p>CSS 3</p>
+              <p>JavaScript</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div data-id="1" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
 
         <div class="links_externos">
@@ -21,7 +39,7 @@
 
       </div>
 
-      <div class="projeto">
+      <div data-id="2" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
 
         <div class="links_externos">
@@ -38,7 +56,7 @@
         </div>
 
       </div>
-      <div class="projeto">
+      <div data-id="3" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
 
         <div class="links_externos">
@@ -55,7 +73,7 @@
         </div>
 
       </div>
-      <div class="projeto">
+      <div data-id="4" class="projeto" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
         <img src="../../../assets/projeto-vazio.png" alt="projeto vazio">
 
         <div class="links_externos">
