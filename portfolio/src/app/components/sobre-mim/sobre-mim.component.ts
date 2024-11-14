@@ -3,15 +3,13 @@ import { ConteudoSobreMimComponent } from '../conteudo-sobre-mim/conteudo-sobre-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBuildingColumns, faLaptopCode, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
-import { SkillsSobreMimComponent } from '../skills-sobre-mim/skills-sobre-mim.component';
 
 @Component({
   selector: 'app-sobre-mim',
   standalone: true,
   imports: [
     FontAwesomeModule,
-    ConteudoSobreMimComponent,
-    SkillsSobreMimComponent
+    ConteudoSobreMimComponent
 
    ],
   templateUrl: './sobre-mim.component.html',
@@ -19,7 +17,7 @@ import { SkillsSobreMimComponent } from '../skills-sobre-mim/skills-sobre-mim.co
 })
 export class SobreMimComponent {
   // Icons
-  
+
   faRobot = faRobot;
   faLaptopCode = faLaptopCode;
   faBuildingColumns = faBuildingColumns;

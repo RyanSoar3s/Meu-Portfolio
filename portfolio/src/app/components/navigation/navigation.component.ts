@@ -6,6 +6,7 @@ import {
   faEnvelope,
   faHouse,
   faUser,
+  faAtom,
   faSitemap,
   faCircleInfo
 
@@ -35,6 +36,7 @@ export class NavigationComponent {
   faWhatsapp = faWhatsapp;
   faHouse = faHouse;
   faUser = faUser;
+  faAtom = faAtom;
   faSitemap = faSitemap;
   faCircleInfo = faCircleInfo;
 
