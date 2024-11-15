@@ -63,7 +63,7 @@ section {
   display: flex;
   flex-direction: column;
   margin-top: 40px;
-  gap: 40px;
+  gap: 80px;
 
 }
 
@@ -85,25 +85,64 @@ h2, h3 {
 
 }
 
-.container-icons {
+.icons__area {
   display: flex;
+  position: relative;
+  width: 87%;
   margin: auto;
-  gap: 130px;
+  gap: 110px;
 
   .icons {
     display: inherit;
+    position: relative;
     flex-direction: column;
-    height: 160px;
-    width: 100%;
+    height: 154px;
+    width: 129px;
+    align-items: center;
     justify-content: space-around;
+
+    span.line {
+      display: inline-block;
+      background-color: white;
+      position: absolute;
+      bottom: -3px;
+      height: 3px;
+      width: 100%;
+      transition: height .3s ease;
+
+    }
 
   }
 
 }
 
+.icons__area .icons:hover {
+  cursor: pointer;
+
+  i, h3 {
+    filter: invert(1);
+
+  }
+
+  span.line {
+    height: 165px;
+
+  }
+
+}
 
 i {
   color: #c5c5c5;
   font-size: 7em;
+  z-index: 1;
 
 }
+
+h3 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
+  z-index: 1;
+
+}
+
