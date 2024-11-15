@@ -1,3 +1,5 @@
+$projects_name: ("Portfólio", "Nome do projeto", "Nome do projeto", "Nome do projeto");
+
 @keyframes hover_button_width {
   from {
     width: 0%;
@@ -55,7 +57,6 @@
 }
 
 .border {
-  display: none;
   background-color: #ffffff45;
   backdrop-filter: blur(3px);
   position: absolute;
@@ -122,13 +123,16 @@
 
 }
 
-.projeto::before {
-  position: absolute;
-  content: "Nome do projeto";
-  color: var(--color-blue-scale-1);
-  top: 40px;
-  font-size: 1.2em;
-  font-weight: 600;
+@for $i from 1 through length($projects_name) {
+  .projeto-#{$i}::before {
+    content: "#{nth($projects_name, $i)}";
+    position: absolute;
+    color: var(--color-blue-scale-1);
+    top: 40px;
+    font-size: 1.2em;
+    font-weight: 600;
+
+  }
 
 }
 
