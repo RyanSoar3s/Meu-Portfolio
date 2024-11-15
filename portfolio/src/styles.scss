@@ -24,6 +24,14 @@
 
 }
 
+@-moz-document url-prefix() {
+  section {
+    width: 75% !important;
+
+  }
+
+}
+
 body {
   color: white;
   font-family: "Rubik", sans-serif;
