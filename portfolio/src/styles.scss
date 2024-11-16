@@ -2,10 +2,14 @@
 
 :root {
   --background-navigation: #131515;
-  --text-color: #357DED;
-  --c3: #56EEF4;
-  --c4: #32E875;
   --background-nav-elements: #313131;
+  --background-container-elements: #2e3131;
+
+  --color-blue-scale-1: #357DED;
+  --color-cyan-scale-1: #00f5ff;
+  --color-green-scale-1: #32E875;
+
+  --box-shadow-color: #0000008a;
 
 }
 
@@ -17,6 +21,14 @@
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+
+}
+
+@-moz-document url-prefix() {
+  section {
+    width: 75% !important;
+
+  }
 
 }
 
@@ -34,5 +46,26 @@ a {
 
 ul {
   list-style: none;
+
+}
+
+section {
+  height: 100vh;
+  min-height: 1500px;
+  width: calc(75vw - 11px);
+  background-color: var(--background-navigation);
+  margin-left: 25%;
+  overflow: hidden;
+
+  h1, h2, h3,
+  p, li, a {
+    user-select: none;
+
+  }
+
+}
+
+img {
+  -webkit-user-drag: none;
 
 }

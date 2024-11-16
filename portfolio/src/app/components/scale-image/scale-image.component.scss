@@ -1,20 +1,24 @@
 // Colors
-$overlay-color: #00000031;
+$overlay-color: #00000038;;
 $box-shadow-color: #0000007d;
 
 div.scale-image {
   background-color: $overlay-color;
   display: flex;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   width: 100vw;
   align-items: center;
   justify-content: center;
   box-shadow: inset 0px 0px 9px 2px $box-shadow-color;
+  backdrop-filter: blur(10px);
+  -ms-backdrop-filter: blur(10px);
+  -o-backdrop-filter: blur(10px);
   cursor: pointer;
   z-index: 999;
 
   img {
+    height: 450px;
     border-radius: 50%;
 
   }

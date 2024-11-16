@@ -1,8 +1,8 @@
-<app-scale-image [path]="path" [hidden]="hidden" (event_emitter)="changeImageScale()"></app-scale-image>
+<app-scale-image [path]="path" [hidden]="hidden" (change_scale)="changeImageScale()"></app-scale-image>
 
 <nav>
   <div class="photo" (click)="changeImageScale()">
-    <img [src]="path" alt="foto do portifólio">
+    <img [src]="path" alt="foto do portfolio">
 
   </div>
 
@@ -54,8 +54,15 @@
 
       <li>
         <a href="#"></a>
-        <fa-icon [icon]="faUSer"></fa-icon>
+        <fa-icon [icon]="faUser"></fa-icon>
         <span>Sobre mim</span>
+
+      </li>
+
+      <li>
+        <a href="#"></a>
+        <fa-icon [icon]="faAtom"></fa-icon>
+        <span>Habilidades</span>
 
       </li>
 
@@ -68,8 +75,8 @@
 
       <li>
         <a href="#"></a>
-        <fa-icon [icon]="faSquarePhone"></fa-icon>
-        <span>Contatos</span>
+        <fa-icon [icon]="faCircleInfo"></fa-icon>
+        <span>Sobre este projeto</span>
 
       </li>
 

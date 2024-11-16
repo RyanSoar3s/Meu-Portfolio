@@ -6,8 +6,9 @@ import {
   faEnvelope,
   faHouse,
   faUser,
+  faAtom,
   faSitemap,
-  faSquarePhone
+  faCircleInfo
 
 } from "@fortawesome/free-solid-svg-icons"
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
@@ -34,14 +35,18 @@ export class NavigationComponent {
   faEmail = faEnvelope;
   faWhatsapp = faWhatsapp;
   faHouse = faHouse;
-  faUSer = faUser;
+  faUser = faUser;
+  faAtom = faAtom;
   faSitemap = faSitemap;
-  faSquarePhone = faSquarePhone;
+  faCircleInfo = faCircleInfo;
 
   // Mostrar/Ocultar foto com zoom
   hidden: boolean = true;
 
   changeImageScale() {
+    const body: HTMLElement = document.body;
+    body.style.overflow = (this.hidden) ? "hidden" : "auto";
+
     this.hidden = !this.hidden;
 
   }
