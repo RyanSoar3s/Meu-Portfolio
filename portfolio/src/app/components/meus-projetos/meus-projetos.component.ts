@@ -17,6 +17,8 @@ export class MeusProjetosComponent {
   @ViewChild("content") content!: ElementRef;
   show_detail: boolean = false;
 
+  path: string = "../../../assets/projeto-vazio.png";
+
   constructor(private renderer: Renderer2) {
 
   }
