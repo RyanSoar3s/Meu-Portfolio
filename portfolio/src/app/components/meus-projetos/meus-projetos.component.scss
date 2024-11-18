@@ -13,24 +13,6 @@ $projects_name: ("Portfólio", "Nome do projeto", "Nome do projeto", "Nome do pr
 
 }
 
-@-moz-document url-prefix() {
-  .container-meus-projetos h1 {
-    margin-bottom: 150px !important;
-
-  }
-
-  .projeto {
-    height: 70% !important;
-
-  }
-
-  .projeto::before {
-    top: -23px !important;
-
-  }
-
-}
-
 .container-meus-projetos {
   display: flex;
   display: -webkit-flex;
