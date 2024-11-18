@@ -8,13 +8,12 @@ div.container-skills {
   div.content-skills {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     height: 100%;
     width: 80%;
 
     h1 {
       align-self: center;
-      margin-bottom: 15px;
+      margin-bottom: 50px;
       font-size: 2em;
 
     }
@@ -26,6 +25,7 @@ div.container-skills {
 h1 + h2 {
   font-size: 1.6em;
   text-indent: 21px;
+  margin-bottom: 30px;
 
 }
 
@@ -33,20 +33,21 @@ h1 + h2 {
   display: grid;
   align-items: center;
   justify-items: center;
-  grid-template-columns: repeat(2, 1fr);
-  height: 90%;
+  grid-template-columns: repeat(3, 1fr);
+  height: 45%;
   column-gap: 30px;
 
   .skill {
     display: flex;
     justify-content: center;
-    background-color: var(--background-container-elements);
-    height: 220px;
-    width: 330px;
+    background-color: #222222;
+    height: 180px;
+    width: 180px;
+    padding: 10px 0px;
     box-shadow: 1px 1px 4px 1px var(--box-shadow-color);
-    border-radius: 15px;
+    border-radius: 50%;
     cursor: pointer;
-    transition: .5s ease;
+    transition: 0.5s ease;
 
     div {
       display: flex;
@@ -60,21 +61,28 @@ h1 + h2 {
 }
 
 .skill:hover {
+  background-color: #ffffffe1 !important;
   transform: translateY(-10px) scale(1.1);
   box-shadow: 2px 2px 6px 2px var(--box-shadow-color) !important;
 
+  div i, div h2 {
+    filter: invert(1);
+
+  }
+
 }
 
-.skill {
-  img {
-    height: 89px;
-    width: 113px;
+.skill div {
+  i {
+    color: #c5c5c5;
+    font-size: 4.5em;
     align-self: center;
 
   }
 
   h2 {
     text-align: center;
+    font-size: 1.2em;
 
   }
 
