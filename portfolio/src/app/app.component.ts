@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { SobreMimComponent } from './components/sobre-mim/sobre-mim.component';
 import { SkillsSobreMimComponent } from './components/skills-sobre-mim/skills-sobre-mim.component';
 import { MeusProjetosComponent } from './components/meus-projetos/meus-projetos.component';
 import { SobreEsteProjetoComponent } from './components/sobre-este-projeto/sobre-este-projeto.component';
+
+import { WindowService } from './window.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,18 @@ import { SobreEsteProjetoComponent } from './components/sobre-este-projeto/sobre
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'portfolio';
+
+  constructor(private windowService: WindowService) {}
+
+  ngOnInit(): void {
+    if (this.windowService.nativeWindow) {
+      history.scrollRestoration = 'manual';
+      this.windowService.nativeWindow.scrollTo(0, 0);
+
+    }
+
+  }
 
 }
