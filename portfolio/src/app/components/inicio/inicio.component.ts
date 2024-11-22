@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component, ElementRef, HostListener,
+  Renderer2, ViewChild
+
+} from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -8,7 +12,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.scss'],
   animations: [
-    trigger("textLoadAnimation", [
+    trigger("textMoveAnimation", [
       transition(":enter", [
         style({
           opacity: 0,
@@ -24,7 +28,7 @@ import { trigger, style, transition, animate } from '@angular/animations';
       ])
 
     ]),
-    trigger("imgLoadAnimation", [
+    trigger("imgMoveAnimation", [
         transition(":enter", [
           style({
             opacity: 0,
@@ -46,7 +50,60 @@ import { trigger, style, transition, animate } from '@angular/animations';
 
 })
 export class InicioComponent {
+  @ViewChild("text") text!: ElementRef;
+  @ViewChild("img") img!: ElementRef;
+
   path: string = "assets/foto-principal.png";
+  lastScroll:     number = 0;
+  lastScrollText: number = 0;
+  lastScrollImg:  number = 0;
+
+  constructor(private renderer2: Renderer2) {}
+
+  onAnimationStart(): void {
+    this.blockScroll();
+
+  }
+
+  onAnimationDone(): void {
+    this.unblockScroll();
+
+  }
+
+  private blockScroll(): void {
+    this.renderer2.setStyle(document.body, "overflow", "hidden");
+
+  }
+
+  private unblockScroll(): void {
+    this.renderer2.removeStyle(document.body, "overflow")
+
+  }
+
+  @HostListener("window:scroll", ["$event"])
+
+  onScroll() {
+    let windowScroll: number = window.scrollY;
+    let distScroll:   number = Math.abs(this.lastScroll - windowScroll) * 0.25;
+
+      if (this.lastScroll > windowScroll) {
+        this.lastScrollText -= distScroll;
+        this.lastScrollImg  -= distScroll;
+
+      }
+
+      else {
+        this.lastScrollText += distScroll;
+        this.lastScrollImg  += distScroll;
+
+      }
+
+      this.renderer2.setStyle(this.text.nativeElement, "right", `${this.lastScrollText}px`);
+      this.renderer2.setStyle(this.img.nativeElement, "left", `${this.lastScrollImg}px`)
+
+      this.lastScroll = windowScroll
+
+  }
 
 }
 

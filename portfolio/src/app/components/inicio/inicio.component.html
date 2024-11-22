@@ -1,14 +1,16 @@
 <section>
   <div class="container-inicio">
     <div class="content-inicio" style="position: fixed;">
-      <div @textLoadAnimation class="text-inicio" style="position: relative;">
+      <div @textMoveAnimation (@textMoveAnimation.start)="onAnimationStart()"
+      (@textMoveAnimation.done)="onAnimationDone()" #text class="text-inicio" style="position: relative; right: 0px; scroll-behavior: smooth">
         <p>Olá, mundo!</p>
         <h1>Sou <span>Ryan Soares</span></h1>
         <h2>Desenvolvedor <span>Front End</span></h2>
 
       </div>
 
-      <div @imgLoadAnimation class="foto-principal" style="position: relative;">
+      <div @imgMoveAnimation (@imgMoveAnimation.start)="onAnimationStart()"
+      (@imgMoveAnimation.done)="onAnimationDone()" #img class="foto-principal" style="position: relative; left: 0px; scroll-behavior: smooth">
         <img [src]="path" alt="foto principal">
 
       </div>
