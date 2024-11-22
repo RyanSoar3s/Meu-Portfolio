@@ -24,12 +24,6 @@ export class MeusProjetosComponent {
   }
 
   showDetails(event: MouseEvent) {
-    if (event.type === "mouseleave" && !this.show_detail && this.border.nativeElement.style.display === "none") {
-      this.renderer.setStyle(this.border.nativeElement, "display", "none");
-      return;
-
-    }
-
     this.show_detail = !this.show_detail;
 
     if (!this.show_detail) {

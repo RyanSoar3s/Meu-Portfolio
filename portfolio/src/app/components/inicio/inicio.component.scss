@@ -52,7 +52,6 @@ $color-green-scale-5: #006927;
   justify-content: flex-end;
   height: 649px;
   width: 100%;
-  padding-left: 50px;
 
 }
 
@@ -61,7 +60,8 @@ $color-green-scale-5: #006927;
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  width: 100%;
+  width: 75%;
+  padding-left: 50px;
   overflow: hidden;
 
   .text-inicio {
