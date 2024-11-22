@@ -5,6 +5,8 @@ import {
 } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 
+import { WindowService } from '../../window.service';
+
 @Component({
   selector: 'app-inicio',
   standalone: true,
@@ -58,7 +60,7 @@ export class InicioComponent {
   lastScrollText: number = 0;
   lastScrollImg:  number = 0;
 
-  constructor(private renderer2: Renderer2) {}
+  constructor(private renderer2: Renderer2, private windowService: WindowService) {}
 
   onAnimationStart(): void {
     this.blockScroll();
@@ -71,12 +73,18 @@ export class InicioComponent {
   }
 
   private blockScroll(): void {
-    this.renderer2.setStyle(document.body, "overflow", "hidden");
+    if (this.windowService.nativeWindow) {
+      this.renderer2.setStyle(this.windowService.nativeWindow?.document.body, "overflow", "hidden");
+
+    }
 
   }
 
   private unblockScroll(): void {
-    this.renderer2.removeStyle(document.body, "overflow")
+    if (this.windowService.nativeWindow) {
+      this.renderer2.removeStyle(this.windowService.nativeWindow?.document.body, "overflow");
+
+    }
 
   }
 
