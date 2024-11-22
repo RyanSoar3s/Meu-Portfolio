@@ -1,15 +1,16 @@
 <section>
   <div class="container-inicio">
-    <div class="content-inicio">
-      <div class="text-inicio">
+    <div class="content-inicio" style="position: fixed; right: 0;">
+      <div @textLoadAnimation class="text-inicio" style="position: relative;">
         <p>Olá, mundo!</p>
         <h1>Sou <span>Ryan Soares</span></h1>
         <h2>Desenvolvedor <span>Front End</span></h2>
 
       </div>
 
-      <div class="foto-principal">
+      <div @imgLoadAnimation class="foto-principal" style="position: relative;">
         <img [src]="path" alt="foto principal">
+
       </div>
 
     </div>
