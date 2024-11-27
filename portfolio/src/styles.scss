@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  --background-navigation: #131515;
+  --background: #131515;
   --background-nav-elements: #313131;
   --background-container-elements: #2e3131;
 
@@ -33,6 +33,7 @@
 }
 
 body {
+  background-color: var(--background) !important;
   color: white;
   font-family: "Rubik", sans-serif;
 
@@ -51,9 +52,7 @@ ul {
 
 section {
   height: 100vh;
-  min-height: 1500px;
   width: calc(75vw - 11px);
-  background-color: var(--background-navigation);
   margin-left: 25%;
   overflow: hidden;
 
