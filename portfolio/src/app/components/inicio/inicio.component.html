@@ -1,6 +1,6 @@
 <section>
   <div class="container-inicio">
-    <div class="content-inicio" style="position: fixed;">
+    <div #fixed class="content-inicio">
       <div @textMoveAnimation (@textMoveAnimation.start)="onAnimationStart()"
       (@textMoveAnimation.done)="onAnimationDone()" #text class="text-inicio" style="position: relative; right: 0px; scroll-behavior: smooth">
         <p>Olá, mundo!</p>
