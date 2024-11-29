@@ -1,13 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { NavigationComponent } from '../navigation/navigation.component';
 
 @Component({
   selector: 'app-scale-image',
   standalone: true,
-  imports: [
-    NavigationComponent
-
-   ],
+  imports: [],
   templateUrl: './scale-image.component.html',
   styleUrl: './scale-image.component.scss'
 })
