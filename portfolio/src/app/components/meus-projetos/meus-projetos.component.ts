@@ -15,9 +15,9 @@ import {
 export class MeusProjetosComponent {
   @ViewChild("border") border!: ElementRef;
   @ViewChild("content") content!: ElementRef;
-  show_detail: boolean = false;
+  private show_detail: boolean = false;
 
-  path: string = "../../../assets/projeto-vazio.png";
+  protected path: string = "../../../assets/projeto-vazio.png";
 
   constructor(private renderer: Renderer2) {
 

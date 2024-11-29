@@ -30,18 +30,18 @@ export class NavigationComponent {
   path: string = "assets/foto-navegacao.jpg";
 
   // Ícones
-  faGithub = faGithub;
-  faLinkedin = faLinkedin;
-  faEmail = faEnvelope;
-  faWhatsapp = faWhatsapp;
-  faHouse = faHouse;
-  faUser = faUser;
-  faAtom = faAtom;
-  faSitemap = faSitemap;
-  faCircleInfo = faCircleInfo;
+  protected faGithub     = faGithub;
+  protected faLinkedin   = faLinkedin;
+  protected faEmail      = faEnvelope;
+  protected faWhatsapp   = faWhatsapp;
+  protected faHouse      = faHouse;
+  protected faUser       = faUser;
+  protected faAtom       = faAtom;
+  protected faSitemap    = faSitemap;
+  protected faCircleInfo = faCircleInfo;
 
   // Mostrar/Ocultar foto com zoom
-  hidden: boolean = true;
+  protected hidden: boolean = true;
 
   changeImageScale() {
     const body: HTMLElement = document.body;
