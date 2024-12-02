@@ -1,4 +1,13 @@
+.container {
+  height: 800vh;
+
+}
+
 app-conteudo-sobre-mim {
+  display: block;
+  position: fixed;
+  top: 0;
+
   h1 {
     font-size: 2.3em;
     margin: 30px auto;
@@ -22,6 +31,25 @@ app-conteudo-sobre-mim {
 app-conteudo-sobre-mim:nth-child(even) {
   .content {
     flex-direction: row-reverse;
+    margin-right: 40px;
+
+  }
+
+  .icons {
+    margin-right: 60px;
+
+  }
+
+}
+
+app-conteudo-sobre-mim:nth-child(odd) {
+  .content {
+    margin-left: 40px;
+
+  }
+
+  .icons {
+    margin-left: 60px;
 
   }
 
@@ -30,9 +58,10 @@ app-conteudo-sobre-mim:nth-child(even) {
 .content {
   display: flex;
   align-self: flex-end;
+  align-items: center;
 
   .text {
-    width: 48%
+    width: 48%;
 
   }
 
@@ -42,17 +71,46 @@ app-conteudo-sobre-mim:nth-child(even) {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 43%;
-  margin: 0px 52px;
+  width: 41%;
+  margin: 0px 10px;
 
 }
 
 .logo__icons {
-  gap: 40px;
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+      "html . css"
+      ". js .";
+  align-items: center;
+  justify-items: center;
+  height: 250px;
+  width: 34%;
+  margin: 0px 10px;
 
   fa-icon {
     font-size: 6em;
 
   }
+
+}
+
+.logo__icons fa-icon:nth-child(1) {
+  grid-area: html;
+  position: relative;
+  left: 20px;
+
+}
+
+.logo__icons fa-icon:nth-child(2) {
+  grid-area: css;
+  position: relative;
+  right: 20px;
+
+}
+
+.logo__icons fa-icon:nth-child(3) {
+  grid-area: js;
 
 }
