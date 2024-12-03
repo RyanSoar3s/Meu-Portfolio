@@ -38,14 +38,14 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
   private scrollSub!: Subscription;
 
-  private animationScaleConfig!: { start: number, middle: number, end: number, scale: number, opacity: number }[];
+  private animationConfigList!: { start: number, middle: number, stopping_point: number, end: number, scale: number, opacity: number }[];
 
   constructor(private renderer2: Renderer2, private windowService: WindowService, private scrollService: ScrollService) {
-    this.animationScaleConfig = [
-      { start: 500,  middle: 2400, end: 3000, scale: 0.0, opacity: 0.0 },
-      { start: 3050, middle: 3400, end: 4000, scale: 0.0, opacity: 0.0 },
-      { start: 4050, middle: 4400, end: 5000, scale: 0.0, opacity: 0.0 },
-      { start: 5050, middle: 5400, end: 6000, scale: 0.0, opacity: 0.0 }
+    this.animationConfigList = [
+      { start: 500,  middle: 2200, stopping_point: 2500, end: 3100, scale: 0.0, opacity: 0.0 },
+      { start: 3500, middle: 5200, stopping_point: 5500, end: 6100, scale: 0.0, opacity: 0.0 },
+      { start: 6500, middle: 8200, stopping_point: 8500, end: 9100, scale: 0.0, opacity: 0.0 },
+      { start: 9500, middle: 11200, stopping_point: 11500, end: 12100, scale: 0.0, opacity: 0.0 }
 
     ];
 
@@ -60,12 +60,17 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
   }
 
   private calculateScale(scrollY: number, index: number): void {
-    const config = this.animationScaleConfig[index];
+    const config = this.animationConfigList[index];
 
-    const { start, middle, end } = config;
+    const { start, middle, stopping_point, end } = config;
 
     if (scrollY >= start && scrollY < end) {
-      if (scrollY >= middle && scrollY < middle + 200) return;
+      if (scrollY >= middle && scrollY < stopping_point) {
+        config.scale = 1.0;
+        config.opacity = 1.0;
+        return;
+
+      }
 
       let minValueScale;
       let maxValueScale;
@@ -122,8 +127,8 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
       this.calculateScale(scrollY, index);
 
-      const scaleValue: number = this.animationScaleConfig[index].scale;
-      const opacityValue: number = this.animationScaleConfig[index].opacity;
+      const scaleValue: number = this.animationConfigList[index].scale;
+      const opacityValue: number = this.animationConfigList[index].opacity;
 
       this.renderer2.setStyle(content.nativeElement, "transform", `scale(${scaleValue})`);
       this.renderer2.setStyle(content.nativeElement, "opacity", `${opacityValue}`);
