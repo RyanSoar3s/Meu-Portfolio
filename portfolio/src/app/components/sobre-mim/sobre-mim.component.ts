@@ -66,7 +66,7 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
   public animateScrollY(scrollY: number): void {
     this.contentAboutMe.forEach((content, index) => {
-      const { scale, opacity } = this.calculateAnimationValues(scrollY, this.animationConfigs[index]);
+      const { scale, opacity } = this.calculateAnimationValues(scrollY, index, this.animationConfigs[index]);
       this.renderer.setStyle(content.nativeElement, 'transform', `scale(${scale})`);
       this.renderer.setStyle(content.nativeElement, 'opacity', `${opacity}`);
 
@@ -74,8 +74,13 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
   }
 
-  private calculateAnimationValues(scrollY: number, config: AnimationConfig): { scale: number; opacity: number } {
+  private calculateAnimationValues(scrollY: number, index: number, config: AnimationConfig): { scale: number; opacity: number } {
     const { start, middle, stoppingPoint, end } = config;
+
+    if (index === 3 && scrollY > middle) {
+      return { scale: 1.0, opacity: 1.0 };
+
+    }
 
     if (scrollY >= start && scrollY < end) {
       if (scrollY >= middle && scrollY < stoppingPoint) {
