@@ -12,8 +12,16 @@ import { Subscription } from 'rxjs';
 
 import { AnimateScrollY } from '../../interfaces/animate-scroll';
 
-import { WindowService } from '../../services/window.service';
 import { ScrollService } from '../../services/scroll.service';
+
+interface AnimationConfig {
+  start: number;
+  middle: number;
+  stoppingPoint: number;
+  end: number;
+  scale: number;
+  opacity: number;
+}
 
 @Component({
   selector: 'app-sobre-mim',
@@ -38,18 +46,15 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
   private scrollSub!: Subscription;
 
-  private animationConfigList!: { start: number, middle: number, stopping_point: number, end: number, scale: number, opacity: number }[];
+  private animationConfigs: AnimationConfig[] = [
+    { start: 500, middle: 2200, stoppingPoint: 2500, end: 3100, scale: 0, opacity: 0 },
+    { start: 3500, middle: 5200, stoppingPoint: 5500, end: 6100, scale: 0, opacity: 0 },
+    { start: 6500, middle: 8200, stoppingPoint: 8500, end: 9100, scale: 0, opacity: 0 },
+    { start: 9500, middle: 11200, stoppingPoint: 11500, end: 12100, scale: 0, opacity: 0 }
 
-  constructor(private renderer2: Renderer2, private windowService: WindowService, private scrollService: ScrollService) {
-    this.animationConfigList = [
-      { start: 500,  middle: 2200, stopping_point: 2500, end: 3100, scale: 0.0, opacity: 0.0 },
-      { start: 3500, middle: 5200, stopping_point: 5500, end: 6100, scale: 0.0, opacity: 0.0 },
-      { start: 6500, middle: 8200, stopping_point: 8500, end: 9100, scale: 0.0, opacity: 0.0 },
-      { start: 9500, middle: 11200, stopping_point: 11500, end: 12100, scale: 0.0, opacity: 0.0 }
+  ];
 
-    ];
-
-  }
+  constructor(private renderer: Renderer2, private scrollService: ScrollService) {}
 
   ngAfterViewInit(): void {
     this.scrollSub = this.scrollService.scrollPosition$.subscribe(scrollY => {
@@ -59,81 +64,46 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
 
   }
 
-  private calculateScale(scrollY: number, index: number): void {
-    const config = this.animationConfigList[index];
+  public animateScrollY(scrollY: number): void {
+    this.contentAboutMe.forEach((content, index) => {
+      const { scale, opacity } = this.calculateAnimationValues(scrollY, this.animationConfigs[index]);
+      this.renderer.setStyle(content.nativeElement, 'transform', `scale(${scale})`);
+      this.renderer.setStyle(content.nativeElement, 'opacity', `${opacity}`);
 
-    const { start, middle, stopping_point, end } = config;
-
-    if (scrollY >= start && scrollY < end) {
-      if (scrollY >= middle && scrollY < stopping_point) {
-        config.scale = 1.0;
-        config.opacity = 1.0;
-        return;
-
-      }
-
-      let minValueScale;
-      let maxValueScale;
-
-      let minValueOpacity;
-      let maxValueOpacity;
-
-      let distScroll;
-      let progress;
-
-      if (scrollY < middle) {
-        minValueScale = 0.0;
-        maxValueScale = 1.0;
-
-        minValueOpacity = 0.0;
-        maxValueOpacity = 1.0;
-
-        distScroll = middle - start;
-        progress = (scrollY - start) / distScroll;
-
-      }
-
-      else {
-        minValueScale = 1.0;
-        maxValueScale = 1.15;
-
-        minValueOpacity = 1.0;
-        maxValueOpacity = 0.0;
-
-        distScroll = end - middle;
-        progress = (scrollY - middle) / distScroll;
-
-      }
-
-      const valueScale: number = parseFloat((minValueScale + progress * (maxValueScale - minValueScale)).toFixed(4));
-      const valueOpacity: number = parseFloat((minValueOpacity + progress * (maxValueOpacity - minValueOpacity)).toFixed(4));
-
-      config.scale = valueScale;
-      config.opacity = valueOpacity;
-
-      return;
-
-    }
-
-    config.scale = 0.0;
-    config.opacity = 0.0;
+    });
 
   }
 
+  private calculateAnimationValues(scrollY: number, config: AnimationConfig): { scale: number; opacity: number } {
+    const { start, middle, stoppingPoint, end } = config;
 
+    if (scrollY >= start && scrollY < end) {
+      if (scrollY >= middle && scrollY < stoppingPoint) {
+        return { scale: 1.0, opacity: 1.0 };
 
-  animateScrollY(scrollY: number): void {
-    this.contentAboutMe.forEach((content, index) => {
+      }
 
-      this.calculateScale(scrollY, index);
+      const isBeforeMiddle: boolean = scrollY < middle;
+      const rangeStart: number = (isBeforeMiddle) ? start : middle;
+      const rangeEnd: number = (isBeforeMiddle) ? middle : end;
 
-      const scaleValue: number = this.animationConfigList[index].scale;
-      const opacityValue: number = this.animationConfigList[index].opacity;
+      const progress: number = (scrollY - rangeStart) / (rangeEnd - rangeStart);
+      const scale:number = isBeforeMiddle
+        ? this.interpolate(0, 1, progress)
+        : this.interpolate(1, 1.15, progress);
 
-      this.renderer2.setStyle(content.nativeElement, "transform", `scale(${scaleValue})`);
-      this.renderer2.setStyle(content.nativeElement, "opacity", `${opacityValue}`);
+      const opacity = isBeforeMiddle
+        ? this.interpolate(0, 1, progress)
+        : this.interpolate(1, 0, progress);
 
-    });
+      return { scale: parseFloat(scale.toFixed(4)), opacity: parseFloat(opacity.toFixed(4)) };
+    }
+
+    return { scale: 0.0, opacity: 0.0 };
+  }
+
+  private interpolate(min: number, max: number, progress: number): number {
+    return min + (max - min) * progress;
 
   }
 
