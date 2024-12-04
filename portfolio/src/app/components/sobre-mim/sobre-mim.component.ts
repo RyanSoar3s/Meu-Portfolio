@@ -93,11 +93,12 @@ export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestr
       const rangeEnd: number = (isBeforeMiddle) ? middle : end;
 
       const progress: number = (scrollY - rangeStart) / (rangeEnd - rangeStart);
-      const scale:number = isBeforeMiddle
+      const scale: number = (isBeforeMiddle && index === 0)
         ? this.interpolate(0, 1, progress)
+        : (isBeforeMiddle) ? this.interpolate(0.5, 1, progress)
         : this.interpolate(1, 1.15, progress);
 
-      const opacity = isBeforeMiddle
+      const opacity = (isBeforeMiddle)
         ? this.interpolate(0, 1, progress)
         : this.interpolate(1, 0, progress);
 
