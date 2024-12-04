@@ -24,11 +24,17 @@
 
 }
 
-@-moz-document url-prefix() {
-  section {
-    width: 75% !important;
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
 
-  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+  min-height: 50px;
+  min-width: 40px;
 
 }
 
@@ -51,8 +57,9 @@ ul {
 }
 
 section {
+  position: relative;
+  background-color: var(--background);
   height: 100vh;
-  width: calc(75vw - 11px);
   margin-left: 25%;
   overflow: hidden;
 
