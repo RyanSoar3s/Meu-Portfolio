@@ -1,22 +1,45 @@
+.background-gradient {
+  position: relative;
+  height: 500px;
+  width: 100%;
+  background: linear-gradient(to top, var(--background), transparent);
+
+}
+
+section {
+  background-color: var(--background);
+  height: 200vh;
+  position: relative;
+  box-shadow: 1px 1px 45px 59px var(--background)
+
+}
+
 div.container-skills {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80%;
+  height: 100%;
   width: 100%;
 
   div.content-skills {
     display: flex;
     flex-direction: column;
-    height: 90%;
-    width: 80%;
+    height: 184vh;
+    width: 75%;
+    margin-top: 60px;
 
-    h1 {
-      align-self: center;
-      margin-bottom: 50px;
-      font-size: 2em;
+  }
 
-    }
+}
+
+div.content-skills > div {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    align-self: center;
+    margin-bottom: 50px;
+    font-size: 2em;
 
   }
 
@@ -24,7 +47,7 @@ div.container-skills {
 
 h1 ~ h2 {
   font-size: 1.6em;
-  text-indent: 21px;
+  text-indent: 40px;
   margin: 30px 0px;
 
 }
