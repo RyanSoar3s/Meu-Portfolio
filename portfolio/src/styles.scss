@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  --background-navigation: #131515;
+  --background: #131515;
   --background-nav-elements: #313131;
   --background-container-elements: #2e3131;
 
@@ -24,15 +24,22 @@
 
 }
 
-@-moz-document url-prefix() {
-  section {
-    width: 75% !important;
+::-webkit-scrollbar {
+  width: 7px;
+  height: 10px;
 
-  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+  min-height: 50px;
+  min-width: 40px;
 
 }
 
 body {
+  background-color: var(--background) !important;
   color: white;
   font-family: "Rubik", sans-serif;
 
@@ -50,10 +57,9 @@ ul {
 }
 
 section {
+  position: relative;
+  background-color: var(--background);
   height: 100vh;
-  min-height: 1500px;
-  width: calc(75vw - 11px);
-  background-color: var(--background-navigation);
   margin-left: 25%;
   overflow: hidden;
 

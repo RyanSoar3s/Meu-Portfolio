@@ -26,12 +26,12 @@ $color-green-scale-5: #006927;
       }
 
       50% {
-        background-position: (-$bp_x_final) $bp_y_final;
+        background-position: -$bp_x_final $bp_y_final;
 
       }
 
       75% {
-        background-position: (-$bp_x_final) $bp_y_ini;
+        background-position: -$bp_x_final $bp_y_ini;
 
       }
 

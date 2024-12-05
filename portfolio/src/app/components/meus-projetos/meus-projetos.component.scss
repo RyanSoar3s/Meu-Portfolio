@@ -1,4 +1,4 @@
-$projects_name: ("Portfólio", "Nome do projeto", "Nome do projeto", "Nome do projeto");
+$projects_name: ("Portfólio", "Projeto", "Projeto", "Projeto");
 
 @keyframes hover_button_width {
   from {
@@ -13,9 +13,13 @@ $projects_name: ("Portfólio", "Nome do projeto", "Nome do projeto", "Nome do pr
 
 }
 
+section {
+  height: 174vh;
+
+}
+
 .container-meus-projetos {
   display: flex;
-  display: -webkit-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
