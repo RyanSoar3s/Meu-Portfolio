@@ -12,11 +12,11 @@ import { ScrollService } from '../../services/scroll.service';
 import { AnimateScrollY } from '../../interfaces/animate-scroll';
 
 @Component({
-  selector: 'app-inicio',
+  selector: 'app-home',
   standalone: true,
   imports: [],
-  templateUrl: './inicio.component.html',
-  styleUrls: ['./inicio.component.scss'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   animations: [
     trigger("textMoveAnimation", [
       transition(":enter", [
@@ -55,7 +55,7 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
   ]
 
 })
-export class InicioComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
+export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   @ViewChild("fixed") fixed!: ElementRef;
   @ViewChild("text")   text!: ElementRef;
   @ViewChild("img")     img!: ElementRef;

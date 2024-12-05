@@ -3,7 +3,7 @@
 
 }
 
-app-conteudo-sobre-mim {
+app-content-about-me {
   display: block;
   position: fixed;
   top: 0;
@@ -28,7 +28,7 @@ app-conteudo-sobre-mim {
 
 }
 
-app-conteudo-sobre-mim:nth-child(even) {
+app-content-about-me:nth-child(even) {
   .content {
     flex-direction: row-reverse;
     margin-right: 40px;
@@ -42,7 +42,7 @@ app-conteudo-sobre-mim:nth-child(even) {
 
 }
 
-app-conteudo-sobre-mim:nth-child(odd) {
+app-content-about-me:nth-child(odd) {
   .content {
     margin-left: 40px;
 

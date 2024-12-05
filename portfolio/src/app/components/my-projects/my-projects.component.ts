@@ -5,14 +5,14 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-meus-projetos',
+  selector: 'app-my-projects',
   standalone: true,
   imports: [],
-  templateUrl: './meus-projetos.component.html',
-  styleUrl: './meus-projetos.component.scss'
+  templateUrl: './my-projects.component.html',
+  styleUrl: './my-projects.component.scss'
 })
 
-export class MeusProjetosComponent {
+export class MyProjectsComponent {
   @ViewChild("border") border!: ElementRef;
   @ViewChild("content") content!: ElementRef;
   private show_detail: boolean = false;

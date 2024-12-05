@@ -3,7 +3,7 @@ import {
   QueryList, AfterViewInit, OnDestroy,
 
 } from '@angular/core';
-import { ConteudoSobreMimComponent } from '../conteudo-sobre-mim/conteudo-sobre-mim.component';
+import { ContentAboutMeComponent } from '../content-about-me/content-about-me.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBuildingColumns, faLaptopCode, faRobot } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
@@ -24,17 +24,17 @@ interface AnimationConfig {
 }
 
 @Component({
-  selector: 'app-sobre-mim',
+  selector: 'app-about-me',
   standalone: true,
   imports: [
     FontAwesomeModule,
-    ConteudoSobreMimComponent
+    ContentAboutMeComponent
 
    ],
-  templateUrl: './sobre-mim.component.html',
-  styleUrl: './sobre-mim.component.scss'
+  templateUrl: './about-me.component.html',
+  styleUrl: './about-me.component.scss'
 })
-export class SobreMimComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
+export class AboutMeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   protected faRobot           = faRobot;
   protected faLaptopCode      = faLaptopCode;
   protected faBuildingColumns = faBuildingColumns;
