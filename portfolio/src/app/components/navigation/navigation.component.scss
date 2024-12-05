@@ -1,26 +1,23 @@
 nav {
   background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   height: 100vh;
   width: 25vw;
+  padding: 20px 0px;
   box-shadow: 1px 1px 1px -1px gray;
+  z-index: 900;
 
 }
 
 nav {
-  display: flex;
-  display: -webkit-flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0px;
-  z-index: 900;
-
   div.photo {
     height: 100px;
     width: 100px;
     border: 2px solid white;
     border-radius: 50%;
-    -webkit-border-radius: 50%;
     margin: 10px 0px 6px 0px;
     cursor: pointer;
 
@@ -41,23 +38,21 @@ nav {
 
   }
 
-  div.icons {
+}
+
+nav div.icons {
+  display: flex;
+  justify-content: space-between;
+  width: 85%;
+  padding: 0px 10px;
+  margin-top: 10px;
+
+  a {
     display: flex;
-    display: -webkit-flex;
-    justify-content: space-between;
-    width: 85%;
-    padding: 0px 10px;
-    margin-top: 10px;
-
-    a {
-      display: flex;
-      display: -webkit-flex;
-      height: 100%;
-      width: 100%;
-      justify-content: center;
-      align-items: center;
-
-    }
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 
   }
 
@@ -68,13 +63,10 @@ nav {
   height: 42px;
   width: 42px;
   display: flex;
-  display: -webkit-flex;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
   transition: .1s transform ease-in;
-  -webkit-transition: .1s transform ease-in;
   -moz-transition: .1s transform ease-in;
   -o-transition: .1s transform ease-in;
   -ms-transition: .1s transform ease-in;
@@ -83,14 +75,12 @@ nav {
 
 .container-contacts:hover {
   transform: scale(1.1) translateY(-2px);
-  -webkit-transform: scale(1.1) translateY(-2px);
   -moz-transform: scale(1.1) translateY(-2px);
   -o-transform: scale(1.1) translateY(-2px);
   -ms-transform: scale(1.1) translateY(-2px);
 
   border: 2px solid white;
   border-radius: 50%;
-  -webkit-border-radius: 50%;
 
 }
 
@@ -107,7 +97,6 @@ nav div.options{
 
   ul {
     display: flex;
-    display: -webkit-flex;
     flex-direction: column;
     height: 95%;
     gap: 11px;
@@ -119,14 +108,12 @@ nav div.options{
 ul {
   li {
     display: flex;
-    display: -webkit-flex;
     position: relative;
     height: 35px;
     width: 93%;
     align-items: center;
     padding: 7px;
     transition: .2s background-color ease-in;
-    -webkit-transition: .2s background-color  ease-in;
     -moz-transition: .1s background-color  ease-in;
     -o-transition: .1s background-color  ease-in;
     -ms-transition: .1s background-color  ease-in;
@@ -163,7 +150,6 @@ ul {
 
 div.info {
   display: flex;
-  display: -webkit-flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
