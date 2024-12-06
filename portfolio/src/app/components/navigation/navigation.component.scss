@@ -148,6 +148,11 @@ ul {
 
 }
 
+li > a {
+  cursor: pointer;
+
+}
+
 div.info {
   display: flex;
   flex-direction: column;
