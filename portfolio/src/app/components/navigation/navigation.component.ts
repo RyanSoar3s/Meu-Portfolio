@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -12,13 +12,18 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons"
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-navigation',
   standalone: true,
   imports: [
     FontAwesomeModule,
-    ScaleImageComponent
+    ScaleImageComponent,
+    CommonModule,
+    RouterLink,
+    RouterLinkActive
 
   ],
   templateUrl: './navigation.component.html',
@@ -26,6 +31,8 @@ import { ScaleImageComponent } from '../scale-image/scale-image.component';
 })
 
 export class NavigationComponent {
+  @Output() enable_navigation_scrolling = new EventEmitter<number>();
+
   // Path
   path: string = "assets/foto-navegacao.jpg";
 
@@ -50,4 +57,13 @@ export class NavigationComponent {
     this.hidden = !this.hidden;
 
   }
+
+  emit(event: Event): void {
+    const a = event.target as HTMLElement;
+    const data_id = Number(a.getAttribute("data-id"));
+
+    this.enable_navigation_scrolling.emit(data_id);
+
+  }
+
 }
