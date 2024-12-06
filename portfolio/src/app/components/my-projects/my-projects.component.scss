@@ -14,7 +14,9 @@ $projects_name: ("Portfólio", "Projeto", "Projeto", "Projeto");
 }
 
 section {
-  height: 174vh;
+  background-color: var(--background);
+  height: 1070.09px;
+  width: 968.25px;
 
 }
 
@@ -24,6 +26,7 @@ section {
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin-top: 43px;
 
   h1 {
     margin-bottom: 50px;
