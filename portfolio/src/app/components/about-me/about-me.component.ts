@@ -11,18 +11,9 @@ import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 import { Subscription } from 'rxjs';
 
 import { AnimateScrollY } from '../../interfaces/animate-scroll';
+import { AnimationConfig } from '../../interfaces/animation-config';
 
 import { ScrollService } from '../../services/scroll.service';
-
-interface AnimationConfig {
-  start: number;
-  middle: number;
-  stoppingPoint: number;
-  end: number;
-  scale: number;
-  opacity: number;
-}
-
 @Component({
   selector: 'app-about-me',
   standalone: true,
