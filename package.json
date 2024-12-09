@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@angular/router": "^18.0.1",
-    "express": "^4.21.1",
     "save": "^2.9.0",
     "web-animations-js": "^2.3.2"
   }
