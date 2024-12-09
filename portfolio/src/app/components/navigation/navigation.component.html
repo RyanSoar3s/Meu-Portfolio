@@ -34,11 +34,8 @@
     </div>
 
     <div class="container-contacts">
-        <a href="mailto:ryansoares.dev@gmail.com" target="_blank" title="ryansoares.dev@gmail.com">
+        <a routerLink="/entre-em-contato" routerLinkActive="active" title="ryansoares.dev@gmail.com">
           <fa-icon [icon]="faEmail"></fa-icon>
-          <!--
-          Renderizar área de email com: <router-outlet></router-outlet>
-          -->
 
         </a>
 
@@ -49,35 +46,35 @@
   <div class="options">
     <ul>
       <li>
-        <a (click)="emit($event)" routerLink="/" routerLinkActive="active" data-id="0"></a>
+        <a (click)="emit($event)" data-id="0"></a>
         <fa-icon [icon]="faHouse"></fa-icon>
         <span>Início</span>
 
       </li>
 
       <li>
-        <a (click)="emit($event)" routerLink="/about-me" routerLinkActive="active" data-id="1"></a>
+        <a (click)="emit($event)" data-id="1"></a>
         <fa-icon [icon]="faUser"></fa-icon>
         <span>Sobre mim</span>
 
       </li>
 
       <li>
-        <a (click)="emit($event)" routerLink="/skills" routerLinkActive="active" data-id="2"></a>
+        <a (click)="emit($event)" data-id="2"></a>
         <fa-icon [icon]="faAtom"></fa-icon>
         <span>Habilidades</span>
 
       </li>
 
       <li>
-        <a (click)="emit($event)" routerLink="/my-projects" routerLinkActive="active" data-id="3"></a>
+        <a (click)="emit($event)" data-id="3"></a>
         <fa-icon [icon]="faSitemap"></fa-icon>
         <span>Meus projetos</span>
 
       </li>
 
       <li>
-        <a (click)="emit($event)" routerLink="/about-this-project" routerLinkActive="active" data-id="4"></a>
+        <a (click)="emit($event)" data-id="4"></a>
         <fa-icon [icon]="faCircleInfo"></fa-icon>
         <span>Sobre este projeto</span>
 
@@ -94,3 +91,4 @@
 
 </nav>
 
+<router-outlet></router-outlet>
