@@ -1,1 +1,38 @@
-<p>form works!</p>
+<div class="container">
+  <div class="form">
+    <div class="container-close">
+      <div class="background--close" (click)="backToHome()">
+        <div class="close"></div>
+        <div class="close"></div>
+
+      </div>
+
+    </div>
+
+    <h1>Entre em contato:</h1>
+
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <label for="name"><span>Nome:</span></label>
+      <input type="text" name="name" id="name" formControlName="name" [ngClass]="(profileForm.get('name')?.touched && !isSpace(profileForm.get('name')?.value ?? '')) ? 'valid' : (profileForm.get('name')?.touched && isSpace(profileForm.get('name')?.value ?? '')) ? 'invalid' : ''">
+
+      <label for="email"><span>Email:</span></label>
+      <input type="email" name="email" id="email" formControlName="email" [ngClass]="(profileForm.get('email')?.valid && profileForm.get('email')?.touched && !isSpace(profileForm.get('email')?.value ?? '')) ? 'valid' : (profileForm.get('email')?.invalid && profileForm.get('email')?.touched && isSpace(profileForm.get('email')?.value ?? '')) ? 'invalid' : ''">
+
+      <label for="content"><span>Conteúdo:</span></label>
+      <textarea name="content" id="content" formControlName="content" [ngClass]="(profileForm.get('content')?.touched && !isSpace(profileForm.get('content')?.value ?? '')) ? 'valid' : (profileForm.get('content')?.touched && isSpace(profileForm.get('content')?.value ?? '')) ? 'invalid' : ''"></textarea>
+
+      <button type="submit"><span id="submit">Enviar</span></button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<div #message_sent class="message-sent">
+  <div>
+    <h1>Seu e-mail foi enviado com sucesso &#9989;</h1>
+
+  </div>
+
+</div>
