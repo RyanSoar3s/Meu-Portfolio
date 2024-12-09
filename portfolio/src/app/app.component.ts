@@ -14,8 +14,6 @@ import { ScrollPositions } from './interfaces/scroll-positions';
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
 
-import { Router, ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -37,17 +35,15 @@ export class AppComponent implements OnInit {
   private scrollPositions: ScrollPositions[] = [
     { posY: 0     },
     { posY: 2398  },
-    { posY: 12392 },
-    { posY: 13444 },
-    { posY: 14519 }
+    { posY: 13025 },
+    { posY: 14098 },
+    { posY: 15235 }
 
   ]
 
-  constructor(private windowService: WindowService, private scrollService: ScrollService, private router: Router, private activatedRoute: ActivatedRoute) {}
+  constructor(private windowService: WindowService, private scrollService: ScrollService) {}
 
   ngOnInit(): void {
-    this.router.navigate(["/"], { relativeTo: this.activatedRoute })
-
     if (this.windowService.nativeWindow) {
       history.scrollRestoration = 'manual';
       this.windowService.nativeWindow.scrollTo(0, 0);
