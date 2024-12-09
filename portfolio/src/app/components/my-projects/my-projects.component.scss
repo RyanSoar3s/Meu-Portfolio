@@ -15,7 +15,7 @@ $projects_name: ("Portfólio", "Projeto", "Projeto", "Projeto");
 
 section {
   background-color: var(--background);
-  height: 1070.09px;
+  height: 1150px;
   width: 968.25px;
 
 }
@@ -25,6 +25,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 1092px;
   width: 100%;
   margin-top: 43px;
 
@@ -37,10 +38,11 @@ section {
 
 .grid-meus-projetos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
   position: relative;
-  height: 62%;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-items: center;
+  height: 1014px;
   width: 90%;
 
 }
@@ -84,15 +86,17 @@ section {
 
 .projeto {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 101%;
+  height: 415px;
   width: 76%;
   border-radius: 18px;
   filter: brightness(0.7);
 
   img {
+    position: absolute;
     height: 412px;
     width: 100%;
     border-radius: 18px;
@@ -120,6 +124,7 @@ section {
     top: 40px;
     font-size: 1.2em;
     font-weight: 600;
+    z-index: 1;
 
   }
 
@@ -147,7 +152,7 @@ section {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  bottom: 89px;
+  top: 162px;
   padding: 28px 10px;
   border-radius: 0px 0px 15px 15px;
   z-index: -1;
