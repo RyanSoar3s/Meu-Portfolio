@@ -12,7 +12,7 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons"
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
     FontAwesomeModule,
     ScaleImageComponent,
     CommonModule,
+    RouterOutlet,
     RouterLink,
     RouterLinkActive
 
