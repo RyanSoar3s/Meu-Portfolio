@@ -16,7 +16,7 @@
       <input type="text" name="name" id="name" formControlName="name" [ngClass]="(profileForm.get('name')?.touched && !isSpace(profileForm.get('name')?.value ?? '')) ? 'valid' : (profileForm.get('name')?.touched && isSpace(profileForm.get('name')?.value ?? '')) ? 'invalid' : ''">
 
       <label for="email"><span>Email:</span></label>
-      <input type="email" name="email" id="email" formControlName="email" [ngClass]="(profileForm.get('email')?.valid && profileForm.get('email')?.touched && !isSpace(profileForm.get('email')?.value ?? '')) ? 'valid' : (profileForm.get('email')?.invalid && profileForm.get('email')?.touched && isSpace(profileForm.get('email')?.value ?? '')) ? 'invalid' : ''">
+      <input type="email" name="email" id="email" formControlName="email" [ngClass]="(profileForm.get('email')?.valid && profileForm.get('email')?.touched && !isSpace(profileForm.get('email')?.value ?? '')) ? 'valid' : (profileForm.get('email')?.invalid && profileForm.get('email')?.touched) ? 'invalid' : ''">
 
       <label for="content"><span>Conteúdo:</span></label>
       <textarea name="content" id="content" formControlName="content" [ngClass]="(profileForm.get('content')?.touched && !isSpace(profileForm.get('content')?.value ?? '')) ? 'valid' : (profileForm.get('content')?.touched && isSpace(profileForm.get('content')?.value ?? '')) ? 'invalid' : ''"></textarea>
