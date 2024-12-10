@@ -5,6 +5,8 @@ import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-form',
   standalone: true,
@@ -28,7 +30,7 @@ export class FormComponent {
 
   });
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(private renderer: Renderer2, private router: Router, private http : HttpClient) {}
 
   backToHome(): void {
     this.router.navigate(["/"]);
@@ -47,6 +49,12 @@ export class FormComponent {
       return;
 
     }
+
+    this.http.post("http://localhost:5000/api/send-email", this.profileForm.value, { responseType: "text" }).subscribe({
+      next: (res) => console.log(res),
+      error: (err) => console.log(err)
+
+    });
 
     setTimeout(() => {
       this.renderer.addClass(this.message_sent.nativeElement, "show");
