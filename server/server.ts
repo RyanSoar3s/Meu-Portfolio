@@ -10,12 +10,13 @@ import { OAuth2Client } from 'google-auth-library';
 dotenv.config();
 
 const oAuth2Client = new OAuth2Client(
-    String(process.env.OAUTH_CLIENT_ID),
-    String(process.env.OAUTH_CLIENT_SECRET),
-    "https://developers.google.com/oauthplayground"
+    process.env.OAUTH_CLIENT_ID,
+    process.env.OAUTH_CLIENT_SECRET,
+    process.env.URI
+    
 )
 
-oAuth2Client.setCredentials({ refresh_token: String(process.env.OAUTH_REFRESH_TOKEN) });
+oAuth2Client.setCredentials({ refresh_token: process.env.OAUTH_REFRESH_TOKEN });
 
 const app = express();
 
