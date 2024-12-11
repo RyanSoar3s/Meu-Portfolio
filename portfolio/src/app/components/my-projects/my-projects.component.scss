@@ -1,3 +1,5 @@
+@use "sass:list";
+
 $projects_name: ("Portfólio", "Projeto", "Projeto", "Projeto");
 
 @keyframes hover_button_width {
@@ -116,9 +118,9 @@ section {
 
 }
 
-@for $i from 1 through length($projects_name) {
+@for $i from 1 through list.length($projects_name) {
   .projeto-#{$i}::before {
-    content: "#{nth($projects_name, $i)}";
+    content: "#{list.nth($projects_name, $i)}";
     position: absolute;
     color: var(--color-blue-scale-1);
     top: 40px;

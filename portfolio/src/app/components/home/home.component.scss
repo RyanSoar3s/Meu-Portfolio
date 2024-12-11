@@ -14,6 +14,10 @@ $color-green-scale-5: #006927;
 
 
 @mixin animation_color($animation, $bp_x_ini, $bp_y_ini, $bp_x_final, $bp_y_final, $bs_x, $bs_y, $time) {
+  animation: $animation $time ease-in-out infinite;
+  -webkit-animation: $animation $time ease-in-out infinite;
+  -o-animation: $animation $time ease-in-out infinite;
+
     @keyframes #{$animation} {
       0% {
         background-position: $bp_x_ini $bp_y_ini;
@@ -41,9 +45,7 @@ $color-green-scale-5: #006927;
       }
 
   }
-  animation: $animation $time ease-in-out infinite;
-  -webkit-animation: $animation $time ease-in-out infinite;
-  -o-animation: $animation $time ease-in-out infinite;
+
 }
 
 .container-inicio {
