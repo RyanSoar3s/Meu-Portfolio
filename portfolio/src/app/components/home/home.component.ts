@@ -125,8 +125,10 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.scrollSub.unsubscribe();
-
+    if (this.scrollSub) {
+      this.scrollSub.unsubscribe();
+      
+    }
   }
 
 }

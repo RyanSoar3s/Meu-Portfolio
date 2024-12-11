@@ -105,7 +105,10 @@ export class AboutMeComponent implements AnimateScrollY, AfterViewInit, OnDestro
   }
 
   ngOnDestroy(): void {
-    this.scrollSub.unsubscribe();
+    if (this.scrollSub) {
+      this.scrollSub.unsubscribe();
+      
+    }
 
   }
 
