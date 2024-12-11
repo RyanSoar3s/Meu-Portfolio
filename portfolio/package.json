@@ -35,7 +35,7 @@
     "@angular/cli": "^19.0.4",
     "@angular/compiler-cli": "^19.0.3",
     "@types/jasmine": "~5.1.0",
-    "@types/node": "^18.18.0",
+    "@types/node": "^22.10.2",
     "jasmine-core": "^5.5.0",
     "karma": "^6.4.4",
     "karma-chrome-launcher": "~3.2.0",
@@ -43,7 +43,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.1",
-    "typescript": "^5.7.2",
+    "typescript": "5.6.x",
     "zone.js": "^0.15.0"
   }
 }
