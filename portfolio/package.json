@@ -21,15 +21,14 @@
     "@angular/platform-server": "^19.0.3",
     "@angular/router": "^19.0.3",
     "@angular/ssr": "^19.0.4",
-    "@fortawesome/angular-fontawesome": "^0.15.0",
+    "@fortawesome/angular-fontawesome": "^1.0.0",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-regular-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "rxjs": "~7.8.0",
     "save": "^2.9.0",
     "tslib": "^2.3.0",
-    "web-animations-js": "^2.3.2",
-    "zone.js": "~0.14.3"
+    "web-animations-js": "^2.3.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^19.0.4",
@@ -37,13 +36,14 @@
     "@angular/compiler-cli": "^19.0.3",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
-    "jasmine-core": "~5.1.0",
-    "karma": "~6.4.0",
+    "jasmine-core": "^5.5.0",
+    "karma": "^6.4.4",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "ng-packagr": "^19.0.1",
-    "typescript": "~5.6.3"
+    "typescript": "^5.7.2",
+    "zone.js": "^0.15.0"
   }
 }
