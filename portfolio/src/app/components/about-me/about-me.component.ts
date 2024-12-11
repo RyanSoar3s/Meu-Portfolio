@@ -1,6 +1,6 @@
 import {
   Component, Renderer2, ViewChildren, ElementRef,
-  QueryList, AfterViewInit, OnDestroy,
+  QueryList, AfterViewInit, OnDestroy
 
 } from '@angular/core';
 import { ContentAboutMeComponent } from '../content-about-me/content-about-me.component';
@@ -107,7 +107,7 @@ export class AboutMeComponent implements AnimateScrollY, AfterViewInit, OnDestro
   ngOnDestroy(): void {
     if (this.scrollSub) {
       this.scrollSub.unsubscribe();
-      
+
     }
 
   }
