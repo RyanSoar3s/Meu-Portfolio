@@ -12,7 +12,7 @@ const oAuth2Client = new OAuth2Client(
     process.env.OAUTH_CLIENT_ID,
     process.env.OAUTH_CLIENT_SECRET,
     process.env.URI
-    
+
 )
 
 oAuth2Client.setCredentials({ refresh_token: process.env.OAUTH_REFRESH_TOKEN });
@@ -29,8 +29,7 @@ app.use(cors({
 app.use(express.json());
 
 app.post("/api/send-email", async (req, res) => {
-    const { name, email, content } = req.body;
-    const accessToken = await oAuth2Client.getAccessToken();
+    const { name, email, content } = req.body;    const accessToken = await oAuth2Client.getAccessToken();
 
     const transporter = nodemailer.createTransport({
         service: "gmail",
