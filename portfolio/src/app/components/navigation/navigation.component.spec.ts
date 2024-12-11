@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavigationComponent } from './navigation.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('NavigationComponent', () => {
   let component: NavigationComponent;
@@ -8,7 +10,10 @@ describe('NavigationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NavigationComponent]
+      imports: [NavigationComponent],
+      providers: [
+        { provide: ActivatedRoute, useValue: { snapshot: { paramMap: of({}) } } },
+      ]
     })
     .compileComponents();
 
