@@ -75,7 +75,7 @@ app.post("/api/send-email", async (req, res) => {
                 </tr>
 
                 <tr>
-                    <td style="border-top: 1px solid #b5b5b563; border-bottom: 1px solid #b5b5b563; padding: 20px 30px 50px 30px; background-color: #202020; color: #ffffff; margin: 0; font-size: 1.1em; white-space: pre-line;">
+                    <td style="border-top: 1px solid #b5b5b563; border-bottom: 1px solid #b5b5b563; padding: 20px 30px 50px 30px; background-color: #202020; color: #ffffff; margin: 0; text-align: justify; text-indent: 15px; font-size: 1.1em; white-space: pre-line;">
                       ${content}
 
                     </td>
