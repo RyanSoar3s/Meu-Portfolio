@@ -1,5 +1,6 @@
 import {
-  Component, OnInit, HostListener
+  Component, OnInit, HostListener,
+  AfterViewInit
 
 } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -13,6 +14,7 @@ import { ScrollPositions } from './interfaces/scroll-positions';
 
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
+import { ResponsiveObservableService } from './services/responsive-observable.service';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +31,7 @@ import { ScrollService } from './services/scroll.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'portfolio';
 
   private scrollPositions: ScrollPositions[] = [
@@ -40,8 +42,14 @@ export class AppComponent implements OnInit {
     { posY: 15235 }
 
   ]
+  navigationClasses: boolean[] = [ true ];
 
-  constructor(private windowService: WindowService, private scrollService: ScrollService) {}
+  constructor(
+    private windowService: WindowService,
+    private scrollService: ScrollService,
+    private responsiveObservableService$: ResponsiveObservableService
+
+  ) {}
 
   ngOnInit(): void {
     if (this.windowService.nativeWindow) {
@@ -49,6 +57,19 @@ export class AppComponent implements OnInit {
       this.windowService.nativeWindow.scrollTo(0, 0);
 
     }
+
+  }
+
+  ngAfterViewInit(): void {
+    this.responsiveObservableService$.subscribe((v) => this.setComponentClasses(v));
+
+  }
+    /////////////////////////////////////////////////////////////////////////
+    ////console.log(result.breakpoints[Breakpoints.XSmall]) USAR ISSO!!!!////
+    /////////////////////////////////////////////////////////////////////////
+
+  private setComponentClasses(v: any): void {
+    this.navigationClasses = v;
 
   }
 

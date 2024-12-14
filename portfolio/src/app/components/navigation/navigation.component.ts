@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
 })
 
 export class NavigationComponent {
+  @Input() classes!: boolean[];
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
 
   // Path

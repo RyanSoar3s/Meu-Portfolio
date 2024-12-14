@@ -1,6 +1,6 @@
 <app-scale-image [path]="path" [hidden]="hidden" (change_scale)="changeImageScale()"></app-scale-image>
 
-<nav>
+<nav [ngClass]="(!classes) ? 'hidden' : ''">
   <div class="photo" (click)="changeImageScale()">
     <img [src]="path" alt="foto do portfolio">
 
