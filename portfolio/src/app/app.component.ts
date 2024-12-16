@@ -1,6 +1,5 @@
 import {
-  Component, OnInit, HostListener,
-  AfterViewInit
+  Component, OnInit, HostListener
 
 } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -10,11 +9,8 @@ import { MySkillsComponent } from './components/my-skills/my-skills.component';
 import { MyProjectsComponent } from './components/my-projects/my-projects.component';
 import { AboutThisProjectComponent } from './components/about-this-project/about-this-project.component';
 
-import { ScrollPositions } from './interfaces/scroll-positions';
-
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
-import { ResponsiveObservableService } from './services/responsive-observable.service';
 
 @Component({
   selector: 'app-root',
@@ -31,10 +27,10 @@ import { ResponsiveObservableService } from './services/responsive-observable.se
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  private scrollPositions: ScrollPositions[] = [
+  private scrollPositions = [
     { posY: 0     },
     { posY: 2398  },
     { posY: 13025 },
@@ -42,12 +38,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     { posY: 15235 }
 
   ]
-  navigationClasses: boolean[] = [ true ];
-
   constructor(
     private windowService: WindowService,
-    private scrollService: ScrollService,
-    private responsiveObservableService$: ResponsiveObservableService
+    private scrollService: ScrollService
 
   ) {}
 
@@ -57,19 +50,6 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.windowService.nativeWindow.scrollTo(0, 0);
 
     }
-
-  }
-
-  ngAfterViewInit(): void {
-    this.responsiveObservableService$.subscribe((v) => this.setComponentClasses(v));
-
-  }
-    /////////////////////////////////////////////////////////////////////////
-    ////console.log(result.breakpoints[Breakpoints.XSmall]) USAR ISSO!!!!////
-    /////////////////////////////////////////////////////////////////////////
-
-  private setComponentClasses(v: any): void {
-    this.navigationClasses = v;
 
   }
 
