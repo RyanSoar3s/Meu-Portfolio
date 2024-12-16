@@ -1,7 +1,8 @@
 import {
   Component, ElementRef,
   Renderer2, ViewChild,
-  AfterViewInit, OnDestroy
+  OnInit, AfterViewInit,
+  OnDestroy
 
 } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
@@ -55,7 +56,7 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
   ]
 
 })
-export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
+export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnDestroy {
   @ViewChild("fixed") fixed!: ElementRef;
   @ViewChild("text")   text!: ElementRef;
   @ViewChild("img")     img!: ElementRef;
@@ -67,6 +68,14 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   private scale:      number = 0;
 
   constructor(private renderer2: Renderer2, private windowService: WindowService, private scrollService: ScrollService) {}
+  ngOnInit(): void {
+    if (this.windowService.nativeWindow) {
+      history.scrollRestoration = 'manual';
+      this.windowService.nativeWindow.scrollTo(0, 0);
+
+    }
+
+  }
 
   ngAfterViewInit(): void {
     this.scrollSub = this.scrollService.scrollPosition$.subscribe((scrollY) => {
@@ -127,7 +136,7 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.scrollSub) {
       this.scrollSub.unsubscribe();
-      
+
     }
   }
 
