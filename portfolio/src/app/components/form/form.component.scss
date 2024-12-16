@@ -37,7 +37,7 @@ h1 {
   align-items: center;
   justify-content: center;
   height: 400px;
-  width: 100%;
+  width: 57%;
 
   label {
     position: absolute;
@@ -50,11 +50,11 @@ h1 {
   label:nth-child(5) {
     background-color: white;
     height: 38px;
-    width: 480px;
+    width: 98%;
     margin-top: 2px;
 
     span {
-      width: 19%;
+      width: 101.41px;
 
     }
 
@@ -119,8 +119,8 @@ h1 {
     height: 40px;
     width: 70px;
     border-radius: 9px;
-    top: calc(60px * #{$i});
-    left: 214px;
+    top: calc(59px * #{$i});
+    left: 4px;
     padding: 5px;
 
     span {
@@ -145,7 +145,7 @@ form input[type=text], form input[type=email], form textarea {
   outline-offset: 3px;
   border: none;
   margin-bottom: 20px;
-  width: 550px;
+  width: 100%;
   border-radius: 12px;
 
 }
@@ -184,7 +184,7 @@ button {
   align-items: center;
   justify-content: center;
   height: 50px;
-  width: 550px;
+  width: 100%;
   border: 1px solid gray;
   border-radius: 12px;
   cursor: pointer;

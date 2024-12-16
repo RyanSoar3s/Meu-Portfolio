@@ -1,8 +1,3 @@
-.hidden {
-  display: none;
-
-}
-
 nav {
   background-color: var(--background);
   display: flex;
@@ -11,7 +6,7 @@ nav {
   position: fixed;
   height: 100vh;
   width: 25vw;
-  padding: 20px 0px;
+  padding-top: 20px;
   box-shadow: 1px 1px 1px -1px gray;
   z-index: 900;
 
@@ -99,6 +94,7 @@ nav div.options{
   width: 100%;
   padding-left: 40px;
   margin-top: 40px;
+  margin-bottom: 53px;
 
   ul {
     display: flex;
@@ -157,15 +153,21 @@ li > a {
   cursor: pointer;
 
 }
+.container-info {
+  position: relative;
+  height: 165px;
+  width: 100%;
+
+}
 
 div.info {
+  position: absolute;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: flex-end;
   align-items: center;
-  padding: 10px 0%;
+  justify-content: center;
+  height: 30px;
+  width: 100%;
 
   h4 span{
     color: var(--color-blue-scale-1);
