@@ -1,52 +1,88 @@
 import { Injectable } from '@angular/core';
-import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
-import { Subscription } from 'rxjs';
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
-import { TypeClasses } from '../interfaces/type-classes';
+import { MapComponentValues } from '../interfaces/component-values';
+
+import { ResponsiveComponentValuesService } from './responsive-component-values.service';
+import { BehaviorSubject } from 'rxjs';
+
+import { map } from 'rxjs/operators'
+
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
+import { DestroyRef } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResponsiveObservableService {
-  private componentClasses: TypeClasses = { navigation: [true] };
-  private sub!: Subscription;
+  private behaviorSuject = new BehaviorSubject<MapComponentValues<string, object>>({
+    components: {}
 
-  constructor(private breakpointObserver$: BreakpointObserver) {}
+  });
+  public componentValuesObserver$ = this.behaviorSuject.asObservable();
+  private mapComponentValues!: MapComponentValues<string, object>;
 
-  public subscribe(callback: (v: any) => void): void {
-    if (!this.sub || this.sub.closed) {
-      this.sub = this.breakpointObserver$
-      .observe([
-        Breakpoints.Medium,
-        Breakpoints.Small,
-        Breakpoints.XSmall,
-
-      ])
-      .subscribe({
-        next: (result: BreakpointState) => callback([true])
-        // next: (result: BreakpointState) => callback(result)
-      });
+  //private XLARGE = "(min-width: 1200px)";
+  private LARGE = "(min-width: 992px)"
+  private MEDIUM = "(min-width: 768px)";
+  private SMALL = "(min-width: 600px)";
+  private XSMALL = "(max-width: 600px)";
 
 
-    }
+  constructor(
+              private breakpointObserver$: BreakpointObserver,
+              private responsiveComponentValuesService: ResponsiveComponentValuesService,
+              private destroyRef: DestroyRef
 
-  }
+  ) {
+    this.breakpointObserver$.observe([
+      //this.XLARGE,
+      this.LARGE,
+      this.MEDIUM,
+      this.SMALL,
+      this.XSMALL
 
-  private setClasses(result: BreakpointState, callback: (v: any) => void): void {
-    for (let v of Object.values(result)) {
-      for (let breakpoint of Object.keys(v)){
-        if (breakpoint === Breakpoints.XSmall && v[breakpoint]) {
-          this.componentClasses.navigation = [!this.componentClasses.navigation[0]]
-          //callback(this.componentClasses.navigation[0])
+    ])
+    .pipe(
+      map((result: BreakpointState) => {
+        if (result.matches) {
+          /*if (result.breakpoints[this.XLARGE]) {
+            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.XLARGE);
+
+
+          }*/
+
+          if (result.breakpoints[this.LARGE]) {
+            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.LARGE);
+
+          }
+
+          else if (result.breakpoints[this.MEDIUM]) {
+            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.MEDIUM);
+
+          }
+
+          else if (result.breakpoints[this.SMALL]) {
+            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.SMALL);
+
+          }
+
+          else {
+            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.XSMALL);
+
+          }
 
         }
 
-      }
+      }),
+      takeUntilDestroyed(this.destroyRef)
 
-    }
-    /////////////////////////////////////////////////////////////////////////
-    ////console.log(result.breakpoints[Breakpoints.XSmall]) USAR ISSO!!!!////
-    /////////////////////////////////////////////////////////////////////////
+    )
+    .subscribe(() => {
+      this.behaviorSuject.next(this.mapComponentValues)
+
+    });
+
   }
 
 }
