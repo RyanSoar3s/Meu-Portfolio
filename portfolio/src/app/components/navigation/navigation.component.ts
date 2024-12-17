@@ -1,4 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component, Output,
+  EventEmitter, OnInit
+
+} from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -14,6 +18,9 @@ import {
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+
+import { MapComponentValues } from '../../interfaces/component-values';
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 
 @Component({
   selector: 'app-navigation',
@@ -31,9 +38,10 @@ import { CommonModule } from '@angular/common';
   styleUrl: './navigation.component.scss'
 })
 
-export class NavigationComponent {
-  @Input() classes!: boolean[];
+export class NavigationComponent implements OnInit {
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
+
+  mapNavigationValues!: MapComponentValues<string, object>;
 
   // Path
   path: string = "assets/foto-navegacao.jpg";
@@ -50,13 +58,35 @@ export class NavigationComponent {
   protected faCircleInfo = faCircleInfo;
 
   // Mostrar/Ocultar foto com zoom
-  protected hidden: boolean = true;
+  protected imgIsHidden: boolean = true;
+  protected menuBarIsHidden!: boolean;
+
+  constructor(private responsiveObservableService: ResponsiveObservableService) {}
+
+  ngOnInit(): void { // Mover nav para fora da tela e trazer ela quando o menu for clicado.
+    //Usar módulo de animações
+    this.responsiveObservableService.componentValuesObserver$.subscribe((mapValues: MapComponentValues<string, object>) => {
+      this.mapNavigationValues = mapValues;
+      this.menuBarIsHidden = !!mapValues.components.navigation?.isHidden;
+      //console.log(this.menuBarIsHidden)
+
+    })
+
+  }
+
+  showMenu(): void {
+    this.mapNavigationValues.components.navigation!.isHidden = !this.mapNavigationValues.components.navigation?.isHidden;
+
+    //this.menuBarIsHidden = !this.menuBarIsHidden;
+
+
+  }
 
   changeImageScale() {
     const body: HTMLElement = document.body;
-    body.style.overflow = (this.hidden) ? "hidden" : "auto";
+    body.style.overflowY = (this.imgIsHidden) ? "hidden" : "auto";
 
-    this.hidden = !this.hidden;
+    this.imgIsHidden = !this.imgIsHidden;
 
   }
 
