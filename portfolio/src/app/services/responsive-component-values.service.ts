@@ -18,7 +18,7 @@ export class ResponsiveComponentValuesService {
       case this.LARGE:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(false, ...[ "25vw", "1.9em", "16px", "42px", "95%", "1.4em", "40px", "40px", "7px", "53px", "1.2em", "1em" ])
+            navigation: this.getNavigationValues(false, [ "25vw", "1.9em", "19px", "42px", "95%", "1.6em", "40px", "53px", "1.2em", "1em" ])
 
           }
 
@@ -28,7 +28,7 @@ export class ResponsiveComponentValuesService {
       case this.MEDIUM:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(false, ...[ "29vw", "1.6em", "16px", "39px", "95%", "1.6em", "37px", "40px", "7px", "53px", "1.2em", "15px" ])
+            navigation: this.getNavigationValues(false, [ "29vw", "1.6em", "18px", "39px", "95%", "1.6em", "40px", "53px", "1.2em", "15px" ])
 
           }
 
@@ -38,7 +38,7 @@ export class ResponsiveComponentValuesService {
       case this.SMALL:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(true, ...[ "29vw", "1.6em", "16px", "39px", "95%", "1.6em", "37px", "40px", "7px", "53px", "1.2em", "15px"  ])
+            navigation: this.getNavigationValues(true, [ "45vw", "1.6em", "18px", "45px", "95%", "1.7em", "40px", "53px", "1.2em", "17px"  ])
 
           }
 
@@ -48,7 +48,7 @@ export class ResponsiveComponentValuesService {
       default:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(true)
+            navigation: this.getNavigationValues(true, [ "60vw", "1.6em", "15px", "38px", "100%", "1.4em", "40px", "53px", "1.1em", "14px"  ])
 
           }
 
@@ -62,7 +62,7 @@ export class ResponsiveComponentValuesService {
 
   }
 
-  private getNavigationValues(isHidden: boolean, ...sizes: string[]): any {
+  private getNavigationValues(isHidden: boolean, sizes: string[]): any {
     let navigationValues = {
       isHidden: isHidden,
 
@@ -70,7 +70,7 @@ export class ResponsiveComponentValuesService {
         navWidth: sizes[0],
         titles: { h2: sizes[1], h4: sizes[2] },
         contacts: { size: sizes[3], divIcons: { width: sizes[4] },  faIcon: sizes[5] },
-        options: { paddingLeft: sizes[6], marginTop: sizes[7], liPadding: sizes[8], marginBottom: sizes[9], faIcon: sizes[10], span: sizes[11] }
+        options: { marginTop: sizes[6], marginBottom: sizes[7], faIcon: sizes[8], span: sizes[9] }
 
       }
 

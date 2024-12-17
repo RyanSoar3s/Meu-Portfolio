@@ -2,17 +2,20 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 75px;
-  width: 75px;
-  top: 19px;
-  left: 25px;
+  height: 50px;
+  width: 50px;
+  top: 0px;
+  left: 0px;
+  margin-top: 5px;
+  margin-left: 5px;
   cursor: pointer;
+  z-index: 900;
 
   .line {
-    background-color: #2e2e2e;
-    height: 8px;
-    width: 54px;
-    margin-bottom: 6px;
+    background-color: #ffffffc7;
+    height: 4px;
+    width: 32px;
+    margin-bottom: 5px;
     border-radius: 10px;
     box-shadow: 1px 1px 3px 1px #00000063;
 
@@ -21,14 +24,23 @@
 }
 
 .menu:hover {
-  background-color: #00000033;;
+  background-color: #cdcdcd33;
   border-radius: 50%;
+
+}
+
+.overlay {
+  background-color: #0000008a;;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+  z-index: 700;
 
 }
 
 nav {
   background-color: var(--background);
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -135,7 +147,8 @@ ul {
     display: flex;
     position: relative;
     height: 35px;
-    width: 97%;
+    width: 87%;
+    left: 20px;
     align-items: center;
     transition: .2s background-color ease-in;
     -moz-transition: .1s background-color  ease-in;
@@ -153,11 +166,13 @@ ul {
   fa-icon {
     position: absolute;
     font-size: 1.2em;
+    margin-left: 5px;
 
   }
 
   span {
-    margin-left: 30px;
+    margin-left: 34px;
+    font-weight: 500;
 
   }
 
@@ -188,9 +203,15 @@ div.info {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 30px;
+  justify-content: flex-start;
+  height: 50px;
   width: 100%;
+
+  h4 {
+    text-align: center;
+    text-wrap: wrap;
+
+  }
 
   h4 span{
     color: var(--color-blue-scale-1);

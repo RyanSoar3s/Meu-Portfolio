@@ -7,7 +7,7 @@ export declare interface MapComponentValues<string, object> {
         navWidth: string,
         titles: { h2: string, h4: string },
         contacts: { size: number, divIcons: { width: string }, faIcon: string },
-        options: { paddingLeft: string, marginTop: string, liPadding: string, marginBottom: string, faIcon: string, span: string }
+        options: { marginTop: string, marginBottom: string, faIcon: string, span: string }
 
       }
 

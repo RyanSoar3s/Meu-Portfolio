@@ -22,6 +22,8 @@ import { CommonModule } from '@angular/common';
 import { MapComponentValues } from '../../interfaces/component-values';
 import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 
+import { trigger, state, transition, animate, style } from '@angular/animations';
+
 @Component({
   selector: 'app-navigation',
   standalone: true,
@@ -35,7 +37,25 @@ import { ResponsiveObservableService } from '../../services/responsive-observabl
 
   ],
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.scss'
+  styleUrl: './navigation.component.scss',
+  animations: [
+    trigger("navAnimation", [
+      state("hidden", style({
+        left: "-355px"
+
+      })),
+
+      state("show", style({
+        left: "0px"
+
+      })),
+
+      transition("hidden <=> show", [ animate("0.5s ease") ])
+
+    ])
+
+  ]
+
 })
 
 export class NavigationComponent implements OnInit {
@@ -63,12 +83,10 @@ export class NavigationComponent implements OnInit {
 
   constructor(private responsiveObservableService: ResponsiveObservableService) {}
 
-  ngOnInit(): void { // Mover nav para fora da tela e trazer ela quando o menu for clicado.
-    //Usar módulo de animações
+  ngOnInit(): void {
     this.responsiveObservableService.componentValuesObserver$.subscribe((mapValues: MapComponentValues<string, object>) => {
       this.mapNavigationValues = mapValues;
-      this.menuBarIsHidden = !!mapValues.components.navigation?.isHidden;
-      //console.log(this.menuBarIsHidden)
+      this.menuBarIsHidden = !this.mapNavigationValues.components.navigation?.isHidden;
 
     })
 
@@ -76,8 +94,6 @@ export class NavigationComponent implements OnInit {
 
   showMenu(): void {
     this.mapNavigationValues.components.navigation!.isHidden = !this.mapNavigationValues.components.navigation?.isHidden;
-
-    //this.menuBarIsHidden = !this.menuBarIsHidden;
 
 
   }
@@ -90,7 +106,10 @@ export class NavigationComponent implements OnInit {
 
   }
 
-  emit(event: Event): void {
+  emit(event: Event, show_menu: boolean): void {
+    if (show_menu)
+      this.showMenu();
+  
     const a = event.target as HTMLElement;
     const data_id = Number(a.getAttribute("data-id"));
 
