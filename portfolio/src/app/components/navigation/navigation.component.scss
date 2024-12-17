@@ -146,10 +146,10 @@ ul {
   li {
     display: flex;
     position: relative;
+    align-items: center;
     height: 35px;
     width: 87%;
     left: 20px;
-    align-items: center;
     transition: .2s background-color ease-in;
     -moz-transition: .1s background-color  ease-in;
     -o-transition: .1s background-color  ease-in;
