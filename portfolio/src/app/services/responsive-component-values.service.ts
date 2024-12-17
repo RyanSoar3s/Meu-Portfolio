@@ -18,7 +18,7 @@ export class ResponsiveComponentValuesService {
       case this.LARGE:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(false, ...[ "25vw", "1.9em", "16px", "42px", "85%", "1.4em", "40px", "40px", "7px", "53px", "1.2em", "1em" ])
+            navigation: this.getNavigationValues(false, ...[ "25vw", "1.9em", "16px", "42px", "95%", "1.4em", "40px", "40px", "7px", "53px", "1.2em", "1em" ])
 
           }
 
@@ -28,7 +28,7 @@ export class ResponsiveComponentValuesService {
       case this.MEDIUM:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(false, ...[ "29vw", "1.6em", "16px", "39px", "91%", "1.6em", "30px", "28px", "6px", "40px", "1.2em", "15px" ])
+            navigation: this.getNavigationValues(false, ...[ "29vw", "1.6em", "16px", "39px", "95%", "1.6em", "37px", "40px", "7px", "53px", "1.2em", "15px" ])
 
           }
 
@@ -38,7 +38,7 @@ export class ResponsiveComponentValuesService {
       case this.SMALL:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(true, ...[ "29vw", "1.5em", "16px", "39px",  "75%", "1.6em", "30px", "28px", "6px", "40px", "1.2em", "15px" ])
+            navigation: this.getNavigationValues(true, ...[ "29vw", "1.6em", "16px", "39px", "95%", "1.6em", "37px", "40px", "7px", "53px", "1.2em", "15px"  ])
 
           }
 
