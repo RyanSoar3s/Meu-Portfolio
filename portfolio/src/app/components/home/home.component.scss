@@ -48,6 +48,20 @@ $color-green-scale-5: #006927;
 
 }
 
+.show {
+  display: block !important;
+
+}
+
+.barrier {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+
+}
+
 .container-inicio {
   display: flex;
   align-items: center;

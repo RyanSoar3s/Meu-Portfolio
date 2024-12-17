@@ -61,6 +61,8 @@ export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnD
   @ViewChild("text")   text!: ElementRef;
   @ViewChild("img")     img!: ElementRef;
 
+  @ViewChild("barrier") barrier! : ElementRef;
+
   protected path: string = "assets/foto-principal.png";
 
   private scrollSub!: Subscription;
@@ -68,6 +70,7 @@ export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnD
   private scale:      number = 0;
 
   constructor(private renderer2: Renderer2, private windowService: WindowService, private scrollService: ScrollService) {}
+
   ngOnInit(): void {
     if (this.windowService.nativeWindow) {
       history.scrollRestoration = 'manual';
@@ -87,11 +90,13 @@ export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnD
 
   onAnimationStart(): void {
     this.renderer2.setStyle(this.fixed.nativeElement, "position", "fixed");
+    this.renderer2.addClass(this.barrier.nativeElement, "show");
     this.blockScroll();
 
   }
 
   onAnimationDone(): void {
+    this.renderer2.removeClass(this.barrier.nativeElement, "show");
     this.unblockScroll();
 
   }
