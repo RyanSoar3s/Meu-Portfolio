@@ -129,13 +129,17 @@ nav .icons fa-icon {
 }
 
 nav div.options{
+  display: flex;
+  justify-content: center;
   height: 60%;
   width: 100%;
 
   ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     height: 95%;
+    width: 93%;
     gap: 11px;
 
   }
@@ -148,7 +152,7 @@ ul {
     position: relative;
     align-items: center;
     height: 35px;
-    width: 87%;
+    width: 89%;
     left: 20px;
     transition: .2s background-color ease-in;
     -moz-transition: .1s background-color  ease-in;
