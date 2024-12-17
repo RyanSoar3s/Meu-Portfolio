@@ -48,7 +48,7 @@ export class ResponsiveComponentValuesService {
       default:
         this.mapComponentValues = {
           components: {
-            navigation: this.getNavigationValues(true, [ "60vw", "1.6em", "15px", "38px", "100%", "1.4em", "40px", "53px", "1.1em", "14px"  ])
+            navigation: this.getNavigationValues(true, [ "60vw", "1.6em", "16px", "38px", "100%", "1.4em", "40px", "53px", "1.1em", "14px"  ])
 
           }
 
