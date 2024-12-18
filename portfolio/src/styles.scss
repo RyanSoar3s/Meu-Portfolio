@@ -1,6 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
+//--nome_do_componente-tag/class/id-propriedade
+
 :root {
+  // Navigation Component
+
+  --navigation-nav-width: 25vw;
+  --navigation-nav-h2-font-size: 1.9em;
+  --navigation-nav-icons-container-contacts-height-width: 42px;
+  --navigation-nav-icons-container-contacts-fa-icon-font-size: 1.6em;
+  --navigation-nav-options-margin-top: 40px;
+  --navigation-nav-options-margin-bottom: 53px;
+  --navigation-nav-options-ul-li-left: 20px;
+  --navigation-nav-options-ul-li-fa-icon-font-size: 1.2em;
+  --navigation-nav-options-ul-li-span-font-size: 1em;
+  --navigation-nav-container-info-info-h4-font-size: 19px;
+
+  // Colors
+
   --background: #131515;
   --background-nav-elements: #313131;
   --background-container-elements: #2e3131;
