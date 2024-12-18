@@ -19,7 +19,9 @@ import { ScaleImageComponent } from '../scale-image/scale-image.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { MapComponentValues } from '../../interfaces/component-values';
+//import { MapComponentValues } from '../../interfaces/component-values';
+//import { NavigationPropertyValues } from '../../interfaces/navigation-property-values';
+import { ComponentPropertyValues } from '../../interfaces/components-property-values';
 import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 
 import { trigger, state, transition, animate, style } from '@angular/animations';
@@ -61,21 +63,21 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
 export class NavigationComponent implements OnInit {
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
 
-  mapNavigationValues!: MapComponentValues<string, object>;
+
 
   // Path
-  path: string = "assets/foto-navegacao.jpg";
+  protected readonly path: string = "assets/foto-navegacao.jpg";
 
   // Ícones
-  protected faGithub     = faGithub;
-  protected faLinkedin   = faLinkedin;
-  protected faEmail      = faEnvelope;
-  protected faWhatsapp   = faWhatsapp;
-  protected faHouse      = faHouse;
-  protected faUser       = faUser;
-  protected faAtom       = faAtom;
-  protected faSitemap    = faSitemap;
-  protected faCircleInfo = faCircleInfo;
+  protected readonly faGithub     = faGithub;
+  protected readonly faLinkedin   = faLinkedin;
+  protected readonly faEmail      = faEnvelope;
+  protected readonly faWhatsapp   = faWhatsapp;
+  protected readonly faHouse      = faHouse;
+  protected readonly faUser       = faUser;
+  protected readonly faAtom       = faAtom;
+  protected readonly faSitemap    = faSitemap;
+  protected readonly faCircleInfo = faCircleInfo;
 
   // Mostrar/Ocultar foto com zoom
   protected imgIsHidden: boolean = true;
@@ -84,16 +86,12 @@ export class NavigationComponent implements OnInit {
   constructor(private responsiveObservableService: ResponsiveObservableService) {}
 
   ngOnInit(): void {
-    this.responsiveObservableService.componentValuesObserver$.subscribe((mapValues: MapComponentValues<string, object>) => {
-      this.mapNavigationValues = mapValues;
-      this.menuBarIsHidden = !this.mapNavigationValues.components.navigation?.isHidden;
-
-    })
+    this.responsiveObservableService.observe("navigation");
 
   }
 
   showMenu(): void {
-    this.mapNavigationValues.components.navigation!.isHidden = !this.mapNavigationValues.components.navigation?.isHidden;
+    //this.mapNavigationValues.components.navigation!.isHidden = !this.mapNavigationValues.components.navigation?.isHidden;
 
 
   }
@@ -106,10 +104,7 @@ export class NavigationComponent implements OnInit {
 
   }
 
-  emit(event: Event, show_menu: boolean): void {
-    if (show_menu)
-      this.showMenu();
-  
+  emit(event: Event): void {
     const a = event.target as HTMLElement;
     const data_id = Number(a.getAttribute("data-id"));
 

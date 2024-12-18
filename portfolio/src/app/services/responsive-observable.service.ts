@@ -1,42 +1,32 @@
 import { Injectable } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
-import { MapComponentValues } from '../interfaces/component-values';
-
-import { ResponsiveComponentValuesService } from './responsive-component-values.service';
-import { BehaviorSubject } from 'rxjs';
-
 import { map } from 'rxjs/operators'
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop'
 import { DestroyRef } from '@angular/core';
 
+import { SetPropertiesService } from './set-properties.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ResponsiveObservableService {
-  private behaviorSuject = new BehaviorSubject<MapComponentValues<string, object>>({
-    components: {}
-
-  });
-  public componentValuesObserver$ = this.behaviorSuject.asObservable();
-  private mapComponentValues!: MapComponentValues<string, object>;
-
-  //private XLARGE = "(min-width: 1200px)";
-  private LARGE = "(min-width: 992px)"
-  private MEDIUM = "(min-width: 768px)";
-  private SMALL = "(min-width: 600px)";
-  private XSMALL = "(max-width: 600px)";
+  private readonly LARGE = "(min-width: 992px)";
+  private readonly MEDIUM = "(min-width: 768px)";
+  private readonly SMALL = "(min-width: 600px)";
+  private readonly XSMALL = "(max-width: 600px)";
 
 
   constructor(
               private breakpointObserver$: BreakpointObserver,
-              private responsiveComponentValuesService: ResponsiveComponentValuesService,
+              private setPropertiesService: SetPropertiesService,
               private destroyRef: DestroyRef
 
-  ) {
+  ) {}
+
+  public observe(componentName: string): void {
     this.breakpointObserver$.observe([
-      //this.XLARGE,
       this.LARGE,
       this.MEDIUM,
       this.SMALL,
@@ -46,29 +36,23 @@ export class ResponsiveObservableService {
     .pipe(
       map((result: BreakpointState) => {
         if (result.matches) {
-          /*if (result.breakpoints[this.XLARGE]) {
-            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.XLARGE);
-
-
-          }*/
-
           if (result.breakpoints[this.LARGE]) {
-            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.LARGE);
+            this.setPropertiesService.setValues(componentName, this.LARGE);
 
           }
 
           else if (result.breakpoints[this.MEDIUM]) {
-            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.MEDIUM);
+            this.setPropertiesService.setValues(componentName, this.MEDIUM);
 
           }
 
           else if (result.breakpoints[this.SMALL]) {
-            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.SMALL);
+            this.setPropertiesService.setValues(componentName, this.SMALL);
 
           }
 
           else {
-            this.mapComponentValues = this.responsiveComponentValuesService.defineComponentValues(this.XSMALL);
+            this.setPropertiesService.setValues(componentName, this.XSMALL);
 
           }
 
@@ -78,10 +62,7 @@ export class ResponsiveObservableService {
       takeUntilDestroyed(this.destroyRef)
 
     )
-    .subscribe(() => {
-      this.behaviorSuject.next(this.mapComponentValues)
-
-    });
+    .subscribe();
 
   }
 
