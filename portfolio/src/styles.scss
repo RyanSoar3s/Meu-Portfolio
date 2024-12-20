@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
-//--nome_do_componente-tag/class/id-propriedade
-
 :root {
   // Navigation Component
 
+  --navigation-overlay-display: none;
+  --navigation-menu-display: none;
   --navigation-nav-width: 25vw;
+  --navigation-nav-transform: 0px;
+  --navigation-nav-photo-height-width: 100px;
   --navigation-nav-h2-font-size: 1.9em;
   --navigation-nav-icons-container-contacts-height-width: 42px;
   --navigation-nav-icons-container-contacts-fa-icon-font-size: 1.6em;
-  --navigation-nav-options-margin-top: 40px;
-  --navigation-nav-options-margin-bottom: 53px;
+  --navigation-nav-options-ul-li-width: 95%;
   --navigation-nav-options-ul-li-left: 20px;
   --navigation-nav-options-ul-li-fa-icon-font-size: 1.2em;
   --navigation-nav-options-ul-li-span-font-size: 1em;

@@ -1,11 +1,13 @@
 export declare interface NavigationPropertyValues {
+  "--navigation-overlay-display": string,
+  "--navigation-menu-display": string
   "--navigation-nav-width": string,
+  "--navigation-nav-transform": string,
+  "--navigation-nav-photo-height-width": string,
   "--navigation-nav-h2-font-size": string,
-  "--navigation-nav-icons-width": string,
   "--navigation-nav-icons-container-contacts-height-width": string,
   "--navigation-nav-icons-container-contacts-fa-icon-font-size": string,
-  "--navigation-nav-options-margin-top": string,
-  "--navigation-nav-options-margin-bottom": string,
+  "--navigation-nav-options-ul-li-width": string,
   "--navigation-nav-options-ul-li-left": string,
   "--navigation-nav-options-ul-li-fa-icon-font-size": string,
   "--navigation-nav-options-ul-li-span-font-size": string,
