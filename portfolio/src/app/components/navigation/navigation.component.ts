@@ -1,6 +1,8 @@
 import {
   Component, Output,
-  EventEmitter, OnInit
+  EventEmitter, OnInit,
+  ViewChild, ElementRef,
+  ChangeDetectionStrategy
 
 } from '@angular/core';
 
@@ -19,12 +21,8 @@ import { ScaleImageComponent } from '../scale-image/scale-image.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-//import { MapComponentValues } from '../../interfaces/component-values';
-//import { NavigationPropertyValues } from '../../interfaces/navigation-property-values';
-import { ComponentPropertyValues } from '../../interfaces/components-property-values';
+import { WindowService } from '../../services/window.service';
 import { ResponsiveObservableService } from '../../services/responsive-observable.service';
-
-import { trigger, state, transition, animate, style } from '@angular/animations';
 
 @Component({
   selector: 'app-navigation',
@@ -40,30 +38,14 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
   ],
   templateUrl: './navigation.component.html',
   styleUrl: './navigation.component.scss',
-  animations: [
-    trigger("navAnimation", [
-      state("hidden", style({
-        left: "-355px"
-
-      })),
-
-      state("show", style({
-        left: "0px"
-
-      })),
-
-      transition("hidden <=> show", [ animate("0.5s ease") ])
-
-    ])
-
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 
 export class NavigationComponent implements OnInit {
+  @ViewChild("overlay") overlay!: ElementRef;
+  @ViewChild("nav") nav!: ElementRef;
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
-
-
 
   // Path
   protected readonly path: string = "assets/foto-navegacao.jpg";
@@ -79,11 +61,13 @@ export class NavigationComponent implements OnInit {
   protected readonly faSitemap    = faSitemap;
   protected readonly faCircleInfo = faCircleInfo;
 
-  // Mostrar/Ocultar foto com zoom
   protected imgIsHidden: boolean = true;
-  protected menuBarIsHidden!: boolean;
 
-  constructor(private responsiveObservableService: ResponsiveObservableService) {}
+  constructor(
+              protected window: WindowService,
+              private responsiveObservableService: ResponsiveObservableService
+
+  ) {}
 
   ngOnInit(): void {
     this.responsiveObservableService.observe("navigation");
@@ -91,8 +75,15 @@ export class NavigationComponent implements OnInit {
   }
 
   showMenu(): void {
-    //this.mapNavigationValues.components.navigation!.isHidden = !this.mapNavigationValues.components.navigation?.isHidden;
+    const display = this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-overlay-display");
+    this.window.nativeWindow?.document.body.style.setProperty("--navigation-overlay-display", (display === "block") ? "none" : "block");
 
+    if (this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-nav-transform") === "-600px") {
+      this.window.nativeWindow?.document.body.style.setProperty("--navigation-nav-transform", "0px");
+      return;
+
+    }
+    this.window.nativeWindow?.document.body.style.setProperty("--navigation-nav-transform", "-600px");
 
   }
 

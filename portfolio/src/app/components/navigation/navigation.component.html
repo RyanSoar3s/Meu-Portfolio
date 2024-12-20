@@ -1,16 +1,16 @@
 <app-scale-image [path]="path" [hidden]="imgIsHidden" (change_scale)="changeImageScale()"></app-scale-image>
 
-<div class="menu" style="display: none;">
+<div class="menu" (click)="showMenu()" style="position: fixed;">
   <div class="line"></div>
   <div class="line"></div>
   <div class="line"></div>
 
 </div>
 
-<div class="overlay" style="display: none;"></div>
+<div #overlay class="overlay" (click)="showMenu()"></div>
 
-<nav>
-  <div class="menu" style="display: none;">
+<nav #nav>
+  <div class="menu" (click)="showMenu()" style="position: absolute; top: 0px; left: 0px;">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
@@ -25,7 +25,7 @@
   <h2>Ryan Soares</h2>
 
   <div class="icons">
-    <div class="container-contacts">
+    <div class="container-contacts" (click)="showMenu()">
         <a href="https://github.com/RyanSoar3s" target="_blank" title="https://github.com/RyanSoar3s">
           <fa-icon [icon]="faGithub"></fa-icon>
 
@@ -33,7 +33,7 @@
 
     </div>
 
-    <div class="container-contacts">
+    <div class="container-contacts" (click)="showMenu()">
         <a href="https://www.linkedin.com/in/ryan-soares-107148230/" target="_blank" title="https://www.linkedin.com/in/ryan-soares-107148230/">
           <fa-icon [icon]="faLinkedin"></fa-icon>
 
@@ -41,7 +41,7 @@
 
     </div>
 
-    <div class="container-contacts">
+    <div class="container-contacts" (click)="showMenu()">
         <a href="wa.me/5579988004580" target="_blank" title="wa.me/5579988004580">
           <fa-icon [icon]="faWhatsapp"></fa-icon>
 
@@ -49,7 +49,7 @@
 
     </div>
 
-    <div class="container-contacts">
+    <div class="container-contacts" (click)="showMenu()">
         <a routerLink="/entre-em-contato" routerLinkActive="active" title="ryansoares.dev@gmail.com">
           <fa-icon [icon]="faEmail"></fa-icon>
 
@@ -61,35 +61,35 @@
 
   <div class="options">
     <ul>
-      <li>
+      <li (click)="showMenu()">
         <a (click)="emit($event)" data-id="0"></a>
         <fa-icon [icon]="faHouse"></fa-icon>
         <span>Início</span>
 
       </li>
 
-      <li>
+      <li (click)="showMenu()">
         <a (click)="emit($event)" data-id="1"></a>
         <fa-icon [icon]="faUser"></fa-icon>
         <span>Sobre mim</span>
 
       </li>
 
-      <li>
+      <li (click)="showMenu()">
         <a (click)="emit($event)" data-id="2"></a>
         <fa-icon [icon]="faAtom"></fa-icon>
         <span>Habilidades</span>
 
       </li>
 
-      <li>
+      <li (click)="showMenu()">
         <a (click)="emit($event)" data-id="3"></a>
         <fa-icon [icon]="faSitemap"></fa-icon>
         <span>Meus projetos</span>
 
       </li>
 
-      <li>
+      <li (click)="showMenu()">
         <a (click)="emit($event)" data-id="4"></a>
         <fa-icon [icon]="faCircleInfo"></fa-icon>
         <span>Sobre este projeto</span>

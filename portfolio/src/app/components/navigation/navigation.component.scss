@@ -1,11 +1,15 @@
+::-webkit-scrollbar {
+  width: 0px;
+
+}
+
 .menu {
+  display: var(--navigation-menu-display);
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 50px;
   width: 50px;
-  top: 0px;
-  left: 0px;
   margin-top: 5px;
   margin-left: 5px;
   cursor: pointer;
@@ -30,7 +34,8 @@
 }
 
 .overlay {
-  background-color: #0000008a;;
+  display: var(--navigation-overlay-display);
+  background-color: #0000008a;
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -42,12 +47,15 @@
 nav {
   background-color: var(--background);
   display: flex;
+  position: fixed;
   flex-direction: column;
   align-items: center;
-  position: fixed;
   height: 100vh;
   width: var(--navigation-nav-width);
   padding-top: 20px;
+  overflow-y: auto;
+  transform: translateX(var(--navigation-nav-transform));
+  transition: .9s ease;
   box-shadow: 1px 1px 1px -1px gray;
   z-index: 900;
 
@@ -55,8 +63,8 @@ nav {
 
 nav {
   div.photo {
-    height: 100px;
-    width: 100px;
+    height: var(--navigation-nav-photo-height-width);
+    width: var(--navigation-nav-photo-height-width);
     border: 2px solid white;
     border-radius: 50%;
     margin: 10px 0px 6px 0px;
@@ -112,7 +120,6 @@ nav div.icons {
   -o-transition: .1s transform ease-in;
   -ms-transition: .1s transform ease-in;
 
-
   fa-icon {
     font-size: var(--navigation-nav-icons-container-contacts-fa-icon-font-size);
 
@@ -134,8 +141,8 @@ nav div.icons {
 nav div.options{
   display: flex;
   justify-content: center;
-  margin-top: var(--navigation-nav-options-margin-top);
-  margin-bottom: var(--navigation-nav-options-margin-bottom);
+  margin-top: 40px;
+  margin-bottom: 53px;
   height: 60%;
   width: 100%;
 
@@ -157,7 +164,7 @@ ul {
     position: relative;
     align-items: center;
     height: 35px;
-    width: 95%;
+    width: var(--navigation-nav-options-ul-li-width);
     left: var(--navigation-nav-options-ul-li-left);
     transition: .2s background-color ease-in;
     -moz-transition: .1s background-color  ease-in;
@@ -201,6 +208,7 @@ li > a {
   cursor: pointer;
 
 }
+
 .container-info {
   position: relative;
   height: 165px;
