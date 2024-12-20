@@ -75,7 +75,12 @@ export class NavigationComponent implements OnInit {
   }
 
   showMenu(): void {
+    const nav_width = this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-nav-width");
+
+    if (nav_width === "25vw" || nav_width === "26vw") return;
+
     const display = this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-overlay-display");
+
     this.window.nativeWindow?.document.body.style.setProperty("--navigation-overlay-display", (display === "block") ? "none" : "block");
 
     if (this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-nav-transform") === "-600px") {
