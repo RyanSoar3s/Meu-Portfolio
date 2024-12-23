@@ -244,7 +244,7 @@ export class SetPropertiesService {
       case this.SMALL:
         this.componentPropertyValues.homePropertyValues = {
           "--home-section-content-inicio-width": "100%",
-          "--home-section-content-inicio-padding-left": "0px",
+          "--home-section-content-inicio-padding-left": "30px",
           "--home-section-text-move-animation-position": "relative",
           "--home-section-text-move-animation-height": "unset",
           "--home-section-text-move-animation-width": "unset",
@@ -266,7 +266,7 @@ export class SetPropertiesService {
       default:
         this.componentPropertyValues.homePropertyValues = {
           "--home-section-content-inicio-width": "100%",
-          "--home-section-content-inicio-padding-left": "30px",
+          "--home-section-content-inicio-padding-left": "0px",
           "--home-section-text-move-animation-position": "absolute",
           "--home-section-text-move-animation-height": "96%",
           "--home-section-text-move-animation-width": "100vw",
