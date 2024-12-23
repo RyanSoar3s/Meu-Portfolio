@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  // Navigation Component
+  // App Component
+  --app-section-margin-left: 25%;
 
+  // Navigation Component
   --navigation-overlay-display: none;
   --navigation-menu-display: none;
   --navigation-nav-width: 25vw;
@@ -17,8 +19,25 @@
   --navigation-nav-options-ul-li-span-font-size: 1em;
   --navigation-nav-container-info-info-h4-font-size: 19px;
 
-  // Colors
+  // Home Component
+  --home-section-content-inicio-width: 75%;
+  --home-section-content-inicio-padding-left: 50px;
+  --home-section-text-move-animation-position: relative;
+  --home-section-text-move-animation-height: unset;
+  --home-section-text-move-animation-width: unset;
+  --home-section-text-move-animation-left: 20%;
+  --home-section-text-move-animation-h1-font-size: 2.65em;
+  --home-section-text-move-animation-h2-font-size: 1.5em;
+  --home-section-img-move-animation-foto-principal-width: 444px;
+  --home-section-img-move-animation-text-div-background-color: transparent;
+  --home-section-img-move-animation-text-div-bottom: 0px;
+  --home-section-img-move-animation-div-position: relative;
+  --home-section-img-move-animation-foto-principal-right: 0%;
+  --home-section-img-move-animation-foto-principal-img-height: 100%;
+  --home-section-img-move-animation-foto-principal-img-width: 100%;
+  --home-section-img-move-animation-foto-principal-img-margin-right: 0px;
 
+  // Colors
   --background: #131515;
   --background-nav-elements: #313131;
   --background-container-elements: #2e3131;
@@ -78,7 +97,7 @@ ul {
 section {
   position: relative;
   height: 100vh;
-  margin-left: 25%;
+  margin-left: var(--app-section-margin-left);
   overflow: hidden;
 
   h1, h2, h3,
