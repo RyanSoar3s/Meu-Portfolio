@@ -29,7 +29,8 @@ app.use(cors({
 app.use(express.json());
 
 app.post("/api/send-email", async (req, res) => {
-    const { name, email, content } = req.body;    const accessToken = await oAuth2Client.getAccessToken();
+    const { name, email, content } = req.body;  
+    const accessToken = await oAuth2Client.getAccessToken();
 
     const transporter = nodemailer.createTransport({
         service: "gmail",
