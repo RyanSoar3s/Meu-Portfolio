@@ -1,73 +1,35 @@
-// Colors
-
-$color-cyan-scale-1: #00fcfc;
-$color-cyan-scale-2: #00d6ce;
-$color-cyan-scale-3: #02c2c9;
-$color-cyan-scale-4: #01959d;
-$color-cyan-scale-5: #025c61;
-
-$color-green-scale-1: #64ffd4;
-$color-green-scale-2: #2bda93;
-$color-green-scale-3: #00ab3f;
-$color-green-scale-4: #007f2f;
-$color-green-scale-5: #006927;
-
-
 @mixin animation_color($animation, $bp_x_ini, $bp_y_ini, $bp_x_final, $bp_y_final, $bs_x, $bs_y, $time) {
   animation: $animation $time ease-in-out infinite;
   -webkit-animation: $animation $time ease-in-out infinite;
   -o-animation: $animation $time ease-in-out infinite;
 
-    @keyframes #{$animation} {
-      0% {
-        background-position: $bp_x_ini $bp_y_ini;
+  @keyframes #{$animation} {
+    0% {
+      background-position: $bp_x_ini $bp_y_ini;
 
-      }
+    }
 
-      25% {
-        background-position: $bp_x_ini $bp_y_final;
+    25% {
+      background-position: $bp_x_ini $bp_y_final;
 
-      }
+    }
 
-      50% {
-        background-position: -$bp_x_final $bp_y_final;
+    50% {
+      background-position: -$bp_x_final $bp_y_final;
 
-      }
+    }
 
-      75% {
-        background-position: -$bp_x_final $bp_y_ini;
+    75% {
+      background-position: -$bp_x_final $bp_y_ini;
 
-      }
+    }
 
-      100% {
-        background-position: $bp_x_ini $bp_y_ini;
+    100% {
+      background-position: $bp_x_ini $bp_y_ini;
 
-      }
+    }
 
   }
-
-}
-
-.show {
-  display: block !important;
-
-}
-
-.barrier {
-  display: none;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-
-}
-
-.container-inicio {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  height: 649px;
-  width: 100%;
 
 }
 
@@ -76,76 +38,65 @@ $color-green-scale-5: #006927;
   align-items: center;
   justify-content: space-between;
   height: 649px;
-  width: 75%;
-  padding-left: 50px;
+  width: var(--home-section-content-inicio-width);
+  padding-left: var(--home-section-content-inicio-padding-left);
   overflow: hidden;
 
-  .text-inicio {
-    display: grid;
-    align-content: center;
-    height: 150px;
-    width: 482px;
-    row-gap: 15px;
+  .text {
+    position: var(--home-section-text-move-animation-position);
+    height: var(--home-section-text-move-animation-height);
+    width: var(--home-section-text-move-animation-width);
 
   }
 
   .foto-principal {
-    display: flex;
-    height: 649px;
-    width: 444px;
-    align-items: flex-end;
+    position: var(--home-section-img-move-animation-div-position);
+    width: var(--home-section-img-move-animation-foto-principal-width);
+    margin-right: var(--home-section-img-move-animation-foto-principal-img-margin-right);
 
-    img {
-      height: 100%;
-      width: 119%;
-
-    }
   }
 
 }
 
+.text > div {
+  background-color: var(--home-section-img-move-animation-text-div-background-color);
+  bottom: var(--home-section-img-move-animation-text-div-bottom);
 
-h1, h2, p {
-  color: white;
+}
+
+.foto-principal img {
+  height: var(--home-section-img-move-animation-foto-principal-img-height);
+  width: var(--home-section-img-move-animation-foto-principal-img-width);
+}
+
+h1 {
+  font-size: var(--home-section-text-move-animation-h1-font-size);
 
 }
 
 h1 span {
-  background-image: radial-gradient(circle at center, $color-green-scale-1 7%, $color-green-scale-2 10%, $color-green-scale-3 34%, $color-green-scale-4 41%, $color-green-scale-5 55%);
-  background-size: 187% 384%;
-  background-position: 107% 52%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle at center, #64ffd4 7%, #2bda93 10%, #00ab3f 34%, #007f2f 41%, #006927 55%);
   @include animation_color(name_radial_gradient_transition, 107%, 0%, 10%, 105%, 187%, 384%, 8s);
 
 }
 
+h2 {
+  font-size: var(--home-section-text-move-animation-h2-font-size);
+
+}
+
 h2 span {
-  font-size: 1.2em;
+  font-size: 1.18em;
   font-weight: 700;
-  background-image: radial-gradient(circle at center, $color-cyan-scale-1 11%, $color-cyan-scale-2 15%, $color-cyan-scale-3 31%, $color-cyan-scale-4 37%, $color-cyan-scale-5 55%);
-  background-size: 187% 384%;
-  background-position: 107% 52%;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-image: radial-gradient(circle at center, #00fcfc 11%, #00d6ce 15%, #02c2c9 31%, #01959d 37%, #025c61 55%);
   @include animation_color(text_radial_gradient_transition, 107%, 0%, 10%, 105%, 187%, 384%, 8s);
 
 }
 
-.text-inicio {
-  h1 {
-    font-size: 2.65em;
-    font-weight: 800;
-
-  }
-  h2 {
-    font-size: 1.5em;
-    font-weight: 750;
-
-  }
-  p {
-    font-size: 1.8em;
-
-  }
+span {
+  background-size: 187% 384%;
+  background-position: 107% 52%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 
 }
