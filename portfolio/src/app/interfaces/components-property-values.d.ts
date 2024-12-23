@@ -1,6 +1,10 @@
-import { NavigationPropertyValues } from '../../interfaces/navigation-property-values';
+import { AppPropertyValues } from './app-property-values';
+import { NavigationPropertyValues } from './navigation-property-values';
+import { HomePropertyValues } from './home-property-values';
 
 export declare interface ComponentPropertyValues {
-  navigationPropertyValues: NavigationPropertyValues;
+  appPropertyValues: AppPropertyValues | {},
+  navigationPropertyValues: NavigationPropertyValues | {},
+  homePropertyValues: HomePropertyValues | {}
 
 }
