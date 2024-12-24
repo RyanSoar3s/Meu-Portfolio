@@ -1,43 +1,46 @@
-.container {
-  height: 11070px;
-  width: 1291px;
-
-}
-
 app-content-about-me {
-  display: block;
-  position: fixed;
-  top: 0;
-
   h1 {
-    font-size: 2.3em;
-    margin: 30px auto;
+    font-size: var(--about-me-section-conteudo-sobre-mim-h1-font-size);
+
+  }
+  h2 {
+    font-size: var(--about-me-section-content-text-h2-font-size);
 
   }
 
   p {
     text-align: justify;
-    font-size: 1.18em;
+    font-size: var(--about-me-section-content-text-p-font-size);
     margin-top: 20px;
 
   }
 
   fa-icon {
-    font-size: 7em;
+    font-size: var(--about-me-section-content-text-icons-fa-icon-font-size);
 
   }
 
 }
 
+.text {
+  width: var(--about-me-section-content-text-width);
+
+}
+
+.content {
+  flex-direction: var(--about-me-section-content-odd-flex-direction);
+
+}
+
 app-content-about-me:nth-child(even) {
   .content {
-    flex-direction: row-reverse;
-    margin-right: 40px;
+    flex-direction: var(--about-me-section-content-even-flex-direction);
+    margin-right: var(--about-me-section-content-margin-left-right);
 
   }
 
   .icons {
-    margin-right: 60px;
+    margin-right: var(--about-me-section-content-text-icons-margin-left-right);
 
   }
 
@@ -45,24 +48,12 @@ app-content-about-me:nth-child(even) {
 
 app-content-about-me:nth-child(odd) {
   .content {
-    margin-left: 40px;
+    margin-left: var(--about-me-section-content-margin-left-right);
 
   }
 
   .icons {
-    margin-left: 60px;
-
-  }
-
-}
-
-.content {
-  display: flex;
-  align-self: flex-end;
-  align-items: center;
-
-  .text {
-    width: 48%;
+    margin-left: var(--about-me-section-content-text-icons-margin-left-right);
 
   }
 
@@ -81,9 +72,7 @@ app-content-about-me:nth-child(odd) {
   display: grid;
   grid-template-rows: auto auto;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-areas:
-      "html . css"
-      ". js .";
+  grid-template-areas: var(--about-me-section-content-text-logo__icons-grid-template-areas);
   align-items: center;
   justify-items: center;
   height: 250px;
@@ -91,7 +80,7 @@ app-content-about-me:nth-child(odd) {
   margin: 0px 10px;
 
   fa-icon {
-    font-size: 6em;
+    font-size: var(--about-me-section-content-text-logo__icons-fa-icon-font-size);
 
   }
 
@@ -100,14 +89,14 @@ app-content-about-me:nth-child(odd) {
 .logo__icons fa-icon:nth-child(1) {
   grid-area: html;
   position: relative;
-  left: 20px;
+  left: var(--about-me-section-content-text-logo__icons-fa-icon-font-left-right);
 
 }
 
 .logo__icons fa-icon:nth-child(2) {
   grid-area: css;
   position: relative;
-  right: 20px;
+  right: var(--about-me-section-content-text-logo__icons-fa-icon-font-left-right);
 
 }
 

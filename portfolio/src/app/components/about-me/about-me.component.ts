@@ -1,6 +1,6 @@
 import {
   Component, Renderer2, ViewChildren, ElementRef,
-  QueryList, AfterViewInit, OnDestroy
+  QueryList, AfterViewInit, OnInit, OnDestroy,
 
 } from '@angular/core';
 import { ContentAboutMeComponent } from '../content-about-me/content-about-me.component';
@@ -14,6 +14,7 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
 import { AnimationConfig } from '../../interfaces/animation-config';
 
 import { ScrollService } from '../../services/scroll.service';
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 @Component({
   selector: 'app-about-me',
   standalone: true,
@@ -25,13 +26,13 @@ import { ScrollService } from '../../services/scroll.service';
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })
-export class AboutMeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
-  protected faRobot           = faRobot;
-  protected faLaptopCode      = faLaptopCode;
-  protected faBuildingColumns = faBuildingColumns;
-  protected faHtml5           = faHtml5;
-  protected faCss3            = faCss3;
-  protected faJs              = faJs;
+export class AboutMeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnDestroy {
+  protected readonly faRobot           = faRobot;
+  protected readonly faLaptopCode      = faLaptopCode;
+  protected readonly faBuildingColumns = faBuildingColumns;
+  protected readonly faHtml5           = faHtml5;
+  protected readonly faCss3            = faCss3;
+  protected readonly faJs              = faJs;
 
   @ViewChildren("content", { read: ElementRef }) contentAboutMe!: QueryList<ElementRef>;
 
@@ -45,7 +46,17 @@ export class AboutMeComponent implements AnimateScrollY, AfterViewInit, OnDestro
 
   ];
 
-  constructor(private renderer: Renderer2, private scrollService: ScrollService) {}
+  constructor(
+              private renderer: Renderer2,
+              private scrollService: ScrollService,
+              private responsiveObservableService: ResponsiveObservableService
+
+  ) {}
+
+  ngOnInit(): void {
+    this.responsiveObservableService.observe("about-me");
+
+  }
 
   ngAfterViewInit(): void {
     this.scrollSub = this.scrollService.scrollPosition$.subscribe(scrollY => {
