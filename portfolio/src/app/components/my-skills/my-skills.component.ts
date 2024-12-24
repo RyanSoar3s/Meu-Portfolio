@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 
 @Component({
   selector: 'app-my-skills',
@@ -7,6 +9,14 @@ import { Component } from '@angular/core';
   templateUrl: './my-skills.component.html',
   styleUrl: './my-skills.component.scss'
 })
-export class MySkillsComponent {
+export class MySkillsComponent implements OnInit {
+  constructor(private responsiveObservableService: ResponsiveObservableService) {
+
+  }
+
+  ngOnInit(): void {
+    this.responsiveObservableService.observe("my-skills");
+
+  }
 
 }

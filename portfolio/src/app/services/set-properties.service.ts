@@ -15,7 +15,8 @@ export class SetPropertiesService {
     appPropertyValues: {},
     navigationPropertyValues: {},
     homePropertyValues: {},
-    aboutMePropertyValues: {}
+    aboutMePropertyValues: {},
+    mySkillsPropertyValues: {}
 
   };
 
@@ -39,6 +40,11 @@ export class SetPropertiesService {
       case "about-me":
         this.setAboutMeValues(breakpoint);
         this.setProperties(3);
+        break;
+
+      case "my-skills":
+        this.setMySkillsValues(breakpoint);
+        this.setProperties(4);
         break;
 
       default:
@@ -377,6 +383,83 @@ export class SetPropertiesService {
           `,
           "--about-me-section-content-text-logo__icons-fa-icon-font-left-right": "20px",
           "--about-me-section-content-text-logo__icons-fa-icon-font-size": "6em"
+
+        }
+        break;
+
+    }
+
+  }
+
+  private setMySkillsValues(breakpoint: string): void {
+    switch (breakpoint) {
+      case this.XLARGE:
+        this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-height": "1162.34px",
+          "--my-skills-section-width": "77vw",
+          "--my-skills-section-content-skills-width": "75%",
+          "--my-skills-section-list__skills-column-gap": "30px",
+          "--my-skills-section-list__skills-grid-template-columns": "repeat(3, 1fr)",
+          "--my-skills-section-skill-height-width": "180px",
+          "--my-skills-section-skill-div-i-font-size": "4.5em",
+          "--my-skills-section-skill-div-h2-font-size": "1.2em"
+
+        }
+
+        break;
+
+      case this.LARGE:
+        this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-height": "1162.34px",
+          "--my-skills-section-width": "77vw",
+          "--my-skills-section-content-skills-width": "88%",
+          "--my-skills-section-list__skills-column-gap": "20px",
+          "--my-skills-section-list__skills-grid-template-columns": "repeat(3, 1fr)",
+          "--my-skills-section-skill-height-width": "160px",
+          "--my-skills-section-skill-div-i-font-size": "4.3em",
+          "--my-skills-section-skill-div-h2-font-size": "1.2em"
+
+        }
+        break;
+
+      case this.MEDIUM:
+        this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-height": "1162.34px",
+          "--my-skills-section-width": "77vw",
+          "--my-skills-section-content-skills-width": "88%",
+          "--my-skills-section-list__skills-column-gap": "20px",
+          "--my-skills-section-list__skills-grid-template-columns": "repeat(3, 1fr)",
+          "--my-skills-section-skill-height-width": "140px",
+          "--my-skills-section-skill-div-i-font-size": "4.1em",
+          "--my-skills-section-skill-div-h2-font-size": "1.0em"
+
+        }
+        break;
+
+      case this.SMALL:
+        this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-height": "1162.34px",
+          "--my-skills-section-width": "100vw",
+          "--my-skills-section-content-skills-width": "88%",
+          "--my-skills-section-list__skills-column-gap": "20px",
+          "--my-skills-section-list__skills-grid-template-columns": "repeat(3, 1fr)",
+          "--my-skills-section-skill-height-width": "140px",
+          "--my-skills-section-skill-div-i-font-size": "4.1em",
+          "--my-skills-section-skill-div-h2-font-size": "1.0em"
+
+        }
+        break;
+
+      default:
+        this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-height": "1453.34px",
+          "--my-skills-section-width": "100vw",
+          "--my-skills-section-content-skills-width": "88%",
+          "--my-skills-section-list__skills-column-gap": "10px",
+          "--my-skills-section-list__skills-grid-template-columns": "repeat(2, 1fr)",
+          "--my-skills-section-skill-height-width": "130px",
+          "--my-skills-section-skill-div-i-font-size": "3.7em",
+          "--my-skills-section-skill-div-h2-font-size": "0.9em"
 
         }
         break;
