@@ -3,7 +3,6 @@ import {
 
 } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { MySkillsComponent } from './components/my-skills/my-skills.component';
 import { MyProjectsComponent } from './components/my-projects/my-projects.component';
@@ -18,7 +17,6 @@ import { ResponsiveObservableService } from './services/responsive-observable.se
   standalone: true,
   imports: [
     NavigationComponent,
-    HomeComponent,
     AboutMeComponent,
     MySkillsComponent,
     MyProjectsComponent,
