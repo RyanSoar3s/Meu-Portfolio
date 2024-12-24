@@ -59,7 +59,6 @@ export class AppComponent implements OnInit {
   onScroll(): void {
     const scrollY: number = Number(this.windowService.nativeWindow?.scrollY);
     this.scrollService.updateScrollPosition(scrollY);
-    console.log(scrollY)
 
   }
 
