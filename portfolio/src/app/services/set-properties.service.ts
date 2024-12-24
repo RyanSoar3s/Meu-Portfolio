@@ -321,34 +321,12 @@ export class SetPropertiesService {
 
       case this.SMALL:
         this.componentPropertyValues.aboutMePropertyValues = {
-          "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.3em",
-          "--about-me-section-content-odd-flex-direction": "row",
-          "--about-me-section-content-even-flex-direction": "row-reverse",
-          "--about-me-section-content-margin-left-right": "18px",
-          "--about-me-section-content-text-width": "80%",
-          "--about-me-section-content-text-h2-font-size": "20px",
-          "--about-me-section-content-text-p-font-size": "1.18em",
-          "--about-me-section-content-text-icons-margin-left-right": "30px",
-          "--about-me-section-content-text-icons-fa-icon-font-size": "6em",
-          "--about-me-section-content-text-logo__icons-grid-template-areas": `
-            "html . css"
-            ". js ."
-          `,
-          "--about-me-section-content-text-logo__icons-fa-icon-font-left-right": "20px",
-          "--about-me-section-content-text-logo__icons-fa-icon-font-size": "5em"
-
-        }
-
-        break;
-
-      case this.SMALL:
-        this.componentPropertyValues.aboutMePropertyValues = {
           "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.0em",
           "--about-me-section-content-odd-flex-direction": "row",
           "--about-me-section-content-even-flex-direction": "row-reverse",
           "--about-me-section-content-margin-left-right": "20px",
           "--about-me-section-content-text-width": "80%",
-          "--about-me-section-content-text-h2-font-size": "18px",
+          "--about-me-section-content-text-h2-font-size": "19px",
           "--about-me-section-content-text-p-font-size": "1.18em",
           "--about-me-section-content-text-icons-margin-left-right": "30px",
           "--about-me-section-content-text-icons-fa-icon-font-size": "6em",
@@ -389,7 +367,7 @@ export class SetPropertiesService {
           "--about-me-section-content-even-flex-direction": "row-reverse",
           "--about-me-section-content-margin-left-right": "40px",
           "--about-me-section-content-text-width": "48%",
-          "--about-me-section-content-text-h2-font-size": "24px",
+          "--about-me-section-content-text-h2-font-size": "19px",
           "--about-me-section-content-text-p-font-size": "1.18em",
           "--about-me-section-content-text-icons-margin-left-right": "60px",
           "--about-me-section-content-text-icons-fa-icon-font-size": "7em",

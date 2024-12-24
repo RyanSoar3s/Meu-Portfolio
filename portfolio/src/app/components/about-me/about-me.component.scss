@@ -35,7 +35,7 @@ app-content-about-me {
 app-content-about-me:nth-child(even) {
   .content {
     flex-direction: var(--about-me-section-content-even-flex-direction);
-    margin-right: var(--about-me-section-content-margin-left-right);
+    //margin-right: var(--about-me-section-content-margin-left-right);
 
   }
 
