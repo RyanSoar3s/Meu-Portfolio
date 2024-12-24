@@ -32,9 +32,9 @@ export class AppComponent implements OnInit {
   private scrollPositions = [
     { posY: 0     },
     { posY: 2398  },
-    { posY: 13025 },
-    { posY: 14098 },
-    { posY: 15235 }
+    { posY: 12399 },
+    { posY: 13485 },
+    { posY: 14616 }
 
   ]
   constructor(
@@ -59,6 +59,7 @@ export class AppComponent implements OnInit {
   onScroll(): void {
     const scrollY: number = Number(this.windowService.nativeWindow?.scrollY);
     this.scrollService.updateScrollPosition(scrollY);
+    console.log(scrollY)
 
   }
 
