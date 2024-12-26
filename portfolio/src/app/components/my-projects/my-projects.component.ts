@@ -1,59 +1,75 @@
 import {
   Component, ElementRef,
+  OnInit,
   Renderer2, ViewChild
 
 } from '@angular/core';
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {
+  faCircleArrowLeft,
+  faCircleArrowRight,
+  faEye
+
+} from '@fortawesome/free-solid-svg-icons';
+
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
 
 @Component({
   selector: 'app-my-projects',
   standalone: true,
-  imports: [],
+  imports: [
+    FontAwesomeModule
+
+  ],
   templateUrl: './my-projects.component.html',
   styleUrl: './my-projects.component.scss'
 })
 
-export class MyProjectsComponent {
-  @ViewChild("border") border!: ElementRef;
-  @ViewChild("content") content!: ElementRef;
-  private show_detail: boolean = false;
+export class MyProjectsComponent implements OnInit{
+  @ViewChild("grid") grid!: ElementRef;
 
-  protected path: string = "../../../assets/projeto-vazio.png";
+  protected readonly path_projeto_vazio: string = "../../../assets/projeto-vazio.png";
+  protected readonly path_projeto_1: string = "../../../assets/projeto-1.png";
 
-  constructor(private renderer: Renderer2) {
+  protected readonly faCircleArrowLeft  = faCircleArrowLeft;
+  protected readonly faCircleArrowRight = faCircleArrowRight;
+  protected readonly faEye              = faEye;
+  protected readonly faGithub           = faGithub;
+
+  private direction: number = 0;
+  private data_id: number = 2;
+
+  constructor(private renderer: Renderer2, private responsiveObservableService: ResponsiveObservableService) {}
+
+  ngOnInit(): void {
+    this.responsiveObservableService.observe("my-projects");
 
   }
 
-  showDetails(event: MouseEvent) {
-    this.show_detail = !this.show_detail;
+  carousel(direction: string): void {
+    let element = document.querySelector(`[data-project-id='${this.data_id}']`) as HTMLElement;
 
-    if (!this.show_detail) {
-      this.renderer.setStyle(this.border.nativeElement, "display", "none");
-      return;
+    if (direction === "left" && this.direction !== 25) {
+      element.classList.remove("projeto-principal");
+      this.data_id--;
+      this.direction += 25;
+
+    }
+    else if (direction === "right" && this.direction !== -25) {
+      element.classList.remove("projeto-principal");
+      this.data_id++;
+      this.direction -= 25;
 
     }
 
-    const target = event.target as HTMLElement;
-    this.renderer.setStyle(this.border.nativeElement, "display", "block");
+    else return;
 
-    const id = Number(target.getAttribute("data-id"));
-    this.flip(id);
-    this.positionElement(id);
+    element = document.querySelector(`[data-project-id='${this.data_id}']`) as HTMLElement;
+    element.classList.add("projeto-principal");
 
-  }
-
-  private flip(id: number) {
-    const scaleX = (id & 1) ? 1 : -1;
-    this.renderer.setStyle(this.border.nativeElement, "transform", `scale(${scaleX}, 1)`);
-    this.renderer.setStyle(this.content.nativeElement, "transform", `scale(${scaleX}, 1)`);
-
-  }
-
-  private positionElement(id: number) {
-    const pos_x = (id & 1) ? 234 : 414;
-    const pos_y = (id < 3) ? 19 : 525;
-
-    this.renderer.setStyle(this.border.nativeElement, "top", `${pos_y}px`);
-    this.renderer.setStyle(this.border.nativeElement, "right", `${pos_x}px`);
+    this.renderer.setStyle(this.grid.nativeElement, "transform", `translateX(${this.direction}vw)`)
 
   }
 

@@ -1,89 +1,78 @@
-<section>
-  <div class="container-meus-projetos">
-    <h1>Meus Projetos:</h1>
+<section style="height: 690px; background-color: var(--background); width: var(--my-projects-section-width);
+">
+  <div style="display: flex; flex-direction: column; align-items: center; height: 676px; width: 100%; margin-top: 43px;">
+    <h1 style="margin-bottom: 50px;">Meus Projetos:</h1>
 
-    <div class="grid-meus-projetos">
-      <div #border id="border" class="border" style="display: none;">
-        <div class="details">
-          <div #content>
-            <h3>Tecnologias: </h3>
+    <div style="
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 676px;
+      width: 91%;
 
-            <div>
-              <p>HTML 5</p>
-              <p>CSS 3</p>
-              <p>JavaScript</p>
-
-            </div>
-
-          </div>
-
-        </div>
+    ">
+      <div style="background-color: var(--background); position: relative; display: flex; align-items: center; justify-content: center; height: 100%; right: 5%; z-index: 2;" class="container-arrow-left">
+        <fa-icon [icon]="faCircleArrowLeft" style="position: relative; font-size: 2.6em; cursor: pointer; transition: transform .2s ease;" class="arrow" (click)="carousel('left')"></fa-icon>
 
       </div>
 
-      <div data-id="1" class="projeto projeto-1" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
-
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
+      <div style="background-color: var(--background); display: flex;  position: relative; align-items: center; height: 100%; padding-left: 15px; left: 5%; z-index: 2;" class="container-arrow-right">
+        <fa-icon [icon]="faCircleArrowRight" style="position: relative; font-size: 2.6em; cursor: pointer; transition: transform .2s ease;" class="arrow" (click)="carousel('right')"></fa-icon>
 
       </div>
 
-      <div data-id="2" class="projeto projeto-2" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
+    </div>
 
+    <div #grid style="position: relative; height: var(--my-projects-section-grid-meus-projetos-height); width: var(--my-projects-section-grid-meus-projetos-width); display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; justify-items: center; transition: .8s ease;" class="grid">
+      <!--
+          Flip para ver tecnologias
+      -->
+
+      <div data-project-id="1" class="projeto projeto-1">
+        <img [src]="path_projeto_vazio" alt="projeto vazio">
         <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
+          <button style="background-color: #0075c5; margin-right: 16px;">
+            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
-          <button>
-            <a href="#"><span>Repositório</span></a>
+          <button style="background-color: black;">
+            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
         </div>
 
       </div>
-      <div data-id="3" class="projeto projeto-3" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
 
+      <div data-project-id="2" class="projeto projeto-2 projeto-principal">
+        <img [src]="path_projeto_1" alt="projeto vazio">
         <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
+          <button style="background-color: #0075c5; margin-right: 16px;">
+            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
-          <button>
-            <a href="#"><span>Repositório</span></a>
+          <button style="background-color: black;">
+            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
         </div>
 
       </div>
-      <div data-id="4" class="projeto projeto-4" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
 
+      <div data-project-id="3" class="projeto projeto-3">
+        <img [src]="path_projeto_vazio" alt="projeto vazio">
         <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
+          <button style="background-color: #0075c5; margin-right: 16px;">
+            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
-          <button>
-            <a href="#"><span>Repositório</span></a>
+          <button style="background-color: black;">
+            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
 
           </button>
 
