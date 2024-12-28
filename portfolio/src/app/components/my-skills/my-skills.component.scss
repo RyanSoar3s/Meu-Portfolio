@@ -1,7 +1,7 @@
 section {
   background-color: var(--background);
-  height: var(--my-skills-section-height);
   width: var(--my-skills-section-width);
+  margin-left: var(--my-skills-section-margin-left);
   box-shadow: 0px -60px 45px 0px var(--background);
 
 }
@@ -16,7 +16,7 @@ div.container-skills {
   div.content-skills {
     display: flex;
     flex-direction: column;
-    height: 184vh;
+    height: 1189px;
     width: var(--my-skills-section-content-skills-width);
     margin-top: 60px;
 
