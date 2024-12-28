@@ -1,4 +1,5 @@
 export declare interface HomePropertyValues {
+  "--home-section-margin-left": string,
   "--home-section-content-inicio-width": string,
   "--home-section-content-inicio-padding-left": string,
   "--home-section-text-move-animation-position": string,

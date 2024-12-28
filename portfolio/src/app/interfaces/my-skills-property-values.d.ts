@@ -1,5 +1,4 @@
 export declare interface MySkillsPropertyValues {
-  "--my-skills-section-height": string,
   "--my-skills-section-width": string,
   "--my-skills-section-content-skills-width": string,
   "--my-skills-section-list__skills-column-gap": string,
