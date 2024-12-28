@@ -12,7 +12,6 @@ export class SetPropertiesService {
   private readonly XSMALL = "(max-width: 600px)";
 
   private componentPropertyValues: ComponentPropertyValues = {
-    appPropertyValues: {},
     navigationPropertyValues: {},
     homePropertyValues: {},
     aboutMePropertyValues: {},
@@ -23,71 +22,33 @@ export class SetPropertiesService {
 
   public setValues(name: string, breakpoint: string): void {
     switch (name) {
-      case "app":
-        this.setAppValues(breakpoint);
-        this.setProperties(0);
-        break;
-
       case "navigation":
         this.setNavigationValues(breakpoint);
-        this.setProperties(1);
+        this.setProperties(0);
         break;
 
       case "home":
         this.setHomeValues(breakpoint);
-        this.setProperties(2);
+        this.setProperties(1);
         break;
 
       case "about-me":
         this.setAboutMeValues(breakpoint);
-        this.setProperties(3);
+        this.setProperties(2);
         break;
 
       case "my-skills":
         this.setMySkillsValues(breakpoint);
-        this.setProperties(4);
+        this.setProperties(3);
         break;
 
       case "my-projects":
         this.setMyProjectsValues(breakpoint);
-        this.setProperties(5);
+        this.setProperties(4);
         break;
 
       default:
         break;
-    }
-
-  }
-  private setAppValues(breakpoint: string): void {
-    switch (breakpoint) {
-      case this.XLARGE:
-        this.componentPropertyValues.appPropertyValues = {
-          "--app-section-margin-left": "25%"
-
-        }
-        break;
-
-      case this.LARGE:
-        this.componentPropertyValues.appPropertyValues = {
-          "--app-section-margin-left": "25%"
-
-        }
-        break;
-
-      case this.MEDIUM:
-        this.componentPropertyValues.appPropertyValues = {
-          "--app-section-margin-left": "26%"
-
-        }
-        break;
-
-      default:
-        this.componentPropertyValues.appPropertyValues = {
-          "--app-section-margin-left": "0%"
-
-        }
-        break;
-
     }
 
   }
@@ -196,6 +157,7 @@ export class SetPropertiesService {
     switch (breakpoint) {
       case this.XLARGE:
         this.componentPropertyValues.homePropertyValues = {
+          "--home-section-margin-left": "25.292%",
           "--home-section-content-inicio-width": "75%",
           "--home-section-content-inicio-padding-left": "50px",
           "--home-section-text-move-animation-position": "relative",
@@ -218,6 +180,7 @@ export class SetPropertiesService {
 
       case this.LARGE:
         this.componentPropertyValues.homePropertyValues = {
+          "--home-section-margin-left": "25.292%",
           "--home-section-content-inicio-width": "75%",
           "--home-section-content-inicio-padding-left": "50px",
           "--home-section-text-move-animation-position": "relative",
@@ -240,6 +203,7 @@ export class SetPropertiesService {
 
       case this.MEDIUM:
         this.componentPropertyValues.homePropertyValues = {
+          "--home-section-margin-left": "26.5%",
           "--home-section-content-inicio-width": "74%",
           "--home-section-content-inicio-padding-left": "30px",
           "--home-section-text-move-animation-position": "relative",
@@ -262,6 +226,7 @@ export class SetPropertiesService {
 
       case this.SMALL:
         this.componentPropertyValues.homePropertyValues = {
+          "--home-section-margin-left": "0%",
           "--home-section-content-inicio-width": "100%",
           "--home-section-content-inicio-padding-left": "30px",
           "--home-section-text-move-animation-position": "relative",
@@ -284,6 +249,7 @@ export class SetPropertiesService {
 
       default:
         this.componentPropertyValues.homePropertyValues = {
+          "--home-section-margin-left": "0%",
           "--home-section-content-inicio-width": "100%",
           "--home-section-content-inicio-padding-left": "0px",
           "--home-section-text-move-animation-position": "absolute",
@@ -312,6 +278,7 @@ export class SetPropertiesService {
     switch (breakpoint) {
       case this.MEDIUM:
         this.componentPropertyValues.aboutMePropertyValues = {
+          "--about-me-section-margin-left": "26.5%",
           "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.3em",
           "--about-me-section-content-odd-flex-direction": "row",
           "--about-me-section-content-even-flex-direction": "row-reverse",
@@ -333,6 +300,7 @@ export class SetPropertiesService {
 
       case this.SMALL:
         this.componentPropertyValues.aboutMePropertyValues = {
+          "--about-me-section-margin-left": "0%",
           "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.0em",
           "--about-me-section-content-odd-flex-direction": "row",
           "--about-me-section-content-even-flex-direction": "row-reverse",
@@ -354,6 +322,7 @@ export class SetPropertiesService {
 
       case this.XSMALL:
         this.componentPropertyValues.aboutMePropertyValues = {
+          "--about-me-section-margin-left": "0%",
           "--about-me-section-conteudo-sobre-mim-h1-font-size": "1.8em",
           "--about-me-section-content-odd-flex-direction": "column",
           "--about-me-section-content-even-flex-direction": "column",
@@ -374,6 +343,7 @@ export class SetPropertiesService {
 
       default:
         this.componentPropertyValues.aboutMePropertyValues = {
+          "--about-me-section-margin-left": "25.292%",
           "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.3em",
           "--about-me-section-content-odd-flex-direction": "row",
           "--about-me-section-content-even-flex-direction": "row-reverse",
@@ -401,6 +371,7 @@ export class SetPropertiesService {
     switch (breakpoint) {
       case this.XLARGE:
         this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-margin-left": "25.292%",
           "--my-skills-section-width": "77vw",
           "--my-skills-section-content-skills-width": "75%",
           "--my-skills-section-list__skills-column-gap": "30px",
@@ -415,6 +386,7 @@ export class SetPropertiesService {
 
       case this.LARGE:
         this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-margin-left": "25.292%",
           "--my-skills-section-width": "77vw",
           "--my-skills-section-content-skills-width": "88%",
           "--my-skills-section-list__skills-column-gap": "20px",
@@ -428,6 +400,7 @@ export class SetPropertiesService {
 
       case this.MEDIUM:
         this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-margin-left": "26.5%",
           "--my-skills-section-width": "77vw",
           "--my-skills-section-content-skills-width": "88%",
           "--my-skills-section-list__skills-column-gap": "20px",
@@ -441,6 +414,7 @@ export class SetPropertiesService {
 
       case this.SMALL:
         this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-margin-left": "0%",
           "--my-skills-section-width": "100vw",
           "--my-skills-section-content-skills-width": "88%",
           "--my-skills-section-list__skills-column-gap": "20px",
@@ -454,6 +428,7 @@ export class SetPropertiesService {
 
       default:
         this.componentPropertyValues.mySkillsPropertyValues = {
+          "--my-skills-section-margin-left": "0%",
           "--my-skills-section-width": "100vw",
           "--my-skills-section-content-skills-width": "88%",
           "--my-skills-section-list__skills-column-gap": "10px",
@@ -473,85 +448,55 @@ export class SetPropertiesService {
     switch (breakpoint) {
       case this.XLARGE:
         this.componentPropertyValues.myProjectsPropertyValues = {
-          "--my-projects-section-width": "77vw",
-          "--my-projects-section-container-arrow-left-width": "9%",
-          "--my-projects-section-container-arrow-right-width": "13%",
-          "--my-projects-section-grid-meus-projetos-height": "560px",
-          "--my-projects-section-grid-meus-projetos-width": "97%",
-          "--my-projects-section-grid-meus-projetos-column-gap": "80px",
-          "--my-projects-section-grid-meus-projetos-projeto-height": "354px",
-          "--my-projects-section-grid-meus-projetos-projeto-width": "70%",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-top": "197px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-height": "40px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-width": "105px"
+          "--my-projects-section-margin-left": "25.292%",
+          "--my-projects-section-container-grid-width": "89vw",
+          "--my-projects-section-projeto-height": "350px",
+          "--my-projects-section-projeto-width": "65%",
+          "--my-projects-section-buttons-gap": "60px"
 
         }
         break;
 
       case this.LARGE:
         this.componentPropertyValues.myProjectsPropertyValues = {
-          "--my-projects-section-width": "77vw",
-          "--my-projects-section-container-arrow-left-width": "9%",
-          "--my-projects-section-container-arrow-right-width": "13%",
-          "--my-projects-section-grid-meus-projetos-height": "560px",
-          "--my-projects-section-grid-meus-projetos-width": "100%",
-          "--my-projects-section-grid-meus-projetos-column-gap": "75px",
-          "--my-projects-section-grid-meus-projetos-projeto-height": "340px",
-          "--my-projects-section-grid-meus-projetos-projeto-width": "60%",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-top": "170px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-height": "35px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-width": "90px"
+          "--my-projects-section-margin-left": "25.292%",
+          "--my-projects-section-container-grid-width": "89vw",
+          "--my-projects-section-projeto-height": "330px",
+          "--my-projects-section-projeto-width": "65%",
+          "--my-projects-section-buttons-gap": "60px"
 
         }
         break;
 
       case this.MEDIUM:
         this.componentPropertyValues.myProjectsPropertyValues = {
-          "--my-projects-section-width": "77vw",
-          "--my-projects-section-container-arrow-left-width": "13%",
-          "--my-projects-section-container-arrow-right-width": "16%",
-          "--my-projects-section-grid-meus-projetos-height": "560px",
-          "--my-projects-section-grid-meus-projetos-width": "100%",
-          "--my-projects-section-grid-meus-projetos-column-gap": "30px",
-          "--my-projects-section-grid-meus-projetos-projeto-height": "300px",
-          "--my-projects-section-grid-meus-projetos-projeto-width": "55%",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-top": "152px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-height": "35px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-width": "90px"
+          "--my-projects-section-margin-left": "26.5%",
+          "--my-projects-section-container-grid-width": "89vw",
+          "--my-projects-section-projeto-height": "280px",
+          "--my-projects-section-projeto-width": "79%",
+          "--my-projects-section-buttons-gap": "60px"
 
         }
         break;
 
       case this.SMALL:
         this.componentPropertyValues.myProjectsPropertyValues = {
-          "--my-projects-section-width": "100vw",
-          "--my-projects-section-container-arrow-left-width": "13%",
-          "--my-projects-section-container-arrow-right-width": "13%",
-          "--my-projects-section-grid-meus-projetos-height": "560px",
-          "--my-projects-section-grid-meus-projetos-width": "100%",
-          "--my-projects-section-grid-meus-projetos-column-gap": "30px",
-          "--my-projects-section-grid-meus-projetos-projeto-height": "270px",
-          "--my-projects-section-grid-meus-projetos-projeto-width": "45%",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-top": "152px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-height": "35px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-width": "90px"
+          "--my-projects-section-margin-left": "0%",
+          "--my-projects-section-container-grid-width": "100vw",
+          "--my-projects-section-projeto-height": "270px",
+          "--my-projects-section-projeto-width": "75%",
+          "--my-projects-section-buttons-gap": "40px"
 
         }
         break;
 
       default:
         this.componentPropertyValues.myProjectsPropertyValues = {
-          "--my-projects-section-width": "100vw",
-          "--my-projects-section-container-arrow-left-width": "20%",
-          "--my-projects-section-container-arrow-right-width": "22%",
-          "--my-projects-section-grid-meus-projetos-height": "560px",
-          "--my-projects-section-grid-meus-projetos-width": "200%",
-          "--my-projects-section-grid-meus-projetos-column-gap": "0px",
-          "--my-projects-section-grid-meus-projetos-projeto-height": "240px",
-          "--my-projects-section-grid-meus-projetos-projeto-width": "50%",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-top": "163px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-height": "35px",
-          "--my-projects-section-grid-meus-projetos-projeto-links_externos-button-width": "90px"
+          "--my-projects-section-margin-left": "0%",
+          "--my-projects-section-container-grid-width": "120vw",
+          "--my-projects-section-projeto-height": "260px",
+          "--my-projects-section-projeto-width": "90%",
+          "--my-projects-section-buttons-gap": "10px"
 
         }
         break;

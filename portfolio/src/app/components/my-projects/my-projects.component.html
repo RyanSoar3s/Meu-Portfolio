@@ -1,82 +1,158 @@
-<section style="height: 690px; background-color: var(--background); width: var(--my-projects-section-width);
-">
-  <div style="display: flex; flex-direction: column; align-items: center; height: 676px; width: 100%; margin-top: 43px;">
-    <h1 style="margin-bottom: 50px;">Meus Projetos:</h1>
+<section style="background-color: var(--background); height: 800px; margin-left: var(--my-projects-section-margin-left);">
+  <div class="container-my-projects"
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 100%;
+
+  ">
+    <h1 style="margin-bottom: 40px;">Meus projetos:</h1>
+
+    <div style="
+      display: flex;
+      width: var(--my-projects-section-container-grid-width);
+
+    ">
+      <div #grid style="
+        position: relative;
+        display: grid;
+        place-items: center;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        width: 100%;
+        left: 0vw;
+        transition: 1.2s ease;
+
+      ">
+        <div data-project="1" class="projeto container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_vazio" alt="projeto 1">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>Sem informação</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div data-project="2" class="projeto projeto-principal container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_1" alt="projeto 2">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>HTML 5</p>
+                    <p>Sass</p>
+                    <p>TypeScript</p>
+                    <p>Angular</p>
+                    <p>Express</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button><a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></a></button>
+                  <button><a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></a></button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div data-project="3" class="projeto container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_vazio" alt="projeto 3">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>Sem informação</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
 
     <div style="
       position: absolute;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 676px;
-      width: 91%;
+      height: 70px;
+      width: 100%;
+      bottom: 3%;
+      padding: 0px 50px;
 
     ">
-      <div style="background-color: var(--background); position: relative; display: flex; align-items: center; justify-content: center; height: 100%; right: 5%; z-index: 2;" class="container-arrow-left">
-        <fa-icon [icon]="faCircleArrowLeft" style="position: relative; font-size: 2.6em; cursor: pointer; transition: transform .2s ease;" class="arrow" (click)="carousel('left')"></fa-icon>
+      <div class="arrow arrow-left" style="transition: .2s ease;" (click)="carousel('left')">
+        <fa-icon [icon]="faCircleArrowLeft" style="font-size: 2.7em; cursor: pointer;"></fa-icon>
 
       </div>
 
-      <div style="background-color: var(--background); display: flex;  position: relative; align-items: center; height: 100%; padding-left: 15px; left: 5%; z-index: 2;" class="container-arrow-right">
-        <fa-icon [icon]="faCircleArrowRight" style="position: relative; font-size: 2.6em; cursor: pointer; transition: transform .2s ease;" class="arrow" (click)="carousel('right')"></fa-icon>
-
-      </div>
-
-    </div>
-
-    <div #grid style="position: relative; height: var(--my-projects-section-grid-meus-projetos-height); width: var(--my-projects-section-grid-meus-projetos-width); display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; justify-items: center; transition: .8s ease;" class="grid">
-      <!--
-          Flip para ver tecnologias
-      -->
-
-      <div data-project-id="1" class="projeto projeto-1">
-        <img [src]="path_projeto_vazio" alt="projeto vazio">
-        <div class="links_externos">
-          <button style="background-color: #0075c5; margin-right: 16px;">
-            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-          <button style="background-color: black;">
-            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <div data-project-id="2" class="projeto projeto-2 projeto-principal">
-        <img [src]="path_projeto_1" alt="projeto vazio">
-        <div class="links_externos">
-          <button style="background-color: #0075c5; margin-right: 16px;">
-            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-          <button style="background-color: black;">
-            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <div data-project-id="3" class="projeto projeto-3">
-        <img [src]="path_projeto_vazio" alt="projeto vazio">
-        <div class="links_externos">
-          <button style="background-color: #0075c5; margin-right: 16px;">
-            <a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-          <button style="background-color: black;">
-            <a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em; font-weight: 600;"></fa-icon></a>
-
-          </button>
-
-        </div>
+      <div class="arrow arrow-right" style="transition: .2s ease;" (click)="carousel('right')">
+        <fa-icon [icon]="faCircleArrowRight" style="font-size: 2.7em; cursor: pointer;"></fa-icon>
 
       </div>
 

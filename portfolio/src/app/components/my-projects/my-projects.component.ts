@@ -1,6 +1,5 @@
 import {
-  Component, ElementRef,
-  OnInit,
+  Component, ElementRef, OnInit,
   Renderer2, ViewChild
 
 } from '@angular/core';
@@ -31,7 +30,7 @@ export class MyProjectsComponent implements OnInit{
   @ViewChild("grid") grid!: ElementRef;
 
   protected readonly path_projeto_vazio: string = "../../../assets/projeto-vazio.png";
-  protected readonly path_projeto_1: string = "../../../assets/projeto-1.png";
+  protected readonly path_projeto_1:     string = "../../../assets/projeto-1.png";
 
   protected readonly faCircleArrowLeft  = faCircleArrowLeft;
   protected readonly faCircleArrowRight = faCircleArrowRight;
@@ -49,16 +48,14 @@ export class MyProjectsComponent implements OnInit{
   }
 
   carousel(direction: string): void {
-    let element = document.querySelector(`[data-project-id='${this.data_id}']`) as HTMLElement;
+    let data_id_aux = this.data_id;
 
     if (direction === "left" && this.direction !== 25) {
-      element.classList.remove("projeto-principal");
       this.data_id--;
       this.direction += 25;
 
     }
     else if (direction === "right" && this.direction !== -25) {
-      element.classList.remove("projeto-principal");
       this.data_id++;
       this.direction -= 25;
 
@@ -66,10 +63,13 @@ export class MyProjectsComponent implements OnInit{
 
     else return;
 
-    element = document.querySelector(`[data-project-id='${this.data_id}']`) as HTMLElement;
-    element.classList.add("projeto-principal");
+    let aux_element = document.querySelector(`[data-project='${data_id_aux}']`) as HTMLElement;
+    aux_element.classList.remove("projeto-principal");
 
-    this.renderer.setStyle(this.grid.nativeElement, "transform", `translateX(${this.direction}vw)`)
+    let cur_element = document.querySelector(`[data-project='${this.data_id}']`) as HTMLElement;
+    cur_element.classList.add("projeto-principal");
+
+    this.renderer.setStyle(this.grid.nativeElement, "left", `${this.direction}vw`)
 
   }
 
