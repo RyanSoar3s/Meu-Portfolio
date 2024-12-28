@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
-  // App Component
-  --app-section-margin-left: 25%;
-
   // Navigation Component
   --navigation-overlay-display: none;
   --navigation-menu-display: none;
@@ -20,6 +17,7 @@
   --navigation-nav-container-info-info-h4-font-size: 19px;
 
   // Home Component
+  --home-section-margin-left: 25.292%;
   --home-section-content-inicio-width: 75%;
   --home-section-content-inicio-padding-left: 50px;
   --home-section-text-move-animation-position: relative;
@@ -38,6 +36,7 @@
   --home-section-img-move-animation-foto-principal-img-margin-right: 0px;
 
   // About Me Component
+  --about-me-section-margin-left: 25.292%;
   --about-me-section-conteudo-sobre-mim-h1-font-size: 2.3em;
   --about-me-section-content-odd-flex-direction: row;
   --about-me-section-content-even-flex-direction: row-reverse;
@@ -54,7 +53,7 @@
   --about-me-section-content-text-logo__icons-fa-icon-font-size: 6em;
 
   // My Skills Component
-  --my-skills-section-height: 1162.34px;
+  --my-skills-section-margin-left: 25.292%;
   --my-skills-section-width: 77vw;
   --my-skills-section-content-skills-width: 75%;
   --my-skills-section-list__skills-column-gap: 30px;
@@ -63,6 +62,12 @@
   --my-skills-section-skill-div-i-font-size: 4.5em;
   --my-skills-section-skill-div-h2-font-size: 1.2em;
 
+  // My Projects Components
+  --my-projects-section-margin-left: 25.292%;
+  --my-projects-section-container-grid-width: 89vw;
+  --my-projects-section-projeto-height: 358px;
+  --my-projects-section-projeto-width: 65%;
+  --my-projects-section-buttons-gap: 60px;
 
   // Colors
   --background: #131515;
@@ -124,7 +129,6 @@ ul {
 section {
   position: relative;
   height: 100vh;
-  margin-left: var(--app-section-margin-left);
   overflow: hidden;
 
   h1, h2, h3,
