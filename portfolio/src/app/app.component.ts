@@ -10,7 +10,6 @@ import { AboutThisProjectComponent } from './components/about-this-project/about
 
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
-import { ResponsiveObservableService } from './services/responsive-observable.service';
 
 @Component({
   selector: 'app-root',
@@ -33,14 +32,13 @@ export class AppComponent implements OnInit {
     { posY: 0     },
     { posY: 2398  },
     { posY: 12399 },
-    { posY: 13485 },
-    { posY: 14616 }
+    { posY: 13650 },
+    { posY: 14246 }
 
   ]
   constructor(
     private windowService: WindowService,
-    private scrollService: ScrollService,
-    private responsiveObervableService: ResponsiveObservableService
+    private scrollService: ScrollService
 
   ) {}
 
@@ -50,7 +48,6 @@ export class AppComponent implements OnInit {
       this.windowService.nativeWindow.scrollTo(0, 0);
 
     }
-    this.responsiveObervableService.observe("app");
 
   }
 
