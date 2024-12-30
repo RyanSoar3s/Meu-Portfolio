@@ -9,7 +9,6 @@ export declare interface NavigationPropertyValues {
   "--navigation-nav-icons-container-contacts-fa-icon-font-size": string,
   "--navigation-nav-options-ul-li-width": string,
   "--navigation-nav-options-ul-li-left": string,
-  "--navigation-nav-options-ul-li-fa-icon-font-size": string,
   "--navigation-nav-options-ul-li-span-font-size": string,
   "--navigation-nav-container-info-info-h4-font-size": string,
 
