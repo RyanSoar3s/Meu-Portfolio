@@ -1,17 +1,129 @@
-<section>
-  <div class="container-meus-projetos">
-    <h1>Meus Projetos:</h1>
+<section style="background-color: var(--background); height: 800px; margin-left: var(--my-projects-section-margin-left);">
+  <div class="container-my-projects"
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 100%;
 
-    <div class="grid-meus-projetos">
-      <div #border id="border" class="border" style="display: none;">
-        <div class="details">
-          <div #content>
-            <h3>Tecnologias: </h3>
+  ">
+    <h1 style="margin-bottom: 40px;">Meus projetos:</h1>
 
-            <div>
-              <p>HTML 5</p>
-              <p>CSS 3</p>
-              <p>JavaScript</p>
+    <div style="
+      display: flex;
+      width: var(--my-projects-section-container-grid-width);
+
+    ">
+      <div #grid style="
+        position: relative;
+        display: grid;
+        place-items: center;
+        grid-auto-flow: column;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 20px;
+        width: 100%;
+        left: 0vw;
+        transition: 1.2s ease;
+
+      ">
+        <div data-project="1" class="projeto container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_vazio" alt="projeto 1">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>Sem informação</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div data-project="2" class="projeto projeto-principal container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_1" alt="projeto 2">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>HTML 5</p>
+                    <p>Sass</p>
+                    <p>TypeScript</p>
+                    <p>Angular</p>
+                    <p>Express</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button><a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></a></button>
+                  <button><a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></a></button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div data-project="3" class="projeto container-flip-box">
+          <div class="flip-box">
+            <div class="front">
+              <img [src]="path_projeto_vazio" alt="projeto 3">
+
+            </div>
+
+            <div class="back">
+              <div class="container-info">
+                <div class="langs">
+                  <h3>Tecnologias</h3>
+
+                  <div>
+                    <p>Sem informação</p>
+
+                  </div>
+
+                </div>
+
+                <div class="buttons">
+                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
+
+                </div>
+
+              </div>
 
             </div>
 
@@ -21,73 +133,26 @@
 
       </div>
 
-      <div data-id="1" class="projeto projeto-1" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
+    </div>
 
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
+    <div style="
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+      width: 100%;
+      bottom: 3%;
+      padding: 0px 50px;
 
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
-
-      </div>
-
-      <div data-id="2" class="projeto projeto-2" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
-
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
+    ">
+      <div class="arrow arrow-left" style="transition: .2s ease;" (click)="carousel('left')">
+        <fa-icon [icon]="faCircleArrowLeft" style="font-size: 2.7em; cursor: pointer;"></fa-icon>
 
       </div>
-      <div data-id="3" class="projeto projeto-3" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
 
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
-
-      </div>
-      <div data-id="4" class="projeto projeto-4" (mouseenter)="showDetails($event)" (mouseleave)="showDetails($event)">
-        <img [src]="path" alt="projeto vazio">
-
-        <div class="links_externos">
-          <button>
-            <a href="#"><span>Vizualizar</span></a>
-
-          </button>
-
-          <button>
-            <a href="#"><span>Repositório</span></a>
-
-          </button>
-
-        </div>
+      <div class="arrow arrow-right" style="transition: .2s ease;" (click)="carousel('right')">
+        <fa-icon [icon]="faCircleArrowRight" style="font-size: 2.7em; cursor: pointer;"></fa-icon>
 
       </div>
 

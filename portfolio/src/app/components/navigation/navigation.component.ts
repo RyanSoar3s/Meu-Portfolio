@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import {
+  Component, Output,
+  EventEmitter, OnInit,
+  ViewChild, ElementRef,
+  ChangeDetectionStrategy
+
+} from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faGithub, faLinkedin, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
@@ -15,6 +21,9 @@ import { ScaleImageComponent } from '../scale-image/scale-image.component';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { WindowService } from '../../services/window.service';
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
+
 @Component({
   selector: 'app-navigation',
   standalone: true,
@@ -28,34 +37,66 @@ import { CommonModule } from '@angular/common';
 
   ],
   templateUrl: './navigation.component.html',
-  styleUrl: './navigation.component.scss'
+  styleUrl: './navigation.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements OnInit {
+  @ViewChild("overlay") overlay!: ElementRef;
+  @ViewChild("nav") nav!: ElementRef;
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
 
   // Path
-  path: string = "assets/foto-navegacao.jpg";
+  protected readonly path: string = "assets/foto-navegacao.jpg";
 
   // Ícones
-  protected faGithub     = faGithub;
-  protected faLinkedin   = faLinkedin;
-  protected faEmail      = faEnvelope;
-  protected faWhatsapp   = faWhatsapp;
-  protected faHouse      = faHouse;
-  protected faUser       = faUser;
-  protected faAtom       = faAtom;
-  protected faSitemap    = faSitemap;
-  protected faCircleInfo = faCircleInfo;
+  protected readonly faGithub     = faGithub;
+  protected readonly faLinkedin   = faLinkedin;
+  protected readonly faEmail      = faEnvelope;
+  protected readonly faWhatsapp   = faWhatsapp;
+  protected readonly faHouse      = faHouse;
+  protected readonly faUser       = faUser;
+  protected readonly faAtom       = faAtom;
+  protected readonly faSitemap    = faSitemap;
+  protected readonly faCircleInfo = faCircleInfo;
 
-  // Mostrar/Ocultar foto com zoom
-  protected hidden: boolean = true;
+  protected imgIsHidden: boolean = true;
+
+  constructor(
+              protected window: WindowService,
+              private responsiveObservableService: ResponsiveObservableService
+
+  ) {}
+
+  ngOnInit(): void {
+    this.responsiveObservableService.observe("navigation");
+
+  }
+
+  showMenu(): void {
+    const nav_width = this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-nav-width");
+
+    if (nav_width === "25vw" || nav_width === "26vw") return;
+
+    const display = this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-overlay-display");
+
+    this.window.nativeWindow?.document.body.style.setProperty("--navigation-overlay-display", (display === "block") ? "none" : "block");
+
+    if (this.window.nativeWindow?.document.body.style.getPropertyValue("--navigation-nav-transform") === "-600px") {
+      this.window.nativeWindow?.document.body.style.setProperty("--navigation-nav-transform", "0px");
+      return;
+
+    }
+    this.window.nativeWindow?.document.body.style.setProperty("--navigation-nav-transform", "-600px");
+
+  }
 
   changeImageScale() {
     const body: HTMLElement = document.body;
-    body.style.overflow = (this.hidden) ? "hidden" : "auto";
+    body.style.overflowY = (this.imgIsHidden) ? "hidden" : "auto";
 
-    this.hidden = !this.hidden;
+    this.imgIsHidden = !this.imgIsHidden;
 
   }
 

@@ -1,12 +1,61 @@
+::-webkit-scrollbar {
+  width: 0px;
+
+}
+
+.menu {
+  display: var(--navigation-menu-display);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  z-index: 900;
+
+  .line {
+    background-color: #ffffffc7;
+    height: 4px;
+    width: 32px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #00000063;
+
+  }
+
+}
+
+.menu:hover {
+  background-color: #cdcdcd33;
+  border-radius: 50%;
+
+}
+
+.overlay {
+  display: var(--navigation-overlay-display);
+  background-color: #0000008a;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+  z-index: 700;
+
+}
+
 nav {
   background-color: var(--background);
   display: flex;
+  position: fixed;
   flex-direction: column;
   align-items: center;
-  position: fixed;
   height: 100vh;
-  width: 25vw;
-  padding: 20px 0px;
+  width: var(--navigation-nav-width);
+  padding-top: 20px;
+  overflow-y: auto;
+  transform: translateX(var(--navigation-nav-transform));
+  transition: .9s ease;
   box-shadow: 1px 1px 1px -1px gray;
   z-index: 900;
 
@@ -14,8 +63,8 @@ nav {
 
 nav {
   div.photo {
-    height: 100px;
-    width: 100px;
+    height: var(--navigation-nav-photo-height-width);
+    width: var(--navigation-nav-photo-height-width);
     border: 2px solid white;
     border-radius: 50%;
     margin: 10px 0px 6px 0px;
@@ -32,7 +81,7 @@ nav {
   }
 
   h2 {
-    font-size: 1.9em;
+    font-size: var(--navigation-nav-h2-font-size);
     font-weight: 500;
     margin: 10px 0px;
 
@@ -42,9 +91,9 @@ nav {
 
 nav div.icons {
   display: flex;
-  justify-content: space-between;
-  width: 85%;
-  padding: 0px 10px;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 95%;
   margin-top: 10px;
 
   a {
@@ -60,8 +109,8 @@ nav div.icons {
 
 .container-contacts {
   background-color: var(--background-nav-elements);
-  height: 42px;
-  width: 42px;
+  height: var(--navigation-nav-icons-container-contacts-height-width);
+  width: var(--navigation-nav-icons-container-contacts-height-width);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,6 +119,11 @@ nav div.icons {
   -moz-transition: .1s transform ease-in;
   -o-transition: .1s transform ease-in;
   -ms-transition: .1s transform ease-in;
+
+  fa-icon {
+    font-size: var(--navigation-nav-icons-container-contacts-fa-icon-font-size);
+
+  }
 
 }
 
@@ -84,21 +138,20 @@ nav div.icons {
 
 }
 
-nav .icons fa-icon {
-  font-size: 1.6em;
-
-}
-
 nav div.options{
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 53px;
   height: 60%;
   width: 100%;
-  padding-left: 40px;
-  margin-top: 40px;
 
   ul {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     height: 95%;
+    width: 88%;
     gap: 11px;
 
   }
@@ -109,10 +162,10 @@ ul {
   li {
     display: flex;
     position: relative;
-    height: 35px;
-    width: 93%;
     align-items: center;
-    padding: 7px;
+    height: 35px;
+    width: var(--navigation-nav-options-ul-li-width);
+    left: var(--navigation-nav-options-ul-li-left);
     transition: .2s background-color ease-in;
     -moz-transition: .1s background-color  ease-in;
     -o-transition: .1s background-color  ease-in;
@@ -129,11 +182,14 @@ ul {
   fa-icon {
     position: absolute;
     font-size: 1.2em;
+    margin-left: 5px;
 
   }
 
   span {
-    margin-left: 30px;
+    margin-left: 34px;
+    font-size: var(--navigation-nav-options-ul-li-span-font-size);
+    font-weight: 500;
 
   }
 
@@ -150,21 +206,5 @@ ul {
 
 li > a {
   cursor: pointer;
-
-}
-
-div.info {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 10px 0%;
-
-  h4 span{
-    color: var(--color-blue-scale-1);
-
-  }
 
 }

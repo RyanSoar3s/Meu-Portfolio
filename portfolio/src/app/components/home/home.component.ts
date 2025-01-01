@@ -1,7 +1,8 @@
 import {
   Component, ElementRef,
   Renderer2, ViewChild,
-  AfterViewInit, OnDestroy
+  OnInit, AfterViewInit,
+  OnDestroy, ChangeDetectionStrategy
 
 } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
@@ -9,6 +10,8 @@ import { Subscription } from 'rxjs';
 
 import { WindowService } from '../../services/window.service';
 import { ScrollService } from '../../services/scroll.service';
+import { ResponsiveObservableService } from '../../services/responsive-observable.service';
+
 import { AnimateScrollY } from '../../interfaces/animate-scroll';
 
 @Component({
@@ -16,13 +19,14 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
   standalone: true,
   imports: [],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrl: './home.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger("textMoveAnimation", [
       transition(":enter", [
         style({
           opacity: 0,
-          right: "150px"
+          right: "500px"
 
         }),
         animate("2s ease-in-out", style({
@@ -38,7 +42,7 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
         transition(":enter", [
           style({
             opacity: 0,
-            left: "150px"
+            left: "500px"
 
 
           }),
@@ -55,18 +59,36 @@ import { AnimateScrollY } from '../../interfaces/animate-scroll';
   ]
 
 })
-export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
+export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnDestroy {
   @ViewChild("fixed") fixed!: ElementRef;
   @ViewChild("text")   text!: ElementRef;
   @ViewChild("img")     img!: ElementRef;
 
-  protected path: string = "assets/foto-principal.png";
+  @ViewChild("barrier") barrier! : ElementRef;
+
+  protected readonly path: string = "assets/foto-principal.webp";
 
   private scrollSub!: Subscription;
   private lastScroll: number = 0;
-  private scale:      number = 0;
+  private direction:  number = 0;
 
-  constructor(private renderer2: Renderer2, private windowService: WindowService, private scrollService: ScrollService) {}
+  constructor(
+              private renderer: Renderer2,
+              private windowService: WindowService,
+              private scrollService: ScrollService,
+              private responsiveObservableService: ResponsiveObservableService
+
+  ) {}
+
+  ngOnInit(): void {
+    if (this.windowService.nativeWindow) {
+      history.scrollRestoration = 'manual';
+      this.windowService.nativeWindow.scrollTo(0, 0);
+
+    }
+    this.responsiveObservableService.observe("home");
+
+  }
 
   ngAfterViewInit(): void {
     this.scrollSub = this.scrollService.scrollPosition$.subscribe((scrollY) => {
@@ -77,19 +99,21 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   }
 
   onAnimationStart(): void {
-    this.renderer2.setStyle(this.fixed.nativeElement, "position", "fixed");
+    this.renderer.setStyle(this.fixed.nativeElement, "position", "fixed");
+    this.renderer.setStyle(this.barrier.nativeElement, "display", "block");
     this.blockScroll();
 
   }
 
   onAnimationDone(): void {
+    this.renderer.setStyle(this.barrier.nativeElement, "display", "none");
     this.unblockScroll();
 
   }
 
   private blockScroll(): void {
     if (this.windowService.nativeWindow) {
-      this.renderer2.setStyle(this.windowService.nativeWindow?.document.body, "overflow", "hidden");
+      this.renderer.setStyle(this.windowService.nativeWindow?.document.body, "overflow", "hidden");
 
     }
 
@@ -97,7 +121,7 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
 
   private unblockScroll(): void {
     if (this.windowService.nativeWindow) {
-      this.renderer2.removeStyle(this.windowService.nativeWindow?.document.body, "overflow");
+      this.renderer.removeStyle(this.windowService.nativeWindow?.document.body, "overflow");
 
     }
 
@@ -105,20 +129,21 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
 
   animateScrollY(scrollY: number) {
     if (scrollY > 1649) {
-      this.renderer2.removeStyle(this.fixed.nativeElement, "position");
+      this.renderer.removeStyle(this.fixed.nativeElement, "position");
       return;
 
     }
 
-    this.renderer2.setStyle(this.fixed.nativeElement, "position", "fixed");
+    this.renderer.setStyle(this.fixed.nativeElement, "position", "fixed");
 
-    let distScroll: number = Math.abs(this.lastScroll - scrollY) * 0.25;
+    let distScroll: number = Math.abs(this.lastScroll - scrollY) * 0.33;
 
-    this.scale = (this.lastScroll > scrollY) ? this.scale - distScroll :
-                                                  this.scale + distScroll;
+    this.direction = (this.lastScroll > scrollY) ? this.direction - distScroll :
+                                                   this.direction + distScroll;
+    this.direction = (this.direction < 0.1) ? 0 : this.direction;
 
-    this.renderer2.setStyle(this.text.nativeElement, "right", `${this.scale}px`);
-    this.renderer2.setStyle(this.img.nativeElement, "left", `${this.scale}px`);
+    this.renderer.setStyle(this.text.nativeElement, "right", `${this.direction}px`);
+    this.renderer.setStyle(this.img.nativeElement, "left", `${this.direction}px`);
 
     this.lastScroll = scrollY;
 
@@ -127,7 +152,7 @@ export class HomeComponent implements AnimateScrollY, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     if (this.scrollSub) {
       this.scrollSub.unsubscribe();
-      
+
     }
   }
 

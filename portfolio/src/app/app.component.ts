@@ -3,13 +3,10 @@ import {
 
 } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
-import { HomeComponent } from './components/home/home.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { MySkillsComponent } from './components/my-skills/my-skills.component';
 import { MyProjectsComponent } from './components/my-projects/my-projects.component';
 import { AboutThisProjectComponent } from './components/about-this-project/about-this-project.component';
-
-import { ScrollPositions } from './interfaces/scroll-positions';
 
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
@@ -19,7 +16,6 @@ import { ScrollService } from './services/scroll.service';
   standalone: true,
   imports: [
     NavigationComponent,
-    HomeComponent,
     AboutMeComponent,
     MySkillsComponent,
     MyProjectsComponent,
@@ -32,16 +28,19 @@ import { ScrollService } from './services/scroll.service';
 export class AppComponent implements OnInit {
   title = 'portfolio';
 
-  private scrollPositions: ScrollPositions[] = [
+  private scrollPositions = [
     { posY: 0     },
     { posY: 2398  },
-    { posY: 13025 },
-    { posY: 14098 },
-    { posY: 15235 }
+    { posY: 12399 },
+    { posY: 13650 },
+    { posY: 14246 }
 
   ]
+  constructor(
+    private windowService: WindowService,
+    private scrollService: ScrollService
 
-  constructor(private windowService: WindowService, private scrollService: ScrollService) {}
+  ) {}
 
   ngOnInit(): void {
     if (this.windowService.nativeWindow) {

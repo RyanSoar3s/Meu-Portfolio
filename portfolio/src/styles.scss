@@ -1,6 +1,83 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 :root {
+  // Navigation Component
+  --navigation-overlay-display: none;
+  --navigation-menu-display: none;
+  --navigation-nav-width: 25vw;
+  --navigation-nav-transform: 0px;
+  --navigation-nav-photo-height-width: 100px;
+  --navigation-nav-h2-font-size: 1.9em;
+  --navigation-nav-icons-container-contacts-height-width: 45px;
+  --navigation-nav-icons-container-contacts-fa-icon-font-size: 1.8em;
+  --navigation-nav-options-ul-li-width: 95%;
+  --navigation-nav-options-ul-li-left: 20px;
+  --navigation-nav-options-ul-li-span-font-size: 1em;
+  --navigation-nav-container-info-info-h4-font-size: 19px;
+
+  // Home Component
+  --home-section-margin-left: 25.292%;
+  --home-section-content-inicio-width: 75%;
+  --home-section-content-inicio-padding-left: 50px;
+  --home-section-text-move-animation-position: relative;
+  --home-section-text-move-animation-height: unset;
+  --home-section-text-move-animation-width: unset;
+  --home-section-text-move-animation-left: 0%;
+  --home-section-text-move-animation-h1-font-size: 2.65em;
+  --home-section-text-move-animation-h2-font-size: 1.5em;
+  --home-section-img-move-animation-foto-principal-width: 444px;
+  --home-section-img-move-animation-text-div-background-color: transparent;
+  --home-section-img-move-animation-text-div-bottom: 0px;
+  --home-section-img-move-animation-div-position: relative;
+  --home-section-img-move-animation-foto-principal-right: 0%;
+  --home-section-img-move-animation-foto-principal-img-height: 100%;
+  --home-section-img-move-animation-foto-principal-img-width: 100%;
+  --home-section-img-move-animation-foto-principal-img-margin-right: 0px;
+
+  // About Me Component
+  --about-me-section-margin-left: 25.292%;
+  --about-me-section-conteudo-sobre-mim-h1-font-size: 2.3em;
+  --about-me-section-content-odd-flex-direction: row;
+  --about-me-section-content-even-flex-direction: row-reverse;
+  --about-me-section-content-margin-left-right: 40px;
+  --about-me-section-content-text-width: 48%;
+  --about-me-section-content-text-h2-font-size: 19px;
+  --about-me-section-content-text-p-font-size: 1.18em;
+  --about-me-section-content-text-icons-margin-left-right: 60px;
+  --about-me-section-content-text-icons-fa-icon-font-size: 7em;
+  --about-me-section-content-text-logo__icons-grid-template-areas:
+  "html . css"
+  ". js .";
+  --about-me-section-content-text-logo__icons-fa-icon-font-left-right: 20px
+  --about-me-section-content-text-logo__icons-fa-icon-font-size: 6em;
+
+  // My Skills Component
+  --my-skills-section-margin-left: 25.292%;
+  --my-skills-section-width: 77vw;
+  --my-skills-section-content-skills-width: 75%;
+  --my-skills-section-list__skills-column-gap: 30px;
+  --my-skills-section-list__skills-grid-template-columns: repeat(3, 1fr);
+  --my-skills-section-skill-height-width: 180px;
+  --my-skills-section-skill-div-i-font-size: 4.5em;
+  --my-skills-section-skill-div-h2-font-size: 1.2em;
+
+  // My Projects Components
+  --my-projects-section-margin-left: 25.292%;
+  --my-projects-section-container-grid-width: 89vw;
+  --my-projects-section-projeto-height: 358px;
+  --my-projects-section-projeto-width: 65%;
+  --my-projects-section-buttons-gap: 60px;
+
+  // About This Project Component
+  --about-this-project-section-margin-left: 25.292%;
+  --about-this-project-section-div-width: 74.7vw;
+  --about-this-project-section-container-content-area__content-font-size: 16px;
+  --about-this-project-section-icons__area-width: 63%;
+  --about-this-project-section-icons-width: 129px;
+  --about-this-project-section-icons-i-font-size: 7em;
+  --about-this-project-section-icons-h3-font-size: 1em;
+
+  // Colors
   --background: #131515;
   --background-nav-elements: #313131;
   --background-container-elements: #2e3131;
@@ -60,7 +137,6 @@ ul {
 section {
   position: relative;
   height: 100vh;
-  margin-left: 25%;
   overflow: hidden;
 
   h1, h2, h3,
