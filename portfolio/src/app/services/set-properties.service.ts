@@ -19,7 +19,8 @@ export class SetPropertiesService {
     homePropertyValues: {},
     aboutMePropertyValues: {},
     mySkillsPropertyValues: {},
-    myProjectsPropertyValues: {}
+    myProjectsPropertyValues: {},
+    aboutThisProjectPropertyValues: {}
 
   };
 
@@ -51,7 +52,8 @@ export class SetPropertiesService {
         break;
 
       default:
-
+        this.setAboutThisProjectValues(breakpoint);
+        this.setProperties(5);
         break;
 
     }
@@ -77,6 +79,7 @@ export class SetPropertiesService {
         "--navigation-nav-options-ul-li-left": "20px",
         "--navigation-nav-options-ul-li-span-font-size": "1em",
         "--navigation-nav-container-info-info-h4-font-size": "19px"
+
       },
       [ this.breakpoints.LARGE ]: {
         "--navigation-menu-display": "none",
@@ -283,6 +286,7 @@ export class SetPropertiesService {
         "--about-me-section-content-text-logo__icons-fa-icon-font-size": "5em"
 
       },
+
       [ this.breakpoints.SMALL ]: {
         "--about-me-section-margin-left": "0%",
         "--about-me-section-conteudo-sobre-mim-h1-font-size": "2.0em",
@@ -464,6 +468,70 @@ export class SetPropertiesService {
 
     };
     return { ...value[breakpoint] };
+
+  }
+
+  private setAboutThisProjectValues(breakpoint: string): void {
+    this.componentPropertyValues.aboutThisProjectPropertyValues = this.getAboutThisProjectValues(breakpoint);
+
+  }
+
+  private getAboutThisProjectValues(breakpoint: string): object {
+    let values = {
+      [ this.breakpoints.XLARGE ]: {
+        "--about-this-project-section-margin-left": "25.292%",
+        "--about-this-project-section-div-width": "74.7vw",
+        "--about-this-project-section-container-content-area__content-font-size": "16px",
+        "--about-this-project-section-icons__area-width": "67.9%",
+        "--about-this-project-section-icons-width": "129px",
+        "--about-this-project-section-icons-i-font-size": "7em",
+        "--about-this-project-section-icons-h3-font-size": "1em"
+
+      },
+      [ this.breakpoints.LARGE ]: {
+        "--about-this-project-section-margin-left": "25.292%",
+        "--about-this-project-section-div-width": "74.7vw",
+        "--about-this-project-section-container-content-area__content-font-size": "16px",
+        "--about-this-project-section-icons__area-width": "75%",
+        "--about-this-project-section-icons-width": "110px",
+        "--about-this-project-section-icons-i-font-size": "6em",
+        "--about-this-project-section-icons-h3-font-size": "0.95em"
+
+      },
+      [ this.breakpoints.MEDIUM ]: {
+        "--about-this-project-section-margin-left": "26.5%",
+        "--about-this-project-section-div-width": "74.7vw",
+        "--about-this-project-section-container-content-area__content-font-size": "15px",
+        "--about-this-project-section-icons__area-width": "58%",
+        "--about-this-project-section-icons-width": "100px",
+        "--about-this-project-section-icons-i-font-size": "5.2em",
+        "--about-this-project-section-icons-h3-font-size": "0.9em"
+
+      },
+      [ this.breakpoints.SMALL ]: {
+        "--about-this-project-section-margin-left": "0%",
+        "--about-this-project-section-div-width": "100vw",
+        "--about-this-project-section-container-content-area__content-font-size": "14px",
+        "--about-this-project-section-icons__area-width": "58%",
+        "--about-this-project-section-icons-width": "100px",
+        "--about-this-project-section-icons-i-font-size": "4.8em",
+        "--about-this-project-section-icons-h3-font-size": "0.92em"
+
+      },
+      [ this.breakpoints.XSMALL ]: {
+        "--about-this-project-section-margin-left": "0%",
+        "--about-this-project-section-div-width": "100vw",
+        "--about-this-project-section-container-content-area__content-font-size": "13px",
+        "--about-this-project-section-icons__area-width": "47%",
+        "--about-this-project-section-icons-width": "95px",
+        "--about-this-project-section-icons-i-font-size": "4.5em",
+        "--about-this-project-section-icons-h3-font-size": "0.87em"
+
+      }
+
+    }
+
+    return { ...values[breakpoint] };
 
   }
 

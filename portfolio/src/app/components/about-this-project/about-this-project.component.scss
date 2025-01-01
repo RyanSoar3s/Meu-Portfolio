@@ -1,10 +1,3 @@
-section {
-  background-color: var(--background);
-  min-height: 1000px;
-  width: 968.25px;
-
-}
-
 .container-sobre-este-projeto {
   display: flex;
   width: 100%;
@@ -15,6 +8,7 @@ section {
     display: inherit;
     justify-content: space-evenly;
     flex-direction: inherit;
+    width: 100%;
     gap: 60px;
 
   }
@@ -22,10 +16,14 @@ section {
 }
 
 .main--content {
+  position: relative;
   display: flex;
   flex-direction: column;
-  height: 550px;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  height: auto;
+  width: 100%;
+  padding-top: 50px;
+  gap: 50px;
 
 }
 
@@ -34,6 +32,7 @@ section {
   align-items: center;
   justify-content: center;
   height: 70px;
+  width: var(--about-this-project-section-div-width);
 
   h1 {
    text-align: center;
@@ -43,13 +42,17 @@ section {
 }
 
 .container-content {
+  position: inherit;
   display: flex;
   justify-content: center;
+  height: auto;
+  width: var(--about-this-project-section-div-width);
 
   .area__content {
     display: inherit;
     flex-direction: column;
-    width: 80%;
+    width: 85%;
+    font-size: var(--about-this-project-section-container-content-area__content-font-size);
     gap: 40px;
 
     p {
@@ -64,6 +67,7 @@ section {
 .tech {
   display: flex;
   flex-direction: column;
+  width: var(--about-this-project-section-div-width);
   margin-top: 40px;
   gap: 80px;
 
@@ -90,8 +94,9 @@ h2, h3 {
 .icons__area {
   display: flex;
   position: relative;
-  width: 87%;
-  margin: auto;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: var(--about-this-project-section-icons__area-width);
   gap: 110px;
 
   .icons {
@@ -99,7 +104,7 @@ h2, h3 {
     position: relative;
     flex-direction: column;
     height: 154px;
-    width: 129px;
+    width: var(--about-this-project-section-icons-width);
     align-items: center;
     justify-content: space-around;
 
@@ -135,7 +140,7 @@ h2, h3 {
 
 i {
   color: #c5c5c5;
-  font-size: 7em;
+  font-size: var(--about-this-project-section-icons-i-font-size);
   z-index: 1;
 
 }
@@ -144,6 +149,7 @@ h3 {
   display: flex;
   flex-direction: column;
   margin-top: 9px;
+  font-size: var(--about-this-project-section-icons-h3-font-size);
   z-index: 1;
 
 }
