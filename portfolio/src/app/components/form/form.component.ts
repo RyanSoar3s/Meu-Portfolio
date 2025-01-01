@@ -1,9 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, ViewChild, Renderer2, ElementRef } from '@angular/core';
+import{
+      Component, inject, ViewChild,
+      Renderer2, ElementRef, NgZone
+
+} from '@angular/core';
 
 import { ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
 
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +16,11 @@ import { HttpClient } from '@angular/common/http';
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    RouterLink,
+    RouterLinkActive,
+    RouterOutlet
 
   ],
   templateUrl: './form.component.html',
@@ -30,12 +38,13 @@ export class FormComponent {
 
   });
 
-  constructor(private renderer: Renderer2, private router: Router, private http : HttpClient) {}
+  constructor(
+              private renderer: Renderer2,
+              private router: Router,
+              private http : HttpClient,
+              private ngZone: NgZone
 
-  backToHome(): void {
-    this.router.navigate(["/"]);
-
-  }
+  ) {}
 
   isSpace(str: string): boolean {
     return str.trim() === "";
@@ -62,7 +71,7 @@ export class FormComponent {
       setTimeout(() => {
         this.renderer.removeClass(this.message_sent.nativeElement, "show");
 
-        this.backToHome();
+        this.router.navigate(["/"]);
 
       }, 3000);
 
