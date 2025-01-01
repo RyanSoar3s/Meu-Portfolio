@@ -99,6 +99,7 @@ export class HomeComponent implements AnimateScrollY, OnInit, AfterViewInit, OnD
   }
 
   onAnimationStart(): void {
+    this.renderer.addClass(this.windowService.nativeWindow?.document.body, "ready");
     this.renderer.setStyle(this.fixed.nativeElement, "position", "fixed");
     this.renderer.setStyle(this.barrier.nativeElement, "display", "block");
     this.blockScroll();
