@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import{
       Component, inject, ViewChild,
-      Renderer2, ElementRef, NgZone
+      Renderer2, ElementRef
 
 } from '@angular/core';
 
@@ -41,8 +41,7 @@ export class FormComponent {
   constructor(
               private renderer: Renderer2,
               private router: Router,
-              private http : HttpClient,
-              private ngZone: NgZone
+              private http : HttpClient
 
   ) {}
 
