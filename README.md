@@ -1,10 +1,10 @@
-<h1 style="text-align: center; margin-bottom: 20px;">Meu porftolio</h1>
+<h1 align="center">Meu portfolio</h1>
 
 ![Portfolio](./portfolio/src/assets/portfolio.png)
 
-<h2 style="text-align: center; margin-bottom: 20px;"><a href="https://ryansoares.com.br">Acesse meu porftolio</a></h2>
+<h2 align="center"><a href="https://ryansoares.com.br">Acesse meu porftolio</a></h2>
 
-<div style="font-size: 1.9em; font-weight: 600;">Seções:</div>
+## Seções:
 
 ### Ínicio:
 <p style="text-indent: 20px;">
@@ -33,7 +33,7 @@ Nessa parte eu conto um pouco sobre como fiz e quais tecnologias utilizei no pro
 
 ---
 
-<div style="font-size: 1.9em; font-weight: 600; margin-bottom: 30px;">Tecnologias usadas no projeto:</div>
+## Tecnologias usadas no projeto:
 
 ![HTML 5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-000?style=for-the-badge&logo=sass)
@@ -43,6 +43,6 @@ Nessa parte eu conto um pouco sobre como fiz e quais tecnologias utilizei no pro
 
 ---
 
-<div style="font-size: 1.9em; font-weight: 600; margin-bottom: 20px;">Licença:</div>
+## Licença:
 
 Este projeto está licenciado sob a [MIT License](LICENSE).
