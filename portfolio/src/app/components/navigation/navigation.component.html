@@ -1,16 +1,67 @@
 <app-scale-image [path]="path" [hidden]="imgIsHidden" (change_scale)="changeImageScale()"></app-scale-image>
 
-<div class="menu" (click)="showMenu()" style="position: fixed;">
+<div class="menu" (click)="showMenu()" style="
+  position: fixed;
+  display: var(--navigation-menu-display);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  margin-top: 5px;
+  margin-left: 5px;
+  cursor: pointer;
+  z-index: 900;
+
+">
   <div class="line"></div>
   <div class="line"></div>
   <div class="line"></div>
 
 </div>
 
-<div #overlay class="overlay" (click)="showMenu()"></div>
+<div #overlay (click)="showMenu()" style="
+  display: var(--navigation-overlay-display);
+  background-color: #0000008a;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  cursor: pointer;
+  z-index: 700;
+"></div>
 
-<nav #nav>
-  <div class="menu" (click)="showMenu()" style="position: absolute; top: 0px; left: 0px;">
+<nav #nav style="
+  background-color: var(--background);
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: var(--navigation-nav-width);
+  padding-top: 20px;
+  overflow-y: auto;
+  transform: translateX(var(--navigation-nav-transform));
+  transition: .9s ease;
+  box-shadow: 1px 1px 1px -1px gray;
+  z-index: 900;
+
+">
+  <div class="menu" (click)="showMenu()" style="
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: var(--navigation-menu-display);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    margin-left: 5px;
+    cursor: pointer;
+    z-index: 900;
+
+    ">
     <div class="line"></div>
     <div class="line"></div>
     <div class="line"></div>
