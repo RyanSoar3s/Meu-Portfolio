@@ -1,18 +1,23 @@
-<div #barrier style="
-  display: none;
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  z-index: 999;
-"></div>
 <section style="display: flex; margin-left: var(--home-section-margin-left);">
   <div class="container-inicio" style="height: 649px; width: 100%; margin-top: auto;">
-    <div #fixed class="content-inicio">
-      <div @textMoveAnimation (@textMoveAnimation.start)="onAnimationStart()"
-      (@textMoveAnimation.done)="onAnimationDone()" #text style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end;scroll-behavior: smooth; z-index: 999;" class="text">
-        <div style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 170px; width: 100%;">
+    <div class="content-inicio" style="position: fixed;">
+      <div
+        [@moveAnimation]="{
+          value: '',
+          params: { start: '-500px', end: '0px' }
+
+        }"
+        (@moveAnimation.start)="onAnimationStart()"
+        #text
+        style="display: flex; flex-direction: column; align-items: center; justify-content: flex-end; scroll-behavior: smooth; z-index: 999;"
+        class="text"
+      >
+        <div
+          style="position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 170px; width: 100%;"
+        >
           <div style="display: flex; flex-direction: column; justify-content: center;">
             <p style="color: white; font-size: 1.8em;">Olá, mundo!</p>
+
             <h1 style="color: white; font-weight: 800;">
               Sou <span>Ryan Soares</span>
 
@@ -29,9 +34,17 @@
 
       </div>
 
-      <div @imgMoveAnimation (@imgMoveAnimation.start)="onAnimationStart()"
-      (@imgMoveAnimation.done)="onAnimationDone()" #img class="foto-principal" style="    display: flex; height: 649px; align-items: flex-end; justify-content: center; scroll-behavior: smooth">
-        <img style="position: absolute;" loading="eager" [src]="path" alt="foto principal">
+      <div
+        [@moveAnimation]="{
+          value: '',
+          params: { start: '500px', end: '0px' }
+
+        }"
+        #img
+        class="foto-principal"
+        style="display: flex; height: 649px; align-items: flex-end; justify-content: center; scroll-behavior: smooth;"
+      >
+        <img style="position: absolute;" loading="eager" [src]="path" alt="foto principal" />
 
       </div>
 
