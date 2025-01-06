@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, HostListener
+  Component, OnInit, OnDestroy
 
 } from '@angular/core';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -10,6 +10,7 @@ import { AboutThisProjectComponent } from './components/about-this-project/about
 
 import { WindowService } from './services/window.service';
 import { ScrollService } from './services/scroll.service';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ import { ScrollService } from './services/scroll.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'portfolio';
 
   private scrollPositions = [
@@ -35,7 +36,10 @@ export class AppComponent implements OnInit {
     { posY: 13650 },
     { posY: 14246 }
 
-  ]
+  ];
+
+  private scrollSub!: Subscription;
+
   constructor(
     private windowService: WindowService,
     private scrollService: ScrollService
@@ -49,19 +53,21 @@ export class AppComponent implements OnInit {
 
     }
 
-  }
-
-  @HostListener("window:scroll")
-
-  onScroll(): void {
-    const scrollY: number = Number(this.windowService.nativeWindow?.scrollY);
-    this.scrollService.updateScrollPosition(scrollY);
+    this.scrollSub = this.scrollService.onScroll().subscribe();
 
   }
 
   enableNavigationScrolling(key: number): void {
     const posY = Number(this.scrollPositions[key].posY);
     this.windowService.nativeWindow?.scrollTo({ top: posY, behavior: "smooth" });
+
+  }
+
+  ngOnDestroy(): void {
+    if (this.scrollSub) {
+      this.scrollSub.unsubscribe();
+
+    }
 
   }
 
