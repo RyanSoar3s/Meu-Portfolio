@@ -2,6 +2,8 @@ import {
   Component, OnInit, OnDestroy
 
 } from '@angular/core';
+
+import { HomeComponent } from './components/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { MySkillsComponent } from './components/my-skills/my-skills.component';
@@ -20,9 +22,9 @@ import { Subscription } from 'rxjs/internal/Subscription';
     AboutMeComponent,
     MySkillsComponent,
     MyProjectsComponent,
-    AboutThisProjectComponent
-
-  ],
+    AboutThisProjectComponent,
+    HomeComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -33,8 +35,8 @@ export class AppComponent implements OnInit, OnDestroy {
     { posY: 0     },
     { posY: 2398  },
     { posY: 12399 },
-    { posY: 13650 },
-    { posY: 14246 }
+    { posY: 13352 },
+    { posY: 14006 }
 
   ];
 

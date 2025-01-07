@@ -18,8 +18,6 @@ import {
 
 } from "@fortawesome/free-solid-svg-icons"
 import { ScaleImageComponent } from '../scale-image/scale-image.component';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
 
 import { WindowService } from '../../services/window.service';
 import { ResponsiveObservableService } from '../../services/responsive-observable.service';
@@ -29,11 +27,7 @@ import { ResponsiveObservableService } from '../../services/responsive-observabl
   standalone: true,
   imports: [
     FontAwesomeModule,
-    ScaleImageComponent,
-    CommonModule,
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive
+    ScaleImageComponent
 
   ],
   templateUrl: './navigation.component.html',
