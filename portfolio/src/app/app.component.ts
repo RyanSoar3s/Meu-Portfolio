@@ -34,7 +34,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private scrollPositions = [
     { posY: 0     },
     { posY: 2398  },
-    { posY: 12399 },
+    { posY: 12470 },
     { posY: 13352 },
     { posY: 14006 }
 
