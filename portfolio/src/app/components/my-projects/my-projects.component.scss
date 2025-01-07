@@ -1,5 +1,6 @@
 .projeto {
   display: flex;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -19,64 +20,42 @@
 
 }
 
-.container-flip-box {
-  position: relative;
-  background-color: transparent;
-  border-radius: 20px;
-  perspective: 1000px;
-  transition: .8s ease;
+.hidden {
+  opacity: 0 !important;
 
 }
 
-.flip-box {
+.container-img-projeto {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  border-radius: 20px;
-  transform-style: preserve-3d;
-
-  .front, .back {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    perspective-origin: center;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    border: 1px solid #0a0a0a71;
-    border-radius: 20px;
-    box-shadow: 2px 2px 4px #00000057;
-
-  }
-
-  .back {
-    background-color: var(--background);
-    transform: rotateY(180deg);
-
-  }
+  opacity: 1;
+  transition: 1s ease;
+  z-index: 1;
 
 }
 
-.projeto-principal.container-flip-box {
+.container-img-projeto, .img-projeto {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+
+}
+
+.projeto-principal {
   height: calc(var(--my-projects-section-projeto-height) * 1.35);
   width: calc(var(--my-projects-section-projeto-width) * 1.35);
   cursor: pointer;
 
-  &:hover .flip-box {
-    transform: rotateY(180deg);
-
-  }
-
 }
 
 .container-info {
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   height: 100%;
   width: 100%;
+  border-radius: 20px;
 
   .langs {
     display: flex;

@@ -28,32 +28,29 @@
         transition: 1.2s ease;
 
       ">
-        <div data-project="1" class="projeto container-flip-box">
-          <div class="flip-box">
-            <div class="front">
+        <div #projects data-project="1" class="projeto" (click)="onClick()">
+          <div class="container-img-projeto">
+            <div class="img-projeto">
               <img [src]="path_projeto_vazio" alt="projeto 1">
 
             </div>
 
-            <div class="back">
-              <div class="container-info">
-                <div class="langs">
-                  <h3>Tecnologias</h3>
+          </div>
 
-                  <div>
-                    <p>Sem informação</p>
+          <div class="container-info">
+            <div class="langs">
+              <h3>Tecnologias</h3>
 
-                  </div>
-
-                </div>
-
-                <div class="buttons">
-                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
-                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
-
-                </div>
+              <div>
+                <p>Sem informação</p>
 
               </div>
+
+            </div>
+
+            <div class="buttons">
+              <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+              <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
 
             </div>
 
@@ -61,36 +58,33 @@
 
         </div>
 
-        <div data-project="2" class="projeto projeto-principal container-flip-box">
-          <div class="flip-box">
-            <div class="front">
+        <div #projects data-project="2" class="projeto projeto-principal" (click)="onClick()">
+          <div class="container-img-projeto">
+            <div class="img-projeto">
               <img [src]="path_projeto_1" alt="projeto 2">
 
             </div>
 
-            <div class="back">
-              <div class="container-info">
-                <div class="langs">
-                  <h3>Tecnologias</h3>
+          </div>
 
-                  <div>
-                    <p>HTML 5</p>
-                    <p>Sass</p>
-                    <p>TypeScript</p>
-                    <p>Angular</p>
-                    <p>Express</p>
+          <div class="container-info">
+            <div class="langs">
+              <h3>Tecnologias</h3>
 
-                  </div>
-
-                </div>
-
-                <div class="buttons">
-                  <button><a href="#"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></a></button>
-                  <button><a href="#"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></a></button>
-
-                </div>
+              <div>
+                <p>HTML 5</p>
+                <p>Sass</p>
+                <p>TypeScript</p>
+                <p>Angular</p>
+                <p>Express</p>
 
               </div>
+
+            </div>
+
+            <div class="buttons">
+              <button><a href="/"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></a></button>
+              <button><a href="https://github.com/RyanSoar3s/Meu-Portfolio" target="_blank"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></a></button>
 
             </div>
 
@@ -98,32 +92,29 @@
 
         </div>
 
-        <div data-project="3" class="projeto container-flip-box">
-          <div class="flip-box">
-            <div class="front">
+        <div #projects data-project="3" class="projeto" (click)="onClick()">
+          <div class="container-img-projeto">
+            <div class="img-projeto">
               <img [src]="path_projeto_vazio" alt="projeto 3">
 
             </div>
 
-            <div class="back">
-              <div class="container-info">
-                <div class="langs">
-                  <h3>Tecnologias</h3>
+          </div>
 
-                  <div>
-                    <p>Sem informação</p>
+          <div class="container-info">
+            <div class="langs">
+              <h3>Tecnologias</h3>
 
-                  </div>
-
-                </div>
-
-                <div class="buttons">
-                  <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
-                  <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
-
-                </div>
+              <div>
+                <p>Sem informação</p>
 
               </div>
+
+            </div>
+
+            <div class="buttons">
+              <button [disabled]="true"><fa-icon [icon]="faEye" style="font-size: 1.5em;"></fa-icon></button>
+              <button [disabled]="true"><fa-icon [icon]="faGithub" style="font-size: 1.5em;"></fa-icon></button>
 
             </div>
 
