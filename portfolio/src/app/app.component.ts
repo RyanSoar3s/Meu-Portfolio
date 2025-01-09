@@ -1,5 +1,6 @@
 import {
-  Component, OnInit, OnDestroy
+  Component, OnInit,
+  OnDestroy, Renderer2
 
 } from '@angular/core';
 
@@ -44,18 +45,26 @@ export class AppComponent implements OnInit, OnDestroy {
 
   constructor(
     private windowService: WindowService,
-    private scrollService: ScrollService
+    private scrollService: ScrollService,
+    private renderer: Renderer2
 
   ) {}
 
   ngOnInit(): void {
-    if (this.windowService.nativeWindow) {
-      history.scrollRestoration = 'manual';
-      this.windowService.nativeWindow.scrollTo(0, 0);
+    this.scrollSub = this.scrollService.onScroll().subscribe();
+
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
 
     }
 
-    this.scrollSub = this.scrollService.onScroll().subscribe();
+    if (this.windowService.nativeWindow) {
+      setTimeout(() => {
+        this.renderer.addClass(this.windowService.nativeWindow?.document.body, 'ready');
+
+      }, 110);
+
+    }
 
   }
 
