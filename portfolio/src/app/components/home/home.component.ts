@@ -7,7 +7,6 @@ import {
 import { trigger, style, transition, animate } from '@angular/animations';
 import { Subscription } from 'rxjs';
 
-import { WindowService } from '../../services/window.service';
 import { ScrollService } from '../../services/scroll.service';
 import { ResponsiveObservableService } from '../../services/responsive-observable.service';
 
@@ -50,7 +49,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private renderer: Renderer2,
-    private windowService: WindowService,
     private scrollService: ScrollService,
     private responsiveObservableService: ResponsiveObservableService
 
@@ -68,15 +66,6 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     });
 
   }
-
-  onAnimationStart(): void {
-    if (this.windowService.nativeWindow) {
-      this.renderer.addClass(this.windowService.nativeWindow?.document.body, 'ready');
-
-    }
-
-  }
-
   animateScrollY(scrollY: number): void {
     let distScroll: number = Math.abs(this.lastScroll - scrollY) * 0.33;
 

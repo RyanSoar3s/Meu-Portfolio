@@ -2,7 +2,9 @@ import {
   Component, Output,
   EventEmitter, OnInit,
   ViewChild, ElementRef,
-  ChangeDetectionStrategy
+  ChangeDetectionStrategy,
+  Renderer2,
+  AfterViewInit
 
 } from '@angular/core';
 
@@ -36,7 +38,7 @@ import { ResponsiveObservableService } from '../../services/responsive-observabl
 
 })
 
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, AfterViewInit {
   @ViewChild("overlay") overlay!: ElementRef;
   @ViewChild("nav") nav!: ElementRef;
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
@@ -59,12 +61,19 @@ export class NavigationComponent implements OnInit {
 
   constructor(
               protected window: WindowService,
-              private responsiveObservableService: ResponsiveObservableService
+              private responsiveObservableService: ResponsiveObservableService,
+              private renderer: Renderer2
 
   ) {}
 
   ngOnInit(): void {
     this.responsiveObservableService.observe("navigation");
+
+
+  }
+
+  ngAfterViewInit(): void {
+
 
   }
 
