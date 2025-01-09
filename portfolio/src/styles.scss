@@ -115,11 +115,15 @@
 
 }
 
+html, body {
+  overflow-x: hidden;
+
+}
+
 body {
   background-color: var(--background) !important;
   color: white;
   font-family: "Rubik", sans-serif;
-  overflow-x: hidden;
   visibility: hidden;
 
 }
