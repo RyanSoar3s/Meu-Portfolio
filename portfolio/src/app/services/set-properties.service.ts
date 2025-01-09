@@ -8,7 +8,8 @@ export class SetPropertiesService {
   private readonly breakpoints = {
     XLARGE: "(min-width: 1200px)",
     LARGE:  "(min-width: 992px)",
-    MEDIUM: "(min-width: 768px)",
+    MEDIUM_PORT: "(min-width: 768px) and (min-height: 500px)",
+    MEDIUM_LAND: "(min-width: 768px) and (max-height: 500px)",
     SMALL:  "(min-width: 600px)",
     XSMALL: "(max-width: 600px)"
 
@@ -66,7 +67,7 @@ export class SetPropertiesService {
   }
 
   private getNavigationValues(breakpoint: string): object {
-    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM;
+    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM_PORT || this.breakpoints.MEDIUM_LAND;
     const isSmallScreen = breakpoint === this.breakpoints.SMALL;
     const isExtraSmallScreen = breakpoint === this.breakpoints.XSMALL;
     let values = {
@@ -93,10 +94,12 @@ export class SetPropertiesService {
 
   }
 
-  private getHomeValues(breakpoint: string): object {
+  private getHomeValues(breakpoint: string): object { console.log(breakpoint)
+    console.log(this.breakpoints.MEDIUM_LAND)
+    console.log(breakpoint === this.breakpoints.MEDIUM_LAND)
     const isExtraLargeScreen = breakpoint === this.breakpoints.XLARGE;
     const isLargeScreen = breakpoint === this.breakpoints.LARGE;
-    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM;
+    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM_PORT || breakpoint === this.breakpoints.MEDIUM_LAND;
     const isSmallScreen = breakpoint === this.breakpoints.SMALL;
     const isExtraSmallScreen = breakpoint === this.breakpoints.XSMALL;
     const values = {
@@ -126,8 +129,15 @@ export class SetPropertiesService {
       : (isExtraSmallScreen)
       ? "30%"
       : "0%",
-      "--home-section-img-move-animation-foto-principal-img-height": (isExtraLargeScreen) ? "100%" : (isLargeScreen) ? "90%" : "85%",
-      "--home-section-img-move-animation-foto-principal-img-width": (isExtraLargeScreen || isLargeScreen)
+      "--home-section-img-move-animation-foto-principal-img-height": (isExtraLargeScreen)
+      ? "100%"
+      : (isLargeScreen)
+      ? "90%"
+      : (breakpoint === this.breakpoints.MEDIUM_LAND)
+      ? "50%"
+      : (isMediumScreen)
+      ? "85%" : "80%",
+      "--home-section-img-move-animation-foto-principal-img-width": (isExtraLargeScreen || isLargeScreen || breakpoint === this.breakpoints.MEDIUM_LAND)
         ? "100%"
         : (isMediumScreen)
         ? "118%"
@@ -145,7 +155,7 @@ export class SetPropertiesService {
   }
 
   private getAboutMeValues(breakpoint: string): object {
-    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM;
+    const isMediumScreen = breakpoint === this.breakpoints.MEDIUM_PORT || this.breakpoints.MEDIUM_LAND;
     const isSmallScreen = breakpoint === this.breakpoints.SMALL;
     const isExtraSmallScreen = breakpoint === this.breakpoints.XSMALL;
     const values = {
@@ -192,7 +202,7 @@ export class SetPropertiesService {
   private getMySkillsValues(breakpoint: string): object {
     const isXLarge = breakpoint === this.breakpoints.XLARGE;
     const isLarge = breakpoint === this.breakpoints.LARGE;
-    const isMedium = breakpoint === this.breakpoints.MEDIUM;
+    const isMedium = breakpoint === this.breakpoints.MEDIUM_PORT || this.breakpoints.MEDIUM_LAND;
     const isSmall = breakpoint === this.breakpoints.SMALL;
     const isExtraSmall = breakpoint === this.breakpoints.XSMALL;
 
@@ -225,7 +235,7 @@ export class SetPropertiesService {
   private getMyProjectsValues(breakpoint: string): object {
     const isXLarge = breakpoint === this.breakpoints.XLARGE;
     const isLarge = breakpoint === this.breakpoints.LARGE;
-    const isMedium = breakpoint === this.breakpoints.MEDIUM;
+    const isMedium = breakpoint === this.breakpoints.MEDIUM_PORT || this.breakpoints.MEDIUM_LAND;
     const isSmall = breakpoint === this.breakpoints.SMALL;
     const isExtraSmall = breakpoint === this.breakpoints.XSMALL;
 
@@ -271,7 +281,7 @@ export class SetPropertiesService {
   private getAboutThisProjectValues(breakpoint: string): object {
     const isXLarge = breakpoint === this.breakpoints.XLARGE;
     const isLarge = breakpoint === this.breakpoints.LARGE;
-    const isMedium = breakpoint === this.breakpoints.MEDIUM;
+    const isMedium = breakpoint === this.breakpoints.MEDIUM_PORT || this.breakpoints.MEDIUM_LAND;
     const isSmall = breakpoint === this.breakpoints.SMALL;
     const isExtraSmall = breakpoint === this.breakpoints.XSMALL;
 

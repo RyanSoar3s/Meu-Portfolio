@@ -14,7 +14,8 @@ import { SetPropertiesService } from './set-properties.service';
 export class ResponsiveObservableService {
   private readonly XLARGE = "(min-width: 1200px)";
   private readonly LARGE = "(min-width: 992px)";
-  private readonly MEDIUM = "(min-width: 768px)";
+  private readonly MEDIUM_PORT = "(min-width: 768px) and (min-height: 500px)";
+  private readonly MEDIUM_LAND = "(min-width: 768px) and (max-height: 500px)";
   private readonly SMALL = "(min-width: 600px)";
   private readonly XSMALL = "(max-width: 600px)";
 
@@ -30,7 +31,8 @@ export class ResponsiveObservableService {
     this.breakpointObserver$.observe([
       this.XLARGE,
       this.LARGE,
-      this.MEDIUM,
+      this.MEDIUM_PORT,
+      this.MEDIUM_LAND,
       this.SMALL,
       this.XSMALL
 
@@ -48,8 +50,12 @@ export class ResponsiveObservableService {
 
           }
 
-          else if (result.breakpoints[this.MEDIUM]) {
-            this.setPropertiesService.setValues(componentName, this.MEDIUM);
+          else if (result.breakpoints[this.MEDIUM_PORT]) {
+            this.setPropertiesService.setValues(componentName, this.MEDIUM_PORT);
+
+          }
+          else if (result.breakpoints[this.MEDIUM_LAND]) {
+            this.setPropertiesService.setValues(componentName, this.MEDIUM_LAND);
 
           }
 
