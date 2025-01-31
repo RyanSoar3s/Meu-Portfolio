@@ -80,7 +80,7 @@ export class SetPropertiesService {
       "--navigation-nav-icons-container-contacts-fa-icon-font-size": (isExtraSmallScreen) ? "1.9em" : (isSmallScreen) ? "1.7em" : (isMediumScreen) ? "1.6em" : "1.8em",
       "--navigation-nav-options-ul-li-width": (isExtraSmallScreen) ? "89%" : (isSmallScreen) ? "95%" : (isMediumScreen) ? "93%" : "95%",
       "--navigation-nav-options-ul-li-left": (isExtraSmallScreen) ? "10%" : "20px",
-      "--navigation-nav-options-ul-li-span-font-size": (isExtraSmallScreen) ? "1.3em" : (isSmallScreen) ? "0.9em" : (isMediumScreen) ? "0.87em" : "1em",
+      "--navigation-nav-options-ul-li-span-font-size": (isExtraSmallScreen) ? "1.3em" : (isSmallScreen) ? "0.9em" : (isMediumScreen) ? "0.9em" : "1em",
       "--navigation-nav-container-info-info-h4-font-size": (isExtraSmallScreen) ? "21px" : (isSmallScreen) ? "18px" : (isMediumScreen) ? "16.3px" : "19px"
 
     };
@@ -240,7 +240,7 @@ export class SetPropertiesService {
     const isExtraSmall = breakpoint === this.breakpoints.XSMALL;
 
     const values = {
-      "--my-projects-section-margin-left": (isSmall || isExtraSmall) ? "0%" : (isMedium) ? "26.5%" : "25.292%",
+      "--my-projects-section-margin-left": (isSmall || isExtraSmall) ? "0%" : (isMedium) ? "26%" : "25.292%",
       "--my-projects-section-container-grid-width": (isExtraSmall)
         ? "120vw"
         : (isSmall)
@@ -304,7 +304,7 @@ export class SetPropertiesService {
         : (isMedium || isSmall)
         ? "58%"
         : "47%",
-      "--about-this-project-section-icons-width": (isExtraSmall) ? "95px" : (isMedium || isSmall) ? "100px" : (isLarge) ? "110px" : "129px",
+      "--about-this-project-section-icons-width": (isExtraSmall) ? "95px" : (isMedium || isSmall || isLarge) ? "125px" : "129px",
       "--about-this-project-section-icons-i-font-size": (isXLarge)
         ? "7em"
         : (isLarge)
