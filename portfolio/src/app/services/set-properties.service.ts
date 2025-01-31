@@ -172,8 +172,8 @@ export class SetPropertiesService {
       "--about-me-section-content-text-h2-font-size": (isExtraSmallScreen)
         ? "24px"
         : (isSmallScreen)
-        ? "19px"
-        : "19px",
+        ? "25px"
+        : "26px",
       "--about-me-section-content-text-p-font-size": "1.18em",
       "--about-me-section-content-text-icons-margin-left-right": "30px",
       "--about-me-section-content-text-icons-fa-icon-font-size": (isExtraSmallScreen) ? "5em" : "6em",
@@ -186,7 +186,7 @@ export class SetPropertiesService {
           ". js ."
         `,
       "--about-me-section-content-text-logo__icons-fa-icon-font-left-right": (isExtraSmallScreen) ? "0px" : "20px",
-      "--about-me-section-content-text-logo__icons-fa-icon-font-size": (isExtraSmallScreen) ? "4em" : (isSmallScreen) ? "5em" : "6em"
+      "--about-me-section-content-text-logo__icons-fa-icon-font-size": (isExtraSmallScreen) ? "4em" : "5em"
     };
 
     return { ...values };
