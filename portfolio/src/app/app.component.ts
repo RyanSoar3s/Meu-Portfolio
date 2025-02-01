@@ -28,6 +28,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
+  
 })
 export class AppComponent implements OnInit, OnDestroy {
   title = 'portfolio';
@@ -59,10 +60,7 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     if (this.windowService.nativeWindow) {
-      setTimeout(() => {
-        this.renderer.addClass(this.windowService.nativeWindow?.document.body, 'ready');
-
-      }, 110);
+      this.renderer.addClass(this.windowService.nativeWindow?.document.body, 'ready');
 
     }
 
