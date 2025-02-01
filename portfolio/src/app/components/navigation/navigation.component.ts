@@ -44,7 +44,7 @@ export class NavigationComponent implements OnInit, AfterViewInit {
   @Output() enable_navigation_scrolling = new EventEmitter<number>();
 
   // Path
-  protected readonly path: string = "assets/foto-navegacao.jpg";
+  protected readonly path: string = "assets/foto-navegacao.webp";
 
   // Ícones
   protected readonly faGithub     = faGithub;

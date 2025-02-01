@@ -31,8 +31,8 @@ export class MyProjectsComponent implements OnInit {
   @ViewChild("grid") grid!: ElementRef;
   @ViewChildren("projects") projects!: QueryList<ElementRef>;
 
-  protected readonly path_projeto_vazio: string = "../../../assets/projeto-vazio.png";
-  protected readonly path_projeto_1:     string = "../../../assets/projeto-1.png";
+  protected readonly path_projeto_vazio: string = "../../../assets/projeto-vazio.webp";
+  protected readonly path_projeto_1:     string = "../../../assets/projeto-1.webp";
 
   protected readonly faCircleArrowLeft  = faCircleArrowLeft;
   protected readonly faCircleArrowRight = faCircleArrowRight;
