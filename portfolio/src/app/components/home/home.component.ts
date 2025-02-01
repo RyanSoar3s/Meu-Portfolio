@@ -4,7 +4,6 @@ import {
    OnDestroy, ChangeDetectionStrategy
 
 } from '@angular/core';
-import { trigger, style, transition, animate } from '@angular/animations';
 import { Subscription } from 'rxjs';
 
 import { ScrollService } from '../../services/scroll.service';
@@ -16,25 +15,6 @@ import { ResponsiveObservableService } from '../../services/responsive-observabl
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('moveAnimation', [
-      transition(':enter', [
-        style({
-          opacity: 0,
-          transform: 'translateX({{ start }})'
-
-        }),
-
-        animate('1s ease-in-out', style({
-          opacity: 1,
-          transform: 'translateX({{ end }})'
-
-        })),
-
-      ]),
-
-    ]),
-  ]
 
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
